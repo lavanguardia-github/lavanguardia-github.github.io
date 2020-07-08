@@ -118,19 +118,19 @@
 * Fonts
 */
 	@font-face {
-	    font-family: 'TiemposHeadline';
+	    font-family: 'Tiempos Headline';
 	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Regular.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Regular.woff?v=1465325092471) format('woff');
 	    font-weight: normal;
 	    font-style: normal
 	}
 	@font-face {
-	    font-family: 'TiemposHeadline';
+	    font-family: 'Tiempos Headline';
 	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Black.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Black.woff?v=1465325092471) format('woff');
 	    font-weight: 900;
 	    font-style: normal
 	}
 	@font-face {
-	    font-family: 'TiemposHeadline';
+	    font-family: 'Tiempos Headline';
 	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Bold.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Bold.woff?v=1465325092471) format('woff');
 	    font-weight: bold;
 	    font-style: normal
@@ -142,31 +142,31 @@
 	    font-style: normal
 	}
 	@font-face {
-	    font-family: 'TiemposHeadline';
+	    font-family: 'Tiempos Headline';
 	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Medium.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Medium.woff?v=1465325092471) format('woff');
 	    font-weight: 500;
 	    font-style: normal
 	}
 	@font-face {
-	    font-family: 'TiemposText';
+	    font-family: 'Tiempos Text';
 	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-Regular.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-Regular.woff?v=1465325092471) format('woff');
 	    font-weight: normal;
 	    font-style: normal
 	}
 	@font-face {
-	    font-family: 'TiemposText';
+	    font-family: 'Tiempos Text';
 	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-RegularItalic.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-RegularItalic.woff?v=1465325092471) format('woff');
 	    font-weight: normal;
 	    font-style: italic
 	}
 	@font-face {
-	    font-family: 'TiemposText';
+	    font-family: 'Tiempos Text';
 	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-Semibold.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-Semibold.woff?v=1465325092471) format('woff');
 	    font-weight: 600;
 	    font-style: normal
 	}
 	@font-face {
-	    font-family: 'TiemposText';
+	    font-family: 'Tiempos Text';
 	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-SemiboldItalic.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-SemiboldItalic.woff?v=1465325092471) format('woff');
 	    font-weight: 600;
 	    font-style: italic
