@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Pactógrafo de La Vanguardia</title>
+
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,100,700&subset=latin,latin-ext">
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/Mariolv/PRUEBAS-LV/1feee6b1/styles-censurometro.css">
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.9/interact.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/Mariolv/PRUEBAS-LV/a223d57a/jquery.animateNumber.min.js"></script>
+	<script type="text/javascript" src="https://rawcdn.githack.com/Mariolv/LV-DIVERSOS/5a377ad2d375027b3439dd24b82b4ab2a2204377/PACTOMETROS/app_pactografo_10N_v1.js"></script>
+	<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+		
+	<div class="loading" style="display: none;"></div>
+
+	<!-- <div class="fake-header"></div> -->
+
+	<div class="container">
+
+		<h1>
+			Ahora tienes: 
+			<span class="num">
+				<span class="data-seats">0</span> escaños
+			</span>
+		</h1>
+
+		<div class="bar">
+			<div class="fill data-fill"></div>
+			<div class="milestone"></div>
+		</div>
+
+		<div class="dropzone-area">
+
+			<script type="text/template" id="item-template">
+				<div class="item" style="background-color: <%- color %>;">
+					<img class="party" 		src="https://raw.githubusercontent.com/Mariolv/LV-DIVERSOS/master/PACTOMETROS/img/<%- picture %>.jpg">
+					<img class="candidate"  src="https://raw.githubusercontent.com/Mariolv/LV-DIVERSOS/master/PACTOMETROS/img/candidates/<%- picture %>.jpg">
+					<span class="seats"><%- seats %></span>
+				</div>
+			</script>
+
+			<div class="items">
+				<!-- Aquí van los items -->
+			</div>
+
+			<div class="dropzone">
+				<label>
+					Arrastra aquí los partidos<br>
+					para formar una mayoría
+				</label>
+			</div>
+		</div>
+
+		<div class="chart">
+			<div class="chart-wrapper">
+				<div class="milestone"></div>
+				<div class="mayoria">
+					MAYORÍA<br>ABSOLUTA:<br><b>176 ESCAÑOS</b>.
+				</div>
+				<canvas id="chart-canvas"></canvas>
+			</div>
+		</div>
+
+		<div class="ayuda" style="font-size:14px;">Número de escaños según el <b>00,00%</b> escrutado.</div>
+
+	</div>
+
+
+</body>
+</html>
