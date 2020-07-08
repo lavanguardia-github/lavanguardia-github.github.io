@@ -1,8 +1,6 @@
 [
-	["PSdG",               "psdg",     "#fc2304", 10],
-	["PP",                 "pp",       "#00a3df", 39],
-	["CIUDADANOS",         "cs",       "#eb540f", 5],
-	["GALICIA EN COMÚN",   "gc",       "#6a3166", 10],
-	["VOX",                "vox",      "#54C204", 1],
-    ["BNG",                "bng",	   "#89b0de", 10]
+	["PSdG",               "psdg",     "#ff0000", 14],
+	["PP",                 "pp",       "#0056a3", 41],
+	["GALICIA EN COMÚN",   "gc",       "#edb2a7", 10],
+        ["BNG",                "bng",	   "#73b2e5", 10]
 ]
