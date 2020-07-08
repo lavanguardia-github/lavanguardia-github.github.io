@@ -1,0 +1,179 @@
+/**
+* General
+*/
+	html, body {font-family: 'Open Sans', Arial, sans-serif;color: #515151;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
+	
+	.loading {display: block;position: fixed;top: 0;left:0;width: 100%;height: 100%;z-index: 1000;background: rgba(0,28,76, 0.8) url(https://cdn.rawgit.com/Mariolv/PRUEBAS-LV/652fd0b2/loading.gif) no-repeat center center;}
+
+	.container { max-width: 979px; width: auto; }
+	.container,
+	.container-fluid { position: relative; }
+	
+	.roll-opacity { -webkit-transition: opacity 0.3s; transition: opacity 0.3s; }
+	.roll-opacity:hover {opacity: 0.7; }
+
+	.roll-rotate { transition: -webkit-transform 0.3s; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; transition: transform 0.3s, -webkit-transform 0.3s; -webkit-transform-origin: center center; transform-origin: center center; }
+	.roll-rotate:hover {-webkit-transform: rotate(180deg);transform: rotate(180deg); }
+
+	.display-t { display: table; width: 100%; height: 100%; }
+	.display-tc { display: table-cell; vertical-align: middle; width: 100%; text-align: center; }
+
+	.center-vertical { position: relative; top: 50%; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+
+	a {color: #2fa2d2;}
+	a:focus,
+	a:active,
+	a:hover {color: #2fa2d2;}
+
+	label { font-weight: normal; }
+
+	img { max-width: 100%; }
+
+	.color-gray { color: #858585; }
+	.color-green { color: #729f42; }
+
+	.text-upper { text-transform: uppercase; }
+
+/**
+* Content
+*/
+	.fake-header {height: 350px;}
+	h1 {font-family: 'TiemposHeadline';font-weight: bold;font-size: 25px;text-align: center;position: relative;/* left: -24px; */margin-top: 28px;margin-bottom: 11px;color: #5f5f5f;}
+	h1 .num { color: #00164c; }
+
+	.bar {background: #e6e6e6;height: 54px;position: relative;}
+	.bar .fill {background: #00164c;height: 100%;width: 0; -webkit-transition: all 1.5s; transition: all 1.5s; }
+	.bar .milestone {position: absolute;width: 2px;background: #716e6e;height: 67px;left: 50%;top: -5px;}
+
+	@media screen and (max-width: 767px) {
+		.fake-header {height: 162px; }
+		h1 {font-size: 12px; margin-bottom: 6px; }
+		h1 .num { }
+
+		.bar {height: 26px; }
+		.bar .fill {}
+		.bar .milestone {height: 33px; top: -3px; }
+	}
+
+
+/**
+* Items and dropzone
+*/
+	.items {padding-top: 14px;text-align: center;position: relative;margin: 0 auto 9px;max-width: 660px;}
+	.item {width: 94px;height: 94px;border: #eaeaea 5px solid;border-radius: 50%;display: inline-block;vertical-align: top;margin: 0px 6px 18px;-webkit-transform: translate(0px, 0px);transform: translate(0px, 0px);cursor: move;cursor: -webkit-grab;/* overflow: hidden; */z-index: 2;position: relative;}
+
+	.item img {display: block;width: 100%;height: 100%;position: absolute;top: 0;left: 0;-webkit-transform-origin:center center;transform-origin:center center;-webkit-transition: all 0.5s;transition: all 0.5s;border-radius: 50%;}
+	.item .party { opacity: 1; }
+	.item .candidate { opacity: 0; -webkit-transform: scale(0.5); transform: scale(0.5); }
+	.item .seats {color: #818181;position: absolute;top: 110%;left: 50%;font-size: 15px;width: 30px;/* border: red 1px solid; */margin-left: -15px;opacity: 0;transform: scale(0.1) rotate(0deg);transition: all 0.5s;visibility: hidden;}
+	.item.is-dragging { cursor: -webkit-grabbing; }
+
+    .item.is-dropped .party { opacity: 0; }
+    .item.is-dropped .candidate { opacity: 1;-webkit-transform: scale(1);transform: scale(1); }
+    .item.is-dropped .seats {opacity: 1;visibility: visible;transform: scale(1) rotate(360deg);}
+
+	.dropzone {border: #eaeaea 6px solid;height: 185px;text-align: center;padding-top: 49px;margin-bottom: 17px;}
+	.dropzone label {font-family: 'TiemposHeadline';font-size: 25px;color: #9d9b9b;font-weight: bold;line-height: 31px;}
+
+	@media screen and (max-width: 767px) {
+		.item {width: 80px; height: 80px; margin: 0 7px 12px; }
+	}
+	@media screen and (max-width: 400px) {
+		.items {margin-left: -8px; margin-right: -8px; margin-bottom: 0; }
+		.item {width: 47px; height: 47px; }
+
+		.item img {}
+		.item .party { }
+		.item .candidate { }
+		.item.is-dragging { }
+
+	    .item.is-dropped .party { }
+	    .item.is-dropped .candidate {}
+
+		.dropzone {border-width: 3px; height: 98px; padding-top: 27px; }
+		.dropzone label {font-size: 12px; line-height: 17px; }
+	}
+
+/**
+* Chart
+*/
+	.chart {margin-bottom: 11px;}
+	.chart-wrapper {width: 415px;height: 213px;margin: 0 auto;position: relative;}
+	.chart canvas {}
+	.chart .milestone {width: 2px;height: 129px;background: #716e6e;position: absolute;top: -4px;left: 50%;margin-left: -1px;}
+	.ayuda {text-align: center;font-size: 12px;color: #302f2f;position: relative;left: -8px;margin-bottom: 40px;}
+	.mayoria {text-align: center;font-size: 11px;color: #302f2f;position: absolute;text-align: center;top: 157px;left: 50%;line-height: 15px;margin-bottom: 40px;width: 120px;margin-left: -60px;/* border: red 1px solid; */}
+
+	@media screen and (max-width: 767px) {
+		.chart {margin-bottom: 5px;} 
+		.chart-wrapper {width: 200px;height: 101px;} 
+		.chart canvas {}
+		.chart .milestone {height: 64px;top: -3px;} 
+		.ayuda {font-size: 8px; max-width: 200px; margin: 0 auto; margin-bottom: 20px; }
+		.mayoria {font-size: 9px;top: 83px;line-height: 9px;} 
+
+	}
+
+/**
+* Fonts
+*/
+	@font-face {
+	    font-family: 'TiemposHeadline';
+	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Regular.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Regular.woff?v=1465325092471) format('woff');
+	    font-weight: normal;
+	    font-style: normal
+	}
+	@font-face {
+	    font-family: 'TiemposHeadline';
+	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Black.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Black.woff?v=1465325092471) format('woff');
+	    font-weight: 900;
+	    font-style: normal
+	}
+	@font-face {
+	    font-family: 'TiemposHeadline';
+	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Bold.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Bold.woff?v=1465325092471) format('woff');
+	    font-weight: bold;
+	    font-style: normal
+	}
+	@font-face {
+	    font-family: 'TiemposHeadline';
+	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Semibold.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Semibold.woff?v=1465325092471) format('woff');
+	    font-weight: 600;
+	    font-style: normal
+	}
+	@font-face {
+	    font-family: 'TiemposHeadline';
+	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Medium.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposHeadlineWeb-Medium.woff?v=1465325092471) format('woff');
+	    font-weight: 500;
+	    font-style: normal
+	}
+	@font-face {
+	    font-family: 'TiemposText';
+	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-Regular.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-Regular.woff?v=1465325092471) format('woff');
+	    font-weight: normal;
+	    font-style: normal
+	}
+	@font-face {
+	    font-family: 'TiemposText';
+	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-RegularItalic.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-RegularItalic.woff?v=1465325092471) format('woff');
+	    font-weight: normal;
+	    font-style: italic
+	}
+	@font-face {
+	    font-family: 'TiemposText';
+	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-Semibold.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-Semibold.woff?v=1465325092471) format('woff');
+	    font-weight: 600;
+	    font-style: normal
+	}
+	@font-face {
+	    font-family: 'TiemposText';
+	    src: url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-SemiboldItalic.eot?&v=1465325092471#iefix) format('embedded-opentype'), url(http://www.lavanguardia.com/rsc/fonts/TiemposTextWeb-SemiboldItalic.woff?v=1465325092471) format('woff');
+	    font-weight: 600;
+	    font-style: italic
+	}
+
+
+
+
+
+
