@@ -38,7 +38,7 @@
 * Content
 */
 	.fake-header {height: 350px;}
-	h1 {font-family: 'Tiempos Headline';font-weight: bold;font-size: 25px;text-align: center;position: relative;/* left: -24px; */margin-top: 28px;margin-bottom: 11px;color: #5f5f5f;}
+	h1 {font-family: 'Tiempos Headline';font-weight: bold;font-size: 25px;text-align: center;position: relative;/* left: -24px; */margin-top: 28px;margin-bottom: 11px;color: #999999;}
 	h1 .num { color: #00164c; }
 
 	.bar {background: #e6e6e6;height: 54px;position: relative;}
@@ -47,7 +47,7 @@
 
 	@media screen and (max-width: 767px) {
 		.fake-header {height: 162px; }
-		h1 {font-size: 12px; margin-bottom: 6px; }
+		h1 {font-size: 18px; margin-bottom: 6px; }
 		h1 .num { }
 
 		.bar {height: 26px; }
