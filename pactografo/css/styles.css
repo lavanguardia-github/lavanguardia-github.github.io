@@ -104,7 +104,7 @@
 	.ayuda {text-align: center;font-size: 12px;color: #302f2f;position: relative;left: -8px;margin-bottom: 40px;}
 	.mayoria {text-align: center;font-size: 11px;color: #302f2f;position: absolute;text-align: center;top: 157px;left: 50%;line-height: 15px;margin-bottom: 40px;width: 120px;margin-left: -60px;/* border: red 1px solid; */}
 
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 400px) {
 		.chart {margin-bottom: 5px;} 
 		.chart-wrapper {width: 200px;height: 101px;} 
 		.chart canvas {}
@@ -171,9 +171,3 @@
 	    font-weight: 600;
 	    font-style: italic
 	}
-
-
-
-
-
-
