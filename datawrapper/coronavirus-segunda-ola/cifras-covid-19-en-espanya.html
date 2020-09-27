@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+</head>
+<body>
+ <style>
+/* COLORES */
+    .blanco {
+        background-color: #ffffff;
+    }
+    .negro {
+        background-color: #000000;
+        color:#ffffff;
+    }
+    .gris {
+        background-color: #eeeeee;
+    }
+    .gris-blanco {
+        background-color: #f8f8f8;
+    }
+    .azul {
+        background-color: #7ed5ff;
+    }
+    .verde {
+        background-color: #b3dad5;
+    }
+    .salmon {
+        background-color: #ff9797;
+    }
+    .naranja {
+        background-color: #ffb25f;
+    }
+/* NEGRITA */
+     .negrita {
+         font-weight: 700;
+     }
+/* SOMBRA BLANCA */
+     .sombra-blanca {
+         text-shadow: 2px 2px 0px #ffffff;
+     }
+/* BOTÓN, FILETE DE FOTO Y SEPARADORES DE graficos */
+    .boton{
+        background-color: #bbbbbb;
+        border-radius: 25px;
+        color:#ffffff!important;
+        cursor: default;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 5px 15px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    /*.boton:hover{
+        background-color: #999999;
+        color:#ffffff!important;
+    }*/
+    .filete{
+        border: solid 2px #cccccc;
+    }
+     .separador-lateral {
+        border-right: dotted 1px #999999;
+     }
+     .separador-inferior{
+        border-bottom: 0;
+     }
+}
+/* ELEMENTOS */
+    .contenedor-graficos {
+        color: #000000;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        margin:0;
+        overflow: hidden;
+        padding:0;
+        text-align: center;
+        vertical-align: top;
+    }
+    .cabecera-graficos, .pie-graficos {
+        margin: 0 0 10px 0;
+        padding:15px 10px;
+    }
+    .pie-graficos {
+        margin: 10px 0 0 0;
+    }
+    .contenedor-graficos ul, li, h1, h2 {
+        margin:0;
+        padding:0;
+    }
+    .contenedor-graficos ul{
+        list-style: none;
+        /*padding-top: 25px;*/
+    }
+    .cabecera-graficos .titulo {
+        display: block;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 30px;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+    }
+    .cabecera-graficos .subtitulo {
+        display: block;
+        font-size: 20px;
+        line-height: 22px;
+        margin: 5px 0 0 0;
+        padding: 0;
+        text-transform: uppercase;
+    }
+    .cuerpo-graficos .grafico {
+        display: inline-block;
+        margin: 0 0 25px 0;
+        overflow: hidden;
+        /*padding: 0 10px;*/
+        padding:0;
+        text-align: center;
+        vertical-align: top;
+        width:100%;
+    }
+    .cuerpo-graficos .grafico:nth-child(3n+0) {
+        border-right: none;
+    }
+    .pie-graficos .logo-vanguardia {
+        display: inline-block;
+        margin:0 6px 0 0;       
+     }
+    .pie-graficos .fuente {
+        display: inline-block;
+        font-size: 13px;
+        line-height: 15px;
+        margin:0;
+        padding:0;
+        vertical-align: text-top;
+    }
+/* MEDIA QUERIES
+@media screen and (max-width: 1920px){
+    .cuerpo-graficos .grafico {
+        width: 30%;
+    }
+}
+@media screen and (max-width: 1440px){
+    .cuerpo-graficos .grafico {
+        width: 30%;
+    }
+}
+@media screen and (max-width: 1024px){
+    .cuerpo-graficos .grafico {
+        width: 35%;
+    }
+    .cuerpo-graficos .grafico:nth-child(even) {
+        border-right: none;
+    }
+    .cuerpo-graficos .grafico:nth-child(odd) {
+        border-right: dotted 1px #999999;
+    }
+    .cuerpo-graficos .grafico:last-child {
+        border-right: none;
+    }
+}
+@media screen and (max-width: 600px){
+    .contenedor-graficos ul{
+        padding-top: 20px;
+    }
+    .cuerpo-graficos .grafico {
+        display: block;
+        margin: 0 0 18px 0;
+        overflow: hidden;
+        padding: 0 0 18px 0;    
+        text-align: left;
+        vertical-align: top;
+        width: 100%;
+    }
+    .cuerpo-graficos .grafico:last-child {
+        margin: 0 0 5px 0;
+    }
+     .separador-lateral{
+        border-right: 0;
+     }
+     .separador-inferior{
+        border-bottom: solid 1px #cccccc;
+     }
+    .pie-graficos .fuente {
+        margin:5px 0 0 0;
+    }
+}*/
+</style>
+<div class="contenedor-graficos">
+    <ul class="cuerpo-graficos blanco">
+        <li class="grafico">
+            <div class="grafico-iframe">
+                <iframe title="Las cifras de la Covid-19 en España" aria-label="chart" id="datawrapper-chart-8yNCj" src="https://datawrapper.dwcdn.net/8yNCj/11/" scrolling="no" frameborder="0" style="border: none;" width="100%" height="214"></iframe>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
