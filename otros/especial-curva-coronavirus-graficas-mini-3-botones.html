@@ -1,0 +1,122 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:200,400,600,700,800');
+.subtitle{
+    margin: 0px 0 5px 0;
+    padding: 0 0 0px;
+    font-family: OpenSans-Bold, Open Sans;
+    color: #323232;
+    font-size: 20px ;
+    font-weight: 800;
+    line-height: 22px;
+    text-align: center;
+    }
+.botonera {
+    display: block;
+    margin:0;
+    padding: 0;
+    text-align: center;
+    }
+.boton{
+    background-color: #f8f8f8;
+    border:solid 1px #cccccc;
+    color:#323232;
+    display: inline-block;
+    font-family: OpenSans-Bold, Open Sans;
+    font-size: 14px;
+    line-height: 16px;
+    margin:0;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s linear;
+    transition: background-color 0.2s linear;
+    }
+.boton:hover{
+    background-color: #999999;
+    border:solid 1px #999999;
+    color:#ffffff;
+    }
+.boton:focus{
+    background-color: #343a40;
+    border:solid 1px #343a40;
+    color:#ffffff;
+    display: inline-block;
+    outline: solid 0px #ffffff;
+    }
+.btn-casos{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    margin-right:-5px;
+    }
+.btn-fallecidos {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-left:-5px;
+    }
+#minigraficas { 
+    width: 100%; 
+    height: 730px;
+    border: 0px;
+        }
+/* MEDIA QUERIES */
+@media screen and (max-width: 2560px){
+#minigraficas { 
+            height: 730px;
+        }
+}
+@media screen and (max-width: 1920px){
+#minigraficas {  
+            height: 730px;
+        }
+}
+@media screen and (max-width: 1490px){
+#minigraficas {  
+            height: 930px;
+        }
+}
+@media screen and (max-width: 1440px){
+#minigraficas {  
+            height: 1430px;
+        }
+}
+@media screen and (max-width: 1026px){
+#minigraficas { 
+            height: 1430px;
+        }
+}
+@media screen and (max-width: 650px){
+#minigraficas { 
+            height: 1430px;
+        }
+}
+@media screen and (max-width: 600px){
+#minigraficas {  
+            height: 730px;
+        }
+.boton{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 10px 15px;
+    }
+}   
+</style>
+</head>
+ <body>
+<div class="botonera">
+    <a class="boton btn-casos" id="focoinicial" href="https://rawcdn.githack.com/VangData/2020/f0755a8a76c4c766211070ca58b1d303c8d47ee8/Casospetits.html" title="Casos" alt="Casos" target="graficas-mini">Casos</a>
+    <a class="boton btn-ucis" href="https://rawcdn.githack.com/VangData/2020/7b7e48d43772562e7b96dcbe827b57c13bd8c8c4/UCIspetits.html" title="Ingresos en las UCI" alt="Ingresos en las UCI" target="graficas-mini">UCIs</a>
+    <a class="boton btn-fallecidos" href="https://rawcdn.githack.com/VangData/2020/f0755a8a76c4c766211070ca58b1d303c8d47ee8/mortspetits.html" title="Fallecimientos" alt="Fallecimientos" target="graficas-mini">Fallecimientos</a>
+</div>
+<iframe id="minigraficas" src="https://rawcdn.githack.com/VangData/2020/f0755a8a76c4c766211070ca58b1d303c8d47ee8/Casospetits.html" width="100%" height="600" name="graficas-mini"></iframe>
+<script>
+document.getElementById('focoinicial').focus();
+</script>
+</body>
+</html>
