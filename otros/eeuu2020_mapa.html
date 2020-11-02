@@ -3,7 +3,24 @@
 <head>
 	<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
 </head>
+<style>
+    .contenedor-mapa-widget{
+        height:440px;
+        overflow: hidden;
+        width:100%;
+    }
+    iframe #mapa-votos-electorales-eeuu{
+        height:450px!important;
+    }
+@media screen and (max-width: 600px){
+    .contenedor-mapa-widget{
+        height:400px;
+    }
+}
+</style>
 <body>
-<iframe title="Mapa votos electorales EE.UU." src="https://d3ak46ifsn9mnh.cloudfront.net/customers/praesidentschaftswahl-usa2020/aws/dpa-shop/html/index.html?competitionId=pw_us&language=es&customer=lavanguardia&standalone=votingAreas&phase=election&view=map&displayTotal=false&customClass=widgetBase&widgetHeader=false" scrolling="yes" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="450"></iframe>
+<div class="contenedor-mapa-widget">
+<iframe title="Mapa votos electorales EE.UU." id="mapa-votos-electorales-eeuu" src="https://d3ak46ifsn9mnh.cloudfront.net/customers/praesidentschaftswahl-usa2020/aws/dpa-shop/html/index.html?competitionId=pw_us&language=es&customer=lavanguardia&standalone=votingAreas&phase=election&view=map&displayTotal=false&customClass=widgetBase&widgetHeader=false" scrolling="yes" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="450"></iframe>
+</div>
 </body>
 </html>
