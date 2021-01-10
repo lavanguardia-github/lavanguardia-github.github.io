@@ -10,7 +10,7 @@
 		<meta name="author" content="Diseño Web LV" />
 		<link rel="shortcut icon" href="#">
 		<link rel="stylesheet" type="text/css" href="https://lavanguardia-github.github.io/especial-140-aniversario-lv/portadas-isometricas/css/normalize.css" />
-		<!--<link rel="stylesheet" type="text/css" href="css/demo.css" />-->
+		<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://lavanguardia-github.github.io/especial-140-aniversario-lv/portadas-isometricas/css/component-2.css" />
 		<script src="https://rawcdn.githack.com/lavanguardia-github/lavanguardia-github.github.io/03692631280888546e34f5b005dde300a7b6c12c/especial-140-aniversario-lv/portadas-isometricas/js/modernizr.custom.js"></script>
 		<script type="text/javascript">
@@ -41,7 +41,13 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: #000000;
-    
+}
+.contenedor-isometricas::-webkit-scrollbar {
+  display: none; /* Chrome + Safari + Opera */
+}
+.contenedor-isometricas {
+  -ms-overflow-style: none;  /* IE + Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 a {
 	color: #323F5C;
@@ -276,7 +282,6 @@ a:hover, a:focus {
 		<script src="https://rawcdn.githack.com/lavanguardia-github/lavanguardia-github.github.io/03692631280888546e34f5b005dde300a7b6c12c/especial-140-aniversario-lv/portadas-isometricas/js/classie.js"></script>
 		<script src="https://rawcdn.githack.com/lavanguardia-github/lavanguardia-github.github.io/03692631280888546e34f5b005dde300a7b6c12c/especial-140-aniversario-lv/portadas-isometricas/js/animOnScroll.js"></script>
 		<script src="https://rawcdn.githack.com/lavanguardia-github/lavanguardia-github.github.io/03692631280888546e34f5b005dde300a7b6c12c/especial-140-aniversario-lv/portadas-isometricas/js/main.js"></script>
-		<!--<script type="text/javascript" src="https://rawcdn.githack.com/lavanguardia-github/lavanguardia-github.github.io/ed0b565706e5869726c94f255b8ceb3dca5780ea/especial-140-aniversario-lv/portadas-isometricas/js-duroty/app.embed.js" defer></script>-->	
 		<script>
 		(function() {
 			function getRandomInt(min, max) {
