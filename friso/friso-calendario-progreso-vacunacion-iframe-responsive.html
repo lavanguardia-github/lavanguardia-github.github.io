@@ -16,7 +16,8 @@
         background-color: #eeeeee;
     }
     .gris-blanco {
-        background-color: #f5f5f5;
+        /*background-color: #f5f5f5;*/
+        background-color: #eeeeee;
     }
     .azul {
         background-color: #7ed5ff;
@@ -108,25 +109,33 @@
         width: 100%;
     }
      .header-friso {
+        background-color: #4f89b9;
         border-bottom: dotted 1px #cccccc;
         padding: 3px 0 5px 0;
          position: relative;
         text-align: left;
         width:100%;
      }
-    .header-friso .titulo {
-        color:#4f89b9;
+    .header-friso .titulo, .titulo-corto {
+        color:#ffffff;
         cursor: pointer;
         display: inline-block;
         font-family: TiemposHeadline-Semibold,serif;
         font-size: 20px;
         font-weight: 600;
         line-height: 24px;
-        margin: 0 7px 0 0;
+        margin: 0 7px 0 9px;
         opacity:1;
         text-decoration: none;
     }
+    .header-friso .titulo-corto {
+        display: none;
+    }
+    
     .header-friso .titulo:hover {
+        opacity:0.8;
+    }
+    .header-friso .titulo-corto:hover {
         opacity:0.8;
     }
     .header-friso .icono-swipe { 
@@ -178,7 +187,7 @@
         height: 57px;
     }
     .cuerpo-friso .relleno-barra {
-        background-color: #ffffff;
+        background-color: #878787;
         height:24px;
         overflow: hidden;
         width:100%;
@@ -388,7 +397,7 @@
     cursor: -webkit-grab;
 }
 .friso-calendario-progreso-vacunacion .cuerpo-friso::-webkit-scrollbar-thumb:hover, .friso-calendario-progreso-vacunacion .cuerpo-friso::-webkit-scrollbar-thumb:active {
-    background: #8792a6;
+    background: #4f89b9;
     cursor: grabbing;
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
@@ -398,6 +407,12 @@
     .friso-calendario-progreso-vacunacion {
         margin: 0 0 20px 0;
         padding: 0;
+    }
+    .header-friso .titulo {
+        display:none;
+    }
+    .header-friso .titulo-corto {
+        display:inline-block;
     }
     .header-friso .icono-swipe { 
         display:inline-block; 
@@ -437,6 +452,7 @@
 <div class="friso-calendario-progreso-vacunacion">
     <div class="header-friso">
         <a class="titulo" href="https://www.lavanguardia.com/vida/20210407/6632636/calendario-vacunacion-covid-espana.html" title="El calendario de la vacunación en España" alt="El calendario de la vacunación en España" target="_top">El calendario de la vacunación en España</a>
+        <a class="titulo-corto" href="https://www.lavanguardia.com/vida/20210407/6632636/calendario-vacunacion-covid-espana.html" title="La vacunación en España" alt="La vacunación en España" target="_top">La vacunación en España</a>
         <span class="subtitulo">Lorem ipsum</span>
         <img class="icono-swipe" src="https://lostsightsblog.files.wordpress.com/2020/03/icono-slider-blanco-3.png" title="Desliza horizontalmente para ver el resto de información" alt="Desliza horizontalmente para ver el resto de información" />
     </div>
@@ -464,7 +480,7 @@
     </ul>
     <div class="footer-friso gris-blanco">
         <!--<img class="logo-vanguardia" src="https://lostsightsblog.files.wordpress.com/2019/03/logo-lv-131x20.png" title="La Vanguardia" alt="La Vanguardia" />-->
-        <span class="vacunados">Población vacunada, con pauta completa, a día de 16/04/2021.</span>
+        <span class="vacunados">Población vacunada, con pauta completa, a día de 19/04/2021.</span>
         <span class="objetivos-gobierno">Objetivos del Gobierno.</span>
     </div>
 </div>
