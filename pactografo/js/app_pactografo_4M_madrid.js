@@ -1,7 +1,7 @@
 'use strict';
 
-var TOTAL_SEATS 		= 132;
-var ABSOLUTE_MAJORITY 	= 67;
+var TOTAL_SEATS 		= 136;
+var ABSOLUTE_MAJORITY 	= 69;
 var BAR_DEFAULT_COLOR 	= '#e6e6e6';
 
 function module(mod) {jQuery(function() {if (mod.init) {mod.init(); } }); return mod; }
