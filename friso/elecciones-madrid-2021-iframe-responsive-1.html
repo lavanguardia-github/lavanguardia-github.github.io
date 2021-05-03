@@ -1,5 +1,8 @@
-<html>
+<html lang="es">
 <head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
 </head>
 <body style="margin:0; padding:0;">
@@ -63,13 +66,28 @@ div, ul, li, span {
 	display:none;
 	}
 .header-resultados .nota {
-	display:inline-block;
+    display:none;
+	/*display:inline-block;*/
 	float:right;
 	font-family:"Roboto";
 	font-size:11px;
 	line-height:13px;
+    margin:0 20px 0 0;
 	padding: 16px 16px 0 0;
 	text-transform:uppercase;
+	}
+.header-resultados .icono-swipe { 
+        display:inline-block;
+        filter: invert(100%);
+        float: right;
+        opacity: 0.2;
+        position: absolute;
+        right: 0;
+        top: 5px;
+        width: 38px;   
+	}
+.header-resultados .icono-swipe:hover { 
+        opacity:0.3;
 	}
 .resultados {
 	border-top: solid 2px #ffffff;
@@ -164,7 +182,7 @@ div, ul, li, span {
 		display:inherit;
 	}
 }
-@media ( max-width : 425px) {
+@media ( max-width : 340px) {
 	.header-resultados .nota {
 		display:none;
 	}
@@ -174,13 +192,14 @@ div, ul, li, span {
 <!-- CABECERA -->
 	<div class="header-resultados">
 		<span class="titulo-largo">Madrid 4-M: Encuesta a cierre de urna</span>
-		<span class="titulo-corto">4-M: Encuesta a cierre de urna</span>
-		<!--<span class="nota">Encuesta a cierre de urna</span>-->
+		<span class="titulo-corto">Madrid 4-M</span>
+		<span class="nota">Encuesta a cierre de urna</span>
+        <img class="icono-swipe" src="https://lostsightsblog.files.wordpress.com/2020/03/icono-slider-blanco-3.png" title="Desliza horizontalmente para ver el resto de información" alt="Desliza horizontalmente para ver el resto de información">
 	</div>
 	<ul class="resultados">
 <!-- PSOE -->
 		<li class="partido">
-			<img class="logo-partido" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/psoe.png" title="PSOE" alt="PSOE"/>
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2021/05/psoe.png" title="PSOE" alt="PSOE"/>
 			<div class="resultados-partido">
 				<span class="actuales-intervalo">XX-XX</span>
 				<span class="escaños">ESCAÑOS</span>
@@ -189,7 +208,7 @@ div, ul, li, span {
 		</li>
 <!-- PP -->
 		<li class="partido">
-			<img class="logo-partido" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/pp.png" title="PP" alt="PP"/>
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2021/05/pp.png" title="PP" alt="PP"/>
 			<div class="resultados-partido">
 				<span class="actuales-intervalo">XX-XX</span>
 				<span class="escaños">ESCAÑOS</span>
@@ -198,7 +217,7 @@ div, ul, li, span {
 		</li>    
 <!-- CIUDADANOS -->
 		<li class="partido">
-			<img class="logo-partido" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/cs.png" title="Ciudadanos" alt="Ciudadanos"/>
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2021/05/cs.png" title="Ciudadanos" alt="Ciudadanos"/>
 			<div class="resultados-partido">
 				<span class="actuales-intervalo">XX-XX</span>
 				<span class="escaños">ESCAÑOS</span>
@@ -207,7 +226,7 @@ div, ul, li, span {
 		</li>
 <!-- MÁS MADRID -->
 		<li class="partido">
-			<img class="logo-partido" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/mm-2.png" title="Más Madrid" alt="Más Madrid"/>
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2021/05/mm-2.png" title="Más Madrid" alt="Más Madrid"/>
 			<div class="resultados-partido">
 				<span class="actuales-intervalo">XX-XX</span>
 				<span class="escaños">ESCAÑOS</span>
@@ -216,7 +235,7 @@ div, ul, li, span {
 		</li>
 <!-- VOX -->
 		<li class="partido">
-			<img class="logo-partido" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/vox.png" title="Vox" alt="Vox"/>
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2021/05/vox.png" title="Vox" alt="Vox"/>
 			<div class="resultados-partido">
 				<span class="actuales-intervalo">XX-XX</span>
 				<span class="escaños">ESCAÑOS</span>
