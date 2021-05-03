@@ -77,8 +77,9 @@ div, ul, li, span {
 	padding: 16px 16px 0 0;
 	text-transform:uppercase;
 	}
-.header-resultados .icono-swipe { 
-    display:inline-block;
+.header-resultados .icono-swipe {
+    display:none;
+    /*display:inline-block;*/
     filter: invert(100%);
     float: right;
     opacity: 0.2;
@@ -117,7 +118,7 @@ div, ul, li, span {
 .resultados li .resultados-partido {
 	border-right: solid 1px #b5b5b5;
 	display:inline-block;
-	padding: 0 10px 0 0;
+	padding: 0 11px 0 0;
 	vertical-align:top;
 	}
 #ultimo {
@@ -172,6 +173,11 @@ div, ul, li, span {
     background: #d5d5d5; 
     border-radius: 0
 	-webkit-border-radius: 0;
+}
+@media ( max-width : 768px) {
+	.header-resultados .icono-swipe {
+    display:inline-block;
+	}
 }
 @media ( max-width : 650px) {
 	.header-resultados .nota {
