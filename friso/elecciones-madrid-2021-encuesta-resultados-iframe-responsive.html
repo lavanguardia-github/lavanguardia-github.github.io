@@ -45,7 +45,7 @@ div, ul, li, span {
 	margin:0;
 	padding:0;
 	}
-.resultados-elecciones-cat-21d {
+.resultados-elecciones-mad-4m {
 	background-color:#eeeeee;
 	text-align:left;
 	vertical-align:top;
@@ -53,15 +53,24 @@ div, ul, li, span {
 	}
 .header-resultados {
 	border-bottom: solid 2px #000000;
+    border-top: solid 1px #ffffff;
 	}
 .header-resultados .titulo-largo, .titulo-corto {
+    color:#000000;
 	display:inline-block;
     font-family: "TiemposHeadline-Bold", serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 24px;
+    opacity:1;
     padding: 6px 10px 5px 12px;
     text-decoration: none;
+	}
+.header-resultados .titulo-largo:hover {
+    opacity:0.6;
+	}
+.header-resultados .titulo-corto:hover {
+    opacity:0.6;
 	}
 .header-resultados .titulo-corto {
 	display:none;
@@ -93,7 +102,7 @@ div, ul, li, span {
 	}
 .resultados {
 	border-top: solid 2px #ffffff;
-	height:80px;
+	height:76px;
 	list-style:none;
 	overflow-x:scroll;
 	overflow-y:hidden;
@@ -103,7 +112,7 @@ div, ul, li, span {
 	}
 .resultados li {
 	display:inline-block;
-	margin:0 0 10px 0;
+	margin:0 0 8px 0;
 	}
 .resultados li .logo-partido {
 	background-color: #ffffff;
@@ -113,7 +122,7 @@ div, ul, li, span {
 	display:inline-block;
 	height: 62px;
 	margin: 0 4px 0 6px;
-	width:62px;
+	width:60px;
 	}
 .resultados li .resultados-partido {
 	border-right: solid 1px #b5b5b5;
@@ -201,11 +210,11 @@ div, ul, li, span {
 	}
 }
 </style>
-<div class="resultados-elecciones-cat-21d">
+<div class="resultados-elecciones-mad-4m">
 <!-- CABECERA -->
 	<div class="header-resultados">
-		<span class="titulo-largo">Madrid 4-M: Encuesta a cierre de urna</span>
-		<span class="titulo-corto">Madrid 4-M</span>
+		<a class="titulo-largo" href="https://www.lavanguardia.com/politica" title="Elecciones Madrid 4-M" alt="Elecciones Madrid 4" target="_blank">Madrid 4-M: Encuesta a cierre de urna</a>
+		<a class="titulo-corto" href="https://www.lavanguardia.com/politica" title="Elecciones Madrid 4" alt="Elecciones Madrid 4" target="_blank">Madrid 4-M</a>
 		<span class="nota">Encuesta a cierre de urna</span>
         <img class="icono-swipe" src="https://lostsightsblog.files.wordpress.com/2020/03/icono-slider-blanco-3.png" title="Desliza horizontalmente para ver el resto de información" alt="Desliza horizontalmente para ver el resto de información">
 	</div>
