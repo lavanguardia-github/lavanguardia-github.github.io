@@ -1,0 +1,80 @@
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+<script src=”https://stories.lavanguardia.com/especial/js/app.iframe.embed.js”></script>
+</head>
+<body>
+<style>
+body {
+    margin:0; 
+    padding:0;
+    }
+.grid-logos {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        min(100%, 150px), /* min value */
+        1fr /* max value */
+      )
+    );
+  gap: 12px;
+}
+.grid-logos {
+    background-color: #f8f8f8;
+    border-top: solid 1px #dddddd;
+    margin:0;
+    padding:20px;
+    }
+.logo {
+    background: #ffffff;
+    border:solid 1px #eeeeee;
+    height:80px;
+    text-align: center;
+    overflow: hidden;
+}
+.imagen-logo {
+    width: 100%;
+    height: 80px;
+    object-fit: contain;
+    opacity: 1;
+    transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  -webkit-transition: all .25s ease-in-out;
+    }
+.imagen-logo:hover {
+    opacity: 0.7;
+    filter:saturate(2);
+    transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  -webkit-transition: all .25s ease-in-out;
+    }
+</style>
+<div class="grid-logos">
+  <div class="logo">
+    <a class="enlace-logo" href="https://www.lemonde.fr/" title="Le Monde" alt="Le Monde" target="_blank">
+    <img class="imagen-logo" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/logo-le-monde-300x150.png" title="Le Monde" alt="Le Monde"/></a>
+  </div>
+  <div class="logo">
+    <a class="enlace-logo" href="https://www.theguardian.com/" title="The Guardian" alt="The Guardian" target="_blank">
+    <img class="imagen-logo" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/logo-the-guardian-300x150.png" title="The Guardian" alt="The Guardian"/></a>
+  </div>
+  <div class="logo">
+    <a class="enlace-logo" href="https://www.lastampa.it/" title="La Stampa" alt="La Stampa" target="_blank">
+    <img class="imagen-logo" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/logo-la-stampa-300x150.png" title="La Stampa" alt="La Stampa"/></a>
+  </div>
+   <div class="logo">
+    <a class="enlace-logo" href="https://www.sueddeutsche.de/" title="Süddeutsche Zeitung" alt="Süddeutsche Zeitung" target="_blank">
+    <img class="imagen-logo" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/logo-suddeutsche-zeitung-300x150.png" title="Süddeutsche Zeitung" alt="Süddeutsche Zeitung"/></a>
+  </div>
+  <div class="logo">
+    <a class="enlace-logo" href="" title="La Vanguardia" alt="La Vanguardia" target="_blank">
+    <img class="imagen-logo" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/logos-lv-300x150.png" title="La Vanguardia" alt="La Vanguardia"/></a>
+  </div>
+</div>
+</body>
+</html>
