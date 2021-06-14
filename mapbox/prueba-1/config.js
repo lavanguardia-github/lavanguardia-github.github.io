@@ -23,8 +23,8 @@ var config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'gnpglaciers-1998',
-                    opacity: 0.25
+                    layer: 'new-york',
+                    opacity: 0.9
                 },
                 {
                     layer: 'glaciernp-boundary',
