@@ -10,7 +10,7 @@ var config = {
     footer: '',
     chapters: [
         {
-            id: 'glacier-np',
+            id: 'intro-prueba',
             alignment: 'left',
             title: 'Glacier National Park Glaciers',
             image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/2015-06-19_Glacier_National_Park_%28U.S.%29_8633.jpg/800px-2015-06-19_Glacier_National_Park_%28U.S.%29_8633.jpg',
@@ -39,7 +39,7 @@ var config = {
             ]
         },
         {
-            id: 'harrison1998',
+            id: 'new-york',
             alignment: 'left',
             title: 'New York',
             image: '',
@@ -50,12 +50,17 @@ var config = {
                 pitch: 0.00,
                 bearing: 0.00
             },
-            onChapterEnter: [],
+            onChapterEnter: [
+                {
+                    layer: 'gnpglaciers-2015',
+                    opacity: 0.25
+                }
+            ],
             onChapterExit: [
-                // {
-                //     layer: 'gnpglaciers-2015',
-                //     opacity: 0
-                // }
+                {
+                    layer: 'gnpglaciers-2015',
+                    opacity: 0
+                }
             ]
         },
         {
