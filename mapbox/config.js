@@ -4,7 +4,7 @@ var config = {
     showMarkers: false,
     theme: 'dark',
     use3dTerrain: true,
-    title: 'Glaciers of Glacier National Park',
+    title: 'Prueba de integración de Story Map de Mapbox',
     subtitle: 'Change in coverage from 1998 to 2015',
     byline: '',
     footer: 'Source: Story text from Wikipedia, August 2019. Data from <a href="https://www.usgs.gov/centers/norock/science/retreat-glaciers-glacier-national-park">USGS</a>',
