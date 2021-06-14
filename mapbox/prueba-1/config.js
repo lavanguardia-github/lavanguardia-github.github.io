@@ -45,8 +45,8 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit festinamus urb et orbe sic transit gloria mundi.',
             location: {
-                center: [-73.97843, 40.69029],
-                zoom: 1.50,
+                center: [-73.97843, 40.73542],
+                zoom: 6.75,
                 pitch: 0.00,
                 bearing: 0.00
             },
