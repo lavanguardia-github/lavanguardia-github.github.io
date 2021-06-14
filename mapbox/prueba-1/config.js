@@ -4,10 +4,10 @@ var config = {
     showMarkers: false,
     theme: 'light',
     use3dTerrain: true,
-    title: 'Glaciers of Glacier National Park',
-    subtitle: 'Change in coverage from 1998 to 2015',
+    title: '',
+    subtitle: '',
     byline: '',
-    footer: 'Source: Story text from Wikipedia, August 2019. Data from <a href="https://www.usgs.gov/centers/norock/science/retreat-glaciers-glacier-national-park">USGS</a>',
+    footer: '',
     chapters: [
         {
             id: 'glacier-np',
@@ -41,14 +41,14 @@ var config = {
         {
             id: 'harrison1998',
             alignment: 'left',
-            title: 'Harrison Glacier, 1998',
+            title: 'New York',
             image: '',
-            description: 'Harrison Glacier is located in the US state of Montana in Glacier National Park. Situated on a southeast facing ridge immediately south of Mount Jackson, Harrison Glacier is the largest glacier in Glacier National Park. Compared to many of the vanishing glaciers in Glacier National Park, Harrison Glacier has a much higher altitude accumulation zone (approximately 9,000 feet (2,700 m)) which has allowed it to maintain some equilibrium in its glacier mass balance.',
+            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit festinamus urb et orbe sic transit gloria mundi.',
             location: {
-                center: [-113.72917, 48.58938],
-                zoom: 5.50,
-                pitch: 2.00,
-                bearing: 1.00
+                center: [-73.97843, 40.69029],
+                zoom: 1.50,
+                pitch: 0.00,
+                bearing: 0.00
             },
             onChapterEnter: [],
             onChapterExit: [
@@ -61,14 +61,14 @@ var config = {
         {
             id: 'harrison2015',
             alignment: 'left',
-            title: 'Harrison Glacier, 2015',
+            title: 'Barcelona',
             image: '',
-            description: 'Between 1998 and 2015, Harrison Glacier lost 169 acres of surface area (about 37%).',
+            description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit festinamus urb et orbe sic transit gloria mundi.',
             location: {
-                center: [-113.72917, 48.58938],
-                zoom: 10.50,
-                pitch: 5.00,
-                bearing: 2.00
+                center: [2.19055, 41.38305],
+                zoom: 7.68,
+                pitch: 0.00,
+                bearing: 0.00
             },
             onChapterEnter: [
                 {
