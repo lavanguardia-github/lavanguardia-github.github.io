@@ -1,0 +1,443 @@
+<style>  
+    .container-freehtml .board-module-freehtml { 
+        margin-bottom: 30px; 
+        padding-right: 17px; 
+        padding-left: 17px; } 
+    .miniheader-autores-opinion { 
+        margin-top:50px; 
+    } 
+    .miniheader-autores-opinion .titulo { 
+        display:inline-block; 
+        color:#2a4a73; 
+        font-family: "TiemposHeadline-Black"; 
+        font-size: 26px; 
+        line-height: 28px; 
+        cursor:default; 
+    } 
+    .miniheader-autores-opinion .titulo .enlace-titulo { 
+        color:#2a4a73; 
+        cursor:default; 
+    } 
+    .miniheader-autores-opinion .titulo img { 
+        border:none; 
+        display:inline-block; 
+        float:right; 
+        margin:2px 6px; 
+        width:30px; 
+    } 
+    .cuerpo-autores-opinion { 
+        text-align: center; 
+        height: 190px; 
+        width: 100%; 
+        overflow: hidden; 
+        /*overflow-x: scroll;*/ 
+        margin:0 0 10px 0; 
+        padding-top:7px; 
+        /*white-space: nowrap;*/ 
+        background-color: #ffffff; 
+        position: relative; 
+    } 
+    .cuerpo-autores-opinion .autor { 
+        border: solid 1px #cccccc; 
+        color:#000000; 
+        display: inline-block; 
+        margin: 0px 5px 0px 0px; 
+        background-color: #eeeeee; 
+        height:174px; 
+        width:181px; 
+        vertical-align:top; 
+        white-space:normal; 
+    } 
+    .cuerpo-autores-opinion .autor a { 
+        color:#000000; 
+        display:block; 
+        font-family: "TiemposHeadline-Medium"; 
+        font-size: 18px; 
+        line-height: 20px; 
+        margin-top:20px; 
+        text-decoration:none; 
+    } 
+    .cuerpo-autores-opinion .autor a:hover { 
+        color:#337ab7; 
+    } 
+    .cuerpo-autores-opinion .autor .imagen-autor { 
+        width:60px; 
+        border-radius: 90px; 
+    } 
+    .contenedor-listado-autores { 
+        margin-bottom:30px; 
+    } 
+    .contenedor-listado-autores .listado { 
+        margin-top: 10px; 
+        padding-bottom:20px; 
+        text-align:center; 
+        vertical-align:top; 
+    } 
+    .contenedor-listado-autores .listado .columna-4 { 
+        display:inline-block; 
+        text-align:left; 
+        vertical-align:top; 
+        width:24%; 
+    } 
+    .contenedor-listado-autores .listado .columna-2 { 
+        display:none; 
+        text-align:left; 
+        vertical-align:top; 
+        width:24%; 
+    } 
+    .contenedor-listado-autores .listado .columna-4 li { 
+        padding:4px 0; 
+    } 
+    .contenedor-listado-autores .listado .columna-2 li { 
+        padding:4px 0; 
+    } 
+    .contenedor-listado-autores .listado .columna-4 a { 
+        color:#000000; 
+        display:block; 
+        font-family: "TiemposText-Regular"; 
+        font-size: 14px; 
+        line-height: 18px; 
+        text-decoration:none; 
+    } 
+    .contenedor-listado-autores .listado .columna-2 a { 
+        color:#000000; 
+        display:block; 
+        font-family: "TiemposText-Regular"; 
+        font-size: 14px; line-height: 18px; 
+        text-decoration:none; 
+    } 
+    .contenedor-listado-autores .listado .columna-4 a:hover { 
+        color:#337ab7; 
+    } .contenedor-listado-autores .listado .columna-2 a:hover { 
+        color:#337ab7; 
+    } 
+    @media screen and (max-width: 1023px) { 
+        .miniheader-autores-opinion { 
+            margin-top:50px; 
+        } 
+        .cuerpo-autores-opinion { 
+            height: 198px; 
+            width: 100%; 
+            overflow-x: scroll; 
+            margin:0; 
+            padding-top:7px; 
+            white-space: nowrap; 
+        } 
+    } 
+    @media screen and (max-width: 768px) { 
+        .miniheader-autores-opinion {
+            margin-top:30px; 
+        } 
+        .cuerpo-autores-opinion .autor { 
+            width:178px; 
+        } 
+    } @media screen and (max-width: 648px) { 
+        .miniheader-autores-opinion { 
+            background-color:#2a4a73; 
+            margin-bottom: 8px; 
+            padding: 5px 0 8px 0; 
+        } 
+        .miniheader-autores-opinion .titulo { 
+            color:#ffffff; 
+        } 
+        .miniheader-autores-opinion .titulo .enlace-titulo { 
+            color:#ffffff; 
+        } 
+        .contenedor-listado-autores .listado .columna-4 { 
+            display: none; 
+        } 
+        .contenedor-listado-autores .listado .columna-2 { 
+            display: inline-block; 
+            width:34%; 
+            padding: 0 10px 0 10px; 
+        } 
+        .contenedor-listado-autores .listado .columna-2 li { 
+            padding:5px 0; 
+        } 
+    } 
+    @media screen and (max-width: 425px) { 
+        .miniheader-autores-opinion { 
+            margin-top:10px; 
+        } 
+        .cuerpo-autores-opinion .autor { 
+            width:200px; 
+        } 
+        .contenedor-listado-autores .listado .columna-2 { 
+            display: inline-block; 
+            width:44%; 
+            padding: 0 10px 0 10px; 
+        } 
+        .contenedor-listado-autores .listado .columna-2 li { 
+            padding:6px 0; 
+        } 
+    } @media screen and (max-width: 375px) { 
+        .miniheader-autores-opinion { 
+            margin-top:5px; 
+        } 
+        .cuerpo-autores-opinion .autor { 
+            width:175px; 
+        } 
+    } 
+    @media screen and (max-width: 360px) { 
+    } 
+    @media screen and (max-width: 320px) { 
+        .miniheader-autores-opinion { 
+            margin-top:5px; 
+        } 
+        .cuerpo-autores-opinion .autor { 
+            width:147px; /*width:100%;*/ 
+        } 
+        .contenedor-listado-autores .listado ul:last-child { 
+            border-left:solid 1px #dddddd; 
+            padding-left:20px; 
+        } 
+    }  
+</style>  
+<div class="board-title-container ">
+    <div class="board-title" data-container-number="2">
+        <div class="board-title-left-module">   
+        <h3 class="board-title-left">Autores</h3>
+</div>
+    </div>
+</div>
+<div class="cuerpo-autores-opinion">  
+<!--INICIO AUTORES PRICIPALES-->  
+    
+    <!--AUTOR 1-->  <div class="autor"> <a class="enlace-imagen-autor" href="https://www.lavanguardia.com/autores/quim-monzo.html" title="Quim Monz&oacute;" alt="Quim Monz&oacute;" target="_top"> <img class="imagen-autor" src="https://www.lavanguardia.com/r/GODO/LV/Autores/Imagenes/NoFecha/author-1167-signature.png"> </a> <a class="enlace-nombre-autor" href="https://www.lavanguardia.com/autores/joaquim-monzo.html" title="Quim Monz&oacute;" alt="Quim Monz&oacute;" target="_top">Quim Monz&oacute;</a>  </div>  
+    
+    <!--AUTOR 2-->  <div class="autor"> <a class="enlace-imagen-autor" href="https://www.lavanguardia.com/autores/pilar-rahola.html" title="Mariángel Alcázar" alt="Mariángel Alcázar" target="_top"> <img class="imagen-autor" src="https://www.lavanguardia.com/files/image_120_120/uploads/1970/01/01/5f9adc135e668.jpeg"> </a> <a class="enlace-nombre-autor" href="https://www.lavanguardia.com/autores/mariaangeles-alcazar.html" title="Mariángel Alcázar" alt="Mariángel Alcázar" target="_top">Mariángel Alcázar</a>  </div>  
+    
+    <!--AUTOR 3-->  <div class="autor"> <a class="enlace-imagen-autor" href="https://www.lavanguardia.com/autores/joaquin-luna.html" title="Joaqu&iacute;n Luna" alt="Joaqu&iacute;n Luna" target="_top"> <img class="imagen-autor" src="https://www.lavanguardia.com/r/GODO/LV/Autores/Imagenes/NoFecha/author-1345_67x67.jpg"> </a> <a class="enlace-nombre-autor" href="https://www.lavanguardia.com/autores/joaquin-luna.html" title="Joaqu&iacute;n Luna" alt="Joaqu&iacute;n Luna" target="_top">Joaqu&iacute;n Luna</a>  </div>  
+    
+    <!--AUTOR 4-->  <div class="autor"> <a class="enlace-imagen-autor" href="https://www.lavanguardia.com/autores/sergi-pamies.html" title="Sergi P&agrave;mies" alt="Sergi P&agrave;mies" target="_top"> <img class="imagen-autor" src="https://www.lavanguardia.com/r/GODO/LV/Autores/Imagenes/NoFecha/author-1227-signature.png"> </a> <a class="enlace-nombre-autor" href="https://www.lavanguardia.com/autores/sergi-pamies.html" title="Sergi P&agrave;mies" alt="Sergi P&agrave;mies" target="_top">Sergi P&agrave;mies</a> </div>  
+    
+    <!--AUTOR 5-->  <div class="autor"> <a class="enlace-imagen-autor" href="https://www.lavanguardia.com/autores/joana-bonet.html" title="Joana Bonet" alt="Joana Bonet" target="_top"> <img class="imagen-autor" src="https://www.lavanguardia.com/r/GODO/LV/Autores/Imagenes/NoFecha/author-1394-signature.png"> </a> <a class="enlace-nombre-autor" href="https://www.lavanguardia.com/autores/joana-bonet.html" title="Joana Bonet" alt="Joana Bonet" target="_top">Joana Bonet</a>  </div>  
+<!--FIN AUTORES PRINCIPALES-->  </div>  
+
+<!-- BLOQUE TEXTUAL -->  
+<div class="contenedor-listado-autores">  
+    <div class="listado">  
+        <ul class="columna-4"> 
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/xavier-aldekoa-morales.html" title="Xavier Aldekoa" alt="Xavier Aldekoa" target="_top">Xavier Aldekoa</a></li> 
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/francesc-marc-alvaro.html" title="Francesc-Marc &Aacute;lvaro" alt="Francesc-Marc &Aacute;lvaro" target="_top">Francesc-Marc &Aacute;lvaro</a></li> 
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-amat.html" title="Jordi Amat" alt="Jordi Amat" target="_top">Jordi Amat</a></li> 
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/victormanuel-amela.html" title="V&iacute;ctor Amela" alt="V&iacute;ctor Amela" target="_top">V&iacute;ctor Amela</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/lluis-amiguet.html" title="Llu&iacute;s Amiguet" alt="Llu&iacute;s Amiguet" target="_top">Llu&iacute;s Amiguet</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/silvia-angulo.html" title="Silvia Angulo" alt="Silvia Angulo" target="_top">Silvia Angulo</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/toni-aira.html" title="Toni Aira" alt="Toni Aira" target="_top">Toni Aira</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/xavier-ayen.html" title="Xavi Ay&eacute;n" alt="Xavi Ay&eacute;n" target="_top">Xavi Ay&eacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ramon-aymerich.html" title="Ramon Aymerich" alt="Ramon Aymerich" target="_top">Ramon Aymerich</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jaume-barbera.html" title="Jaume Barber&agrave;" alt="Jaume Barber&agrave;" target="_top">Jaume Barber&agrave;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/sandra-barneda.html" title="Sandra Barneda" alt="Sandra Barneda" target="_top">Sandra Barneda</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-baste.html" title="Jordi Bast&eacute;" alt="Jordi Bast&eacute;" target="_top">Jordi Bast&eacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/lorenzo-bernaldo.html" title="Lorenzo Bernaldo de Quir&oacute;s" alt="Lorenzo Bernaldo de Quir&oacute;s" target="_top">Lorenzo Bernaldo de Quir&oacute;s</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/norbert-bilbeny.html" title="Norbert Bilbeny" alt="Norbert Bilbeny" target="_top">Norbert Bilbeny</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josep-marti.html" title="Mart&iacute; Blanch" alt="Mart&iacute; Blanch" target="_top">Mart&iacute; Blanch</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/pascal-boniface.html" title="Pascal Boniface" alt="Pascal Boniface" target="_top">Pascal Boniface</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/francesc-bracero.html" title="Francesc Bracero" alt="Francesc Bracero" target="_top">Francesc Bracero</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ian-buruma.html" title="Ian Buruma" alt="Ian Buruma" target="_top">Ian Buruma</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/magi-camps.html" title="Mag&iacute; Camps" alt="Mag&iacute; Camps" target="_top">Mag&iacute; Camps</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/david-caraben.html" title="David Carab&eacute;n" alt="David Carab&eacute;n" target="_top">David Carab&eacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/john-carlin.html" title="John Carlin" alt="John Carlin" target="_top">John Carlin</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autor/carol.html" title="M&agrave;rius Carol" alt="M&agrave;rius Carol" target="_top">M&agrave;rius Carol</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jorge-carrion.html" title="Jorge Carri&oacute;n" alt="Jorge Carri&oacute;n" target="_top">Jorge Carri&oacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/carles-casajuana.html" title="Carles Casajuana" alt="Carles Casajuana" target="_top">Carles Casajuana</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/manuel-castells.html" title="Manuel Castells" alt="Manuel Castells" target="_top">Manuel Castells</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/maricel-chavarria.html" title="Maricel Chavarr&iacute;a" alt="Maricel Chavarr&iacute;a" target="_top">Maricel Chavarr&iacute;a</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/flavia-company.html" title="Flavia Company" alt="Flavia Company" target="_top">Flavia Company</a></li>
+        </ul>
+        <ul class="columna-4">
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/manuel-cruz.html" title="Manuel Cruz" alt="Manuel Cruz" target="_top">Manuel Cruz</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josepantoni-duranlleida.html" title="Josep Antoni Duran Lleida" alt="Josep Antoni Duran Lleida" target="_top">Josep Antoni Duran Lleida</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/nuria-escur.html" title="N&uacute;ria Escur" alt="N&uacute;ria Escur" target="_top">N&uacute;ria Escur</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-evole.html" title="Jordi &Eacute;vole" alt="Jordi &Eacute;vole" target="_top">Jordi &Eacute;vole</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/daniel-fernandez.html" title="Daniel Fern&aacute;ndez" alt="Daniel Fern&aacute;ndez" target="_top">Daniel Fern&aacute;ndez</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/xavier-ferras.html" title="Xavier Ferr&agrave;s" alt="Xavier Ferr&agrave;s" target="_top">Xavier Ferr&agrave;s</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/lluis-foix.html" title="Llu&iacute;s Foix" alt="Llu&iacute;s Foix" target="_top">Llu&iacute;s Foix</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/laura-freixas.html" title="Laura Freixas" alt="Laura Freixas" target="_top">Laura Freixas</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josep-maria-ganyet.html" title="Josep Maria Ganyet" alt="Josep Maria Ganyet" target="_top">Josep Maria Ganyet</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/maria-dolores-garcia.html" title="Lola Garc&iacute;a" alt="Lola Garc&iacute;a" target="_top">Lola Garc&iacute;a</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/isabel-garcia-pagan.html" title="Isabel Garc&iacute;a Pag&aacute;n" alt="Isabel Garc&iacute;a Pag&aacute;n" target="_top">Isabel Garc&iacute;a Pag&aacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/joan-golobart.html" title="Joan Golobart" alt="Joan Golobart" target="_top">Joan Golobart</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/isabel-gomez.html" title="Isabel G&oacute;mez Melench&oacute;n" alt="Isabel G&oacute;mez Melench&oacute;n" target="_top">Isabel G&oacute;mez Melench&oacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/begona-gomez.html" title="Begoña G&oacute;mez Urzaiz" alt="Begoña G&oacute;mez Urzaiz" target="_top">Begoña G&oacute;mez Urzaiz</a>
+            </li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/antoni-gutierrez-rubi.html" title="Antoni Guti&eacute;rrez-Rub&iacute;" alt="Antoni Guti&eacute;rrez-Rub&iacute;" target="_top">Antoni Guti&eacute;rrez-Rub&iacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/juan-m-hernandez-puertolas.html" title="Juan Mari Hern&aacute;ndez Puert&oacute;las" alt="Juan Mari Hern&aacute;ndez Puert&oacute;las" target="_top">Juan Mari <br>Hern&aacute;ndez Puert&oacute;las</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/daniel-innerarity.html" title="Daniel Innerarity" alt="Daniel Innerarity" target="_top">Daniel Innerarity</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-juan.html" title="Jordi Juan" alt="Jordi Juan" target="_top">Jordi Juan</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/enric-juliana.html" title="Enric Juliana" alt="Enric Juliana" target="_top">Enric Juliana</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josemaria-lassalle.html" title="Jos&eacute; Mar&iacute;a Lassalle" alt="Jos&eacute; Mar&iacute;a Lassalle" target="_top">Jos&eacute; Mar&iacute;a Lassalle</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-llavina.html" title="Jordi Llavina" alt="Jordi Llavina" target="_top">Jordi Llavina</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/juan-jose-lopez-burniol.html" title="Juan-Jos&eacute; L&oacute;pez Burniol" alt="Juan-Jos&eacute; L&oacute;pez Burniol" target="_top">Juan-Jos&eacute; L&oacute;pez <br>Burniol</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/gabriel-magalhaes.html" title="Gabriel Magalh&atilde;es" alt="Gabriel Magalh&atilde;es" target="_top">Gabriel Magalh&atilde;es</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/remei-margarit.html" title="Remei Margarit" alt="Remei Margarit" target="_top">Remei Margarit</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ignacio-martinez-de-pison.html" title="Ignacio Mart&iacute;nez de Pis&oacute;n" alt="Ignacio Mart&iacute;nez de Pis&oacute;n" target="_top">Ignacio Mart&iacute;nez <br>de Pis&oacute;n</a></li>
+        </ul>  
+        <ul class="columna-4">
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/xavier-mas-de-xaxas.html" title="Xavier Mas de Xaxas" alt="Xavier Mas de Xaxas" target="_top">Xavier Mas de Xaxas</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/javier-melero.html" title="Javier Melero" alt="Javier Melero" target="_top">Javier Melero</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josep-lluis-mico.html" title="Josep Llu&iacute;s Mic&oacute;" alt="Josep Llu&iacute;s Mic&oacute;" target="_top">Josep Llu&iacute;s Mic&oacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josep-miro-i-ardevol.html" title="Josep Mir&oacute; i Ard&egrave;vol" alt="Josep Mir&oacute; i Ard&egrave;vol" target="_top">Josep Mir&oacute; i Ard&egrave;vol</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/llatzer-moix.html" title="Ll&agrave;tzer Moix" alt="Ll&agrave;tzer Moix" target="_top">Ll&agrave;tzer Moix</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/miquel-molina.html" title="Miquel Molina" alt="Miquel Molina" target="_top">Miquel Molina</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/imma-monso.html" title="Imma Mons&oacute;" alt="Imma Mons&oacute;" target="_top">Imma Mons&oacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/albert-montagut.html" title="Albert Montagut" alt="Albert Montagut" target="_top">Albert Montagut</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/carles-mundo.html" title="Carles Mund&oacute;" alt="Carles Mund&oacute;" target="_top">Carles Mund&oacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/marc-murtra.html" title="Marc Murtra" alt="Marc Murtra" target="_top">Marc Murtra</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-nadal-1.html" title="Jordi Nadal" alt="Jordi Nadal" target="_top">Jordi Nadal</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/beatriz-navarro.html" title="Beatriz Navarro" alt="Beatriz Navarro" target="_top">Beatriz Navarro</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/maria-del-carmen-navarro.html" title="Mayka Navarro" alt="Mayka Navarro" target="_top">Mayka Navarro</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/santi-nolla.html" title="Santi Nolla" alt="Santi Nolla" target="_top">Santi Nolla</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/pedro-nueno.html" title="Pedro Nueno" alt="Pedro Nueno" target="_top">Pedro Nueno</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josep-oliver-alonso.html" title="Josep Oliver Alonso" alt="Josep Oliver Alonso" target="_top">Josep Oliver Alonso</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/fernando-onega.html" title="Fernando &Oacute;nega" alt="Fernando &Oacute;nega" target="_top">Fernando &Oacute;nega</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/joan-josep-pallas.html" title="Joan Josep Pall&agrave;s" alt="Joan Josep Pall&agrave;s" target="_top">Joan Josep Pall&agrave;s</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/alfredo-pastor.html" title="Alfredo Pastor" alt="Alfredo Pastor" target="_top">Alfredo Pastor</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/manel-perez.html" title="Manel P&eacute;rez" alt="Manel P&eacute;rez" target="_top">Manel P&eacute;rez</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/oriol-pi-de-cabanyes.html" title="Oriol Pi de Cabanyes" alt="Oriol Pi de Cabanyes" target="_top">Oriol Pi de Cabanyes</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/margarita-puig.html" title="Margarita Puig" alt="Margarita Puig" target="_top">Margarita Puig</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/antoni-puigverd.html" title="Antoni Puigverd" alt="Antoni Puigverd" target="_top">Antoni Puigverd</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/susana-quadrado.html" title="Susanna Quadrado" alt="Susanna Quadrado" target="_top">Susanna Quadrado</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/pilar-rahola.html" title="Pilar Rahola" alt="Pilar Rahola" target="_top">Pilar Rahola</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/llucia-ramis.html" title="Llucia Ramis" alt="Llucia Ramis" target="_top">Llucia Ramis</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/carme-riera.html" title="Carme Riera" alt="Carme Riera" target="_top">Carme Riera</a></li>
+        </ul>
+        <ul class="columna-4">
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/felix-riera.html" title="F&egrave;lix Riera" alt="F&egrave;lix Riera" target="_top">F&egrave;lix Riera</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/borja-de-riquer.html" title="Borja de Riquer" alt="Borja de Riquer" target="_top">Borja de Riquer</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/miquel-roca-junyent.html" title="Miquel Roca i Junyent" alt="Miquel Roca i Junyent" target="_top">Miquel Roca i Junyent</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/alex-rodriguez.html" title="&Aacute;lex Rodríguez" alt="&Aacute;lex Rodríguez" target="_top">&Aacute;lex Rodríguez</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ramon-rovira.html" title="Ramon Rovira" alt="Ramon Rovira" target="_top">Ramon Rovira</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/alex-salmon.html" title="&Aacute;lex S&agrave;lmon" alt="&Aacute;lex S&agrave;lmon" target="_top">&Aacute;lex S&agrave;lmon</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/arturo-san-agustin.html" title="Arturo San Agust&iacute;n" alt="Arturo San Agust&iacute;n" target="_top">Arturo San Agust&iacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ignacio-sanchez-cuenca.html" title="Ignacio S&aacute;nchez-Cuenca" alt="Ignacio S&aacute;nchez-Cuenca" target="_top">Ignacio S&aacute;nchez-Cuenca</a></li> 
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/luis-sanchez-merlo.html" title="Luis S&aacute;nchez-Merlo" alt="Luis S&aacute;nchez-Merlo" target="_top">Luis S&aacute;nchez-Merlo</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/clara-sanchis-mira.html" title="Clara Sanchis Mira" alt="Clara Sanchis Mira" target="_top">Clara Sanchis Mira</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/gemma-sarda.html" title="Gemma Sard&agrave;" alt="Gemma Sard&agrave;" target="_top">Gemma Sard&agrave;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/santiago-segurola.html" title="Santiago Segurola" alt="Santiago Segurola" target="_top">Santiago Segurola</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/gloria-serra.html" title="Gl&ograve;ria Serra" alt="Gl&ograve;ria Serra" target="_top">Gl&ograve;ria Serra</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/marius-serra.html" title="M&agrave;rius Serra" alt="M&agrave;rius Serra" target="_top">M&agrave;rius Serra</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/mariateresa-sese.html" title="Teresa Ses&eacute;" alt="Teresa Ses&eacute;" target="_top">Teresa Ses&eacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/enric-sierra.html" title="Enric Sierra" alt="Enric Sierra" target="_top">Enric Sierra</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/robert-skidelsky.html" title="Robert Skidelsky" alt="Robert Skidelsky" target="_top">Robert Skidelsky</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/eulalia-sole.html" title="Eul&agrave;lia Sol&eacute;" alt="Eul&agrave;lia Sol&eacute;" target="_top">Eul&agrave;lia Sol&eacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ramon-sune.html" title="Ramon Suñ&eacute;" alt="Ramon Suñ&eacute;" target="_top">Ramon Suñ&eacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/lluis-uria.html" title="Llu&iacute;s Ur&iacute;a" alt="Llu&iacute;s Ur&iacute;a" target="_top">Llu&iacute;s Ur&iacute;a</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/elisenda-vallejo.html" title="Elisenda Vallejo" alt="Elisenda Vallejo" target="_top">Elisenda Vallejo</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/santi-vila.html" title="Santi Vila" alt="Santi Vila" target="_top">Santi Vila</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/joan-pere-viladecans.html" title="Joan-Pere Viladecans" alt="Joan-Pere Viladecans" target="_top">Joan-Pere Viladecans</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/xavier-vives.html" title="Xavier Vives" alt="Xavier Vives" target="_top">Xavier Vives</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/carlos-zanon.html" title="Carlos Zan&oacute;n" alt="Carlos Zan&oacute;n" target="_top">Carlos Zan&oacute;n</a></li>
+        </ul>  
+        <ul class="columna-2"> 
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/xavier-aldekoa-morales.html" title="Xavier Aldekoa" alt="Xavier Aldekoa" target="_top">Xavier Aldekoa</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/francesc-marc-alvaro.html" title="Francesc-Marc &Aacute;lvaro" alt="Francesc-Marc &Aacute;lvaro" target="_top">Francesc-Marc &Aacute;lvaro</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-amat.html" title="Jordi Amat" alt="Jordi Amat" target="_top">Jordi Amat</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/victormanuel-amela.html" title="V&iacute;ctor Amela" alt="V&iacute;ctor Amela" target="_top">V&iacute;ctor Amela</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/lluis-amiguet.html" title="Llu&iacute;s Amiguet" alt="Llu&iacute;s Amiguet" target="_top">Llu&iacute;s Amiguet</a></li> 
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/silvia-angulo.html" title="Silvia Angulo" alt="Silvia Angulo" target="_top">Silvia Angulo</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/toni-aira.html" title="Toni Aira" alt="Toni Aira" target="_top">Toni Aira</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/xavier-ayen.html" title="Xavi Ay&eacute;n" alt="Xavi Ay&eacute;n" target="_top">Xavi Ay&eacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ramon-aymerich.html" title="Ramon Aymerich" alt="Ramon Aymerich" target="_top">Ramon Aymerich</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jaume-barbera.html" title="Jaume Barber&agrave;" alt="Jaume Barber&agrave;" target="_top">Jaume Barber&agrave;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/sandra-barneda.html" title="Sandra Barneda" alt="Sandra Barneda" target="_top">Sandra Barneda</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-baste.html" title="Jordi Bast&eacute;" alt="Jordi Bast&eacute;" target="_top">Jordi Bast&eacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/lorenzo-bernaldo.html" title="Lorenzo Bernaldo de Quir&oacute;s" alt="Lorenzo Bernaldo de Quir&oacute;s" target="_top">Lorenzo Bernaldo de Quir&oacute;s</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/norbert-bilbeny.html" title="Norbert Bilbeny" alt="Norbert Bilbeny" target="_top">Norbert Bilbeny</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josep-marti.html" title="Mart&iacute; Blanch" alt="Mart&iacute; Blanch" target="_top">Mart&iacute; Blanch</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/pascal-boniface.html" title="Pascal Boniface" alt="Pascal Boniface" target="_top">Pascal Boniface</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/francesc-bracero.html" title="Francesc Bracero" alt="Francesc Bracero" target="_top">Francesc Bracero</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ian-buruma.html" title="Ian Buruma" alt="Ian Buruma" target="_top">Ian Buruma</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/magi-camps.html" title="Mag&iacute; Camps" alt="Mag&iacute; Camps" target="_top">Mag&iacute; Camps</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/david-caraben.html" title="David Carab&eacute;n" alt="David Carab&eacute;n" target="_top">David Carab&eacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/john-carlin.html" title="John Carlin" alt="John Carlin" target="_top">John Carlin</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autor/carol.html" title="M&agrave;rius Carol" alt="M&agrave;rius Carol" target="_top">M&agrave;rius Carol</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jorge-carrion.html" title="Jorge Carri&oacute;n" alt="Jorge Carri&oacute;n" target="_top">Jorge Carri&oacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/carles-casajuana.html" title="Carles Casajuana" alt="Carles Casajuana" target="_top">Carles Casajuana</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/manuel-castells.html" title="Manuel Castells" alt="Manuel Castells" target="_top">Manuel Castells</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/maricel-chavarria.html" title="Maricel Chavarr&iacute;a" alt="Maricel Chavarr&iacute;a" target="_top">Maricel Chavarr&iacute;a</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/flavia-company.html" title="Flavia Company" alt="Flavia Company" target="_top">Flavia Company</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/manuel-cruz.html" title="Manuel Cruz" alt="Manuel Cruz" target="_top">Manuel Cruz</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josepantoni-duranlleida.html" title="Josep Antoni Duran Lleida" alt="Josep Antoni Duran Lleida" target="_top">Josep Antoni Duran Lleida</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/nuria-escur.html" title="N&uacute;ria Escur" alt="N&uacute;ria Escur" target="_top">N&uacute;ria Escur</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-evole.html" title="Jordi &Eacute;vole" alt="Jordi &Eacute;vole" target="_top">Jordi &Eacute;vole</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/daniel-fernandez.html" title="Daniel Fern&aacute;ndez" alt="Daniel Fern&aacute;ndez" target="_top">Daniel Fern&aacute;ndez</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/xavier-ferras.html" title="Xavier Ferr&agrave;s" alt="Xavier Ferr&agrave;s" target="_top">Xavier Ferr&agrave;s</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/lluis-foix.html" title="Llu&iacute;s Foix" alt="Llu&iacute;s Foix" target="_top">Llu&iacute;s Foix</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/laura-freixas.html" title="Laura Freixas" alt="Laura Freixas" target="_top">Laura Freixas</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josep-maria-ganyet.html" title="Josep Maria Ganyet" alt="Josep Maria Ganyet" target="_top">Josep Maria Ganyet</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/maria-dolores-garcia.html" title="Lola Garc&iacute;a" alt="Lola Garc&iacute;a" target="_top">Lola Garc&iacute;a</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/isabel-garcia-pagan.html" title="Isabel Garc&iacute;a Pag&aacute;n" alt="Isabel Garc&iacute;a Pag&aacute;n" target="_top">Isabel Garc&iacute;a Pag&aacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/joan-golobart.html" title="Joan Golobart" alt="Joan Golobart" target="_top">Joan Golobart</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/isabel-gomez.html" title="Isabel G&oacute;mez Melench&oacute;n" alt="Isabel G&oacute;mez Melench&oacute;n" target="_top">Isabel G&oacute;mez Melench&oacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/begona-gomez.html" title="Begoña G&oacute;mez Urzaiz" alt="Begoñal G&oacute;mez Urzaiz" target="_top">Begoña G&oacute;mez Urzaiz</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/antoni-gutierrez-rubi.html" title="Antoni Guti&eacute;rrez-Rub&iacute;" alt="Antoni Guti&eacute;rrez-Rub&iacute;" target="_top">Antoni Guti&eacute;rrez-Rub&iacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/juan-m-hernandez-puertolas.html" title="Juan Mari Hern&aacute;ndez Puert&oacute;las" alt="Juan Mari Hern&aacute;ndez Puert&oacute;las" target="_top">Juan Mari <br>Hern&aacute;ndez Puert&oacute;las</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/daniel-innerarity.html" title="Daniel Innerarity" alt="Daniel Innerarity" target="_top">Daniel Innerarity</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-juan.html" title="Jordi Juan" alt="Jordi Juan" target="_top">Jordi Juan</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/enric-juliana.html" title="Enric Juliana" alt="Enric Juliana" target="_top">Enric Juliana</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josemaria-lassalle.html" title="Jos&eacute; Mar&iacute;a Lassalle" alt="Jos&eacute; Mar&iacute;a Lassalle" target="_top">Jos&eacute; Mar&iacute;a Lassalle</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-llavina.html" title="Jordi Llavina" alt="Jordi Llavina" target="_top">Jordi Llavina</a></li>
+            <!--<li><a class="autor" href="#" title="Chufo Ll&oacute;rens" alt="Chufo Ll&oacute;rens" target="_top">Chufo Ll&oacute;rens</a></li>-->
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/juan-jose-lopez-burniol.html" title="Juan-Jos&eacute; L&oacute;pez Burniol" alt="Juan-Jos&eacute; L&oacute;pez Burniol" target="_top">Juan-Jos&eacute; L&oacute;pez <br>Burniol</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/gabriel-magalhaes.html" title="Gabriel Magalh&atilde;es" alt="Gabriel Magalh&atilde;es" target="_top">Gabriel Magalh&atilde;es</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/remei-margarit.html" title="Remei Margarit" alt="Remei Margarit" target="_top">Remei Margarit</a></li>
+        </ul>  
+        <ul class="columna-2">
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ignacio-martinez-de-pison.html" title="Ignacio Mart&iacute;nez de Pis&oacute;n" alt="Ignacio Mart&iacute;nez de Pis&oacute;n" target="_top">Ignacio Mart&iacute;nez <br>de Pis&oacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/xavier-mas-de-xaxas.html" title="Xavier Mas de Xaxas" alt="Xavier Mas de Xaxas" target="_top">Xavier Mas de Xaxas</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/javier-melero.html" title="Javier Melero" alt="Javier Melero" target="_top">Javier Melero</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josep-lluis-mico.html" title="Josep Llu&iacute;s Mic&oacute;" alt="Josep Llu&iacute;s Mic&oacute;" target="_top">Josep Llu&iacute;s Mic&oacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josep-miro-i-ardevol.html" title="Josep Mir&oacute; i Ard&egrave;vol" alt="Josep Mir&oacute; i Ard&egrave;vol" target="_top">Josep Mir&oacute; i Ard&egrave;vol</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/llatzer-moix.html" title="Ll&agrave;tzer Moix" alt="Ll&agrave;tzer Moix" target="_top">Ll&agrave;tzer Moix</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/miquel-molina.html" title="Miquel Molina" alt="Miquel Molina" target="_top">Miquel Molina</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/imma-monso.html" title="Imma Mons&oacute;" alt="Imma Mons&oacute;" target="_top">Imma Mons&oacute;</a></li> 
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/albert-montagut.html" title="Albert Montagut" alt="Albert Montagut" target="_top">Albert Montagut</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/carles-mundo.html" title="Carles Mund&oacute;" alt="Carles Mund&oacute;" target="_top">Carles Mund&oacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/marc-murtra.html" title="Marc Murtra" alt="Marc Murtra" target="_top">Marc Murtra</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/jordi-nadal-1.html" title="Jordi Nadal" alt="Jordi Nadal" target="_top">Jordi Nadal</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/beatriz-navarro.html" title="Beatriz Navarro" alt="Beatriz Navarro" target="_top">Beatriz Navarro</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/maria-del-carmen-navarro.html" title="Mayka Navarro" alt="Mayka Navarro" target="_top">Mayka Navarro</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/santi-nolla.html" title="Santi Nolla" alt="Santi Nolla" target="_top">Santi Nolla</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/pedro-nueno.html" title="Pedro Nueno" alt="Pedro Nueno" target="_top">Pedro Nueno</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/josep-oliver-alonso.html" title="Josep Oliver Alonso" alt="Josep Oliver Alonso" target="_top">Josep Oliver Alonso</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/fernando-onega.html" title="Fernando &Oacute;nega" alt="Fernando &Oacute;nega" target="_top">Fernando &Oacute;nega</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/joan-josep-pallas.html" title="Joan Josep Pall&agrave;s" alt="Joan Josep Pall&agrave;s" target="_top">Joan Josep Pall&agrave;s</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/alfredo-pastor.html" title="Alfredo Pastor" alt="Alfredo Pastor" target="_top">Alfredo Pastor</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/manel-perez.html" title="Manel P&eacute;rez" alt="Manel P&eacute;rez" target="_top">Manel P&eacute;rez</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/oriol-pi-de-cabanyes.html" title="Oriol Pi de Cabanyes" alt="Oriol Pi de Cabanyes" target="_top">Oriol Pi de Cabanyes</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/margarita-puig.html" title="Margarita Puig" alt="Margarita Puig" target="_top">Margarita Puig</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/antoni-puigverd.html" title="Antoni Puigverd" alt="Antoni Puigverd" target="_top">Antoni Puigverd</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/susana-quadrado.html" title="Susanna Quadrado" alt="Susanna Quadrado" target="_top">Susanna Quadrado</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/pilar-rahola.html" title="Pilar Rahola" alt="Pilar Rahola" target="_top">Pilar Rahola</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/llucia-ramis.html" title="Llucia Ramis" alt="Llucia Ramis" target="_top">Llucia Ramis</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/carme-riera.html" title="Carme Riera" alt="Carme Riera" target="_top">Carme Riera</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/felix-riera.html" title="F&egrave;lix Riera" alt="F&egrave;lix Riera" target="_top">F&egrave;lix Riera</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/borja-de-riquer.html" title="Borja de Riquer" alt="Borja de Riquer" target="_top">Borja de Riquer</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/miquel-roca-junyent.html" title="Miquel Roca i Junyent" alt="Miquel Roca i Junyent" target="_top">Miquel Roca i Junyent</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/alex-rodriguez.html" title="&Aacute;lex Rodríguez" alt="&Aacute;lex Rodríguez" target="_top">&Aacute;lex Rodríguez</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ramon-rovira.html" title="Ramon Rovira" alt="Ramon Rovira" target="_top">Ramon Rovira</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/alex-salmon.html" title="&Aacute;lex S&agrave;lmon" alt="&Aacute;lex S&agrave;lmon" target="_top">&Aacute;lex S&agrave;lmon</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/arturo-san-agustin.html" title="Arturo San Agust&iacute;n" alt="Arturo San Agust&iacute;n" target="_top">Arturo San Agust&iacute;n</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ignacio-sanchez-cuenca.html" title="Ignacio S&aacute;nchez-Cuenca" alt="Ignacio S&aacute;nchez-Cuenca" target="_top">Ignacio S&aacute;nchez-Cuenca</a></li> 
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/luis-sanchez-merlo.html" title="Luis S&aacute;nchez-Merlo" alt="Luis S&aacute;nchez-Merlo" target="_top">Luis S&aacute;nchez-Merlo</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/clara-sanchis-mira.html" title="Clara Sanchis Mira" alt="Clara Sanchis Mira" target="_top">Clara Sanchis Mira</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/gemma-sarda.html" title="Gemma Sard&agrave;" alt="Gemma Sard&agrave;" target="_top">Gemma Sard&agrave;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/santiago-segurola.html" title="Santiago Segurola" alt="Santiago Segurola" target="_top">Santiago Segurola</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/gloria-serra.html" title="Gl&ograve;ria Serra" alt="Gl&ograve;ria Serra" target="_top">Gl&ograve;ria Serra</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/marius-serra.html" title="M&agrave;rius Serra" alt="M&agrave;rius Serra" target="_top">M&agrave;rius Serra</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/mariateresa-sese.html" title="Teresa Ses&eacute;" alt="Teresa Ses&eacute;" target="_top">Teresa Ses&eacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/enric-sierra.html" title="Enric Sierra" alt="Enric Sierra" target="_top">Enric Sierra</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/robert-skidelsky.html" title="Robert Skidelsky" alt="Robert Skidelsky" target="_top">Robert Skidelsky</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/eulalia-sole.html" title="Eul&agrave;lia Sol&eacute;" alt="Eul&agrave;lia Sol&eacute;" target="_top">Eul&agrave;lia Sol&eacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/ramon-sune.html" title="Ramon Suñ&eacute;" alt="Ramon Suñ&eacute;" target="_top">Ramon Suñ&eacute;</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/lluis-uria.html" title="Llu&iacute;s Ur&iacute;a" alt="Llu&iacute;s Ur&iacute;a" target="_top">Llu&iacute;s Ur&iacute;a</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/elisenda-vallejo.html" title="Elisenda Vallejo" alt="Elisenda Vallejo" target="_top">Elisenda Vallejo</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/santi-vila.html" title="Santi Vila" alt="Santi Vila" target="_top">Santi Vila</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/joan-pere-viladecans.html" title="Joan-Pere Viladecans" alt="Joan-Pere Viladecans" target="_top">Joan-Pere Viladecans</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/xavier-vives.html" title="Xavier Vives" alt="Xavier Vives" target="_top">Xavier Vives</a></li>
+            <li><a class="autor" href="https://www.lavanguardia.com/autores/carlos-zanon.html" title="Carlos Zan&oacute;n" alt="Carlos Zan&oacute;n" target="_top">Carlos Zan&oacute;n</a></li>
+        </ul>
+    </div>
+</div>
