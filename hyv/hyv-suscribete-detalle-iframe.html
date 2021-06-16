@@ -1,109 +1,71 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
-</head>
-<body>
-<style>
-    .historia-y-vida-numero { 
-        background-color: #eeeeee;
-        border-radius: 10px;
-        font-family: "TiemposText-Regular",serif;
-        overflow: hidden; 
-        margin: 0 0 15px 0; 
-        padding: 20px 20px 15px 20px; 
+<style> 
+.publicacion-numero { 
+    overflow: hidden; 
+    /*margin-bottom: 15px;*/
+    margin:0;
+    padding: 0; 
     } 
-    .historia-y-vida-numero .portada-historia-y-vida-numero {
-        /*border:solid 1px #cccccc;*/
-        box-shadow: 5px 5px 5px #cccccc;
-        float: left; 
-        margin-right: 20px; 
-        margin-bottom: 10px; 
-        width: 160px; 
+.publicacion-numero .portada-publicacion-numero {
+    background-image: url("https://www.vangstories.com/wpcms/wp-content/uploads/2021/06/portada-num-640.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 2px 2px 2px #cccccc;
+    float: left;
+    height:148px;
+    margin-right: 15px; 
+    margin-bottom: 5px; 
+    width: 110px; 
     } 
-    .historia-y-vida-numero .info-historia-y-vida-numero { 
-        /*float: left;*/ 
-        overflow: hidden; 
-        text-align:left; 
+.publicacion-numero .info-publicacion-numero { 
+    overflow: hidden; 
+    text-align:left; 
     } 
-    .historia-y-vida-numero .datos-historia-y-vida-numero {  
-        margin-top: 8px; 
-        text-align:left; 
+.publicacion-numero .datos-publicacion-numero { 
+    font-size: 16px; 
+    line-height: 18px;
+    margin: 0 0 15px 0;
+    text-align:left; 
     } 
-    .historia-y-vida-numero h1 {
-        color: #000000;
-        font-size: 26px; 
-        font-weight: bold; 
-        line-height: 28px; 
-        margin:0;
-        padding:0;
+.publicacion-numero b { 
+    font-weight: bold; 
     }
-    .historia-y-vida-numero .edicion-fecha, .oferta, .claim { 
-        display: block;
-        font-size: 17px;
-        line-height: 20px;
-        margin-bottom: 9px;
-    }
-    .historia-y-vida-numero .oferta {
-	font-size: 18px;
-        line-height: 20px;
-        font-weight: bold;
-        color: #1068ac;
-        text-decoration: none;
-    }
-    .historia-y-vida-numero .oferta:hover { 
-        color: #df5c28;
-        text-decoration: none;
-    }
-    .historia-y-vida-numero .claim { 
-        font-size: 19px;
-        line-height: 22px;
+.publicacion-numero h1 { 
+    font-size: 24px; 
+    line-height: 26px; 
+    font-weight: bold; 
+    color: #4987bc;
+    margin: 0 0 10px 0;
     } 
-    .historia-y-vida-numero .boton-historia-y-vida-numero { 
-        border-radius: 7px;
-        color: white; 
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 22px; 
-        background-color: #df5c28; 
-        padding: 10px; 
-        display: block; 
-        margin: 15px 0 10px 0; 
-        text-align:center;
-        text-decoration: none;
+.publicacion-numero .boton-publicacion-numero {
+    border-radius: 5px;
+    color: white; 
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px; 
+    background-color: #df5c28; 
+    padding: 6px 12px; 
+    display: block; 
+    margin: 0; 
+    text-align:center;
+    text-decoration: none;
+    width: 150px; 
     } 
-    .historia-y-vida-numero .boton-historia-y-vida-numero:hover { 
-        background-color: #1068ac;
-        text-decoration: none;
-    }
-@media screen and (max-width: 375px){
-    .historia-y-vida-numero { 
-        text-align: center; 
+.publicacion-numero .boton-publicacion-numero:hover { 
+    background-color: #1068ac; 
     } 
-    .historia-y-vida-numero .portada-historia-y-vida-numero {
-        float: inherit;
-        margin: 0 0 20px 0;
-    }
-    .historia-y-vida-numero .datos-historia-y-vida-numero {  
-        margin-top: 8px; 
-        text-align:center; 
-    }
-    .historia-y-vida-numero h1 { 
-        text-align: center;
+.story-leaf-txt-p hr { 
+    height: 1px; 
+    background-color: #d1d1d1 !important; 
     } 
-}
-</style> 
-<div class="historia-y-vida-numero"> 
-    <img class="portada-historia-y-vida-numero" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/05/portada-num-639.png" title="Historia y Vida Nº 639, junio 2021" alt="Historia y Vida Nº 639, junio 2021"/> 
-    <div class="info-historia-y-vida-numero"> 
-        <h1>HISTORIA Y VIDA</h1> 
-        <div class="datos-historia-y-vida-numero"> 
-            <span class="edicion-fecha">Nº 639. JUNIO 2021.</span>
-            <a class="oferta" href="https://services.ad-lante.com/GODO/wcrm/Godo/plantillas/subalta_godo_new.aspx?periodo=12&idobra=6&tventa=Revista&cmcodv=HYVG19&cmtico=B&origen=noti" alt="¡Suscríbete y llévate un regalo!" title="¡Suscríbete y llévate un regalo!" target="_blank">Ahora por sólo 33€ al año recibe 12 revistas y llévate un regalo único.</a>
-            <span class="claim">No leas sobre historia, revívela.</span>
+</style>
+<div class="publicacion-numero"> 
+    <div class="portada-publicacion-numero" title="Historia y Vida Nº 640" alt="Historia y Vida Nº 640"></div> 
+    <div class="info-publicacion-numero"> 
+        <h1>Los retos del gótico</h1>
+        <div class="datos-publicacion-numero"> 
+            <b>Nº 640. JULIO 2021.</b><br> 12 números por 33€.<br> 
         </div> 
-        <a class="boton-historia-y-vida-numero" href="https://services.ad-lante.com/GODO/wcrm/Godo/plantillas/subalta_godo_new.aspx?periodo=12&idobra=6&tventa=Revista&cmcodv=HYVG19&cmtico=B&origen=noti" alt="¡Suscríbete!" title="¡Suscríbete!" target="_blank">¡Suscríbete!</a>
+        <a class="boton-publicacion-numero" href="https://services.ad-lante.com/GODO/wcrm/Godo/plantillas/subalta_godo_new.aspx?periodo=12&idobra=6&tventa=Revista&cmcodv=HYVG19&cmtico=B&origen=web" alt="Suscríbete" title="Suscríbete" target="_blank">SUSCRÍBETE</a> 
     </div> 
 </div>
-</body>
-</html>
