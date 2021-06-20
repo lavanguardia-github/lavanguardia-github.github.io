@@ -4,8 +4,8 @@ var config = {
     showMarkers: false,
     theme: 'light',
     use3dTerrain: false,
-    title: 'Prueba de StoryMap de Mapbox',
-    subtitle: 'Lorem ipsum dolor sit amet consectetur adipiscing elit',
+    title: '',
+    subtitle: '',
     byline: '',
     footer: 'Fuente: Lorem ipsum dolor sit amet consectetur adipiscing elit. Datos: <a href="https://es.wikipedia.org">Wikipedia</a>',
     chapters: [
