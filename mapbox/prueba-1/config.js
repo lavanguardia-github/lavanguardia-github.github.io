@@ -7,7 +7,7 @@ var config = {
     title: '',
     subtitle: '',
     byline: '',
-    footer: 'Fuente: Lorem ipsum dolor sit amet consectetur adipiscing elit. Datos: <a href="https://es.wikipedia.org">Wikipedia</a>',
+    footer: '',
     chapters: [
         {
             id: 'inicio',
