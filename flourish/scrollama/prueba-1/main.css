@@ -1,3 +1,13 @@
+body {
+    overflow-y: 0;
+        }
+body::-webkit-scrollbar {
+    display: none;
+}
+body::scrollbar {
+    display: none;
+}
+
 body, p {
     margin: 0 auto;
 }
