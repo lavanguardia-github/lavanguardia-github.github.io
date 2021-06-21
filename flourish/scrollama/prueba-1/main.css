@@ -1,0 +1,57 @@
+body, p {
+    margin: 0 auto;
+}
+
+.fuera-scroll {
+  width: 100%;
+  height: 50vh;
+  background-color: #ffffff;
+}
+
+#scrolly {
+    position: relative;
+    background-color: #f3f3f3;
+    padding: 16px;
+}
+
+article {
+    position: relative;
+    padding: 0;
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+figure {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+
+    width: 100%;
+    height: 500px;
+    max-height: 94vh;
+    margin: 0;
+
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.step {
+    margin: 0 auto 20px auto;
+    color: #fff;
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+.step p {
+    text-align: left;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: #3b3b3b;
+    width:100%;
+}
+.step.is-active p {
+    background-color: #ffffff;
+    color: #3b3b3b;
+}
