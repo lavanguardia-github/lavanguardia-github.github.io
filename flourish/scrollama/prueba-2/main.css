@@ -142,8 +142,10 @@ body, p {
 }
 #scrolly {
     position: relative;
-    background-color: #f3f3f3;
-    padding: 16px;
+    /*background-color: #f3f3f3;*/
+    background-color: #ffffff;
+    /*padding: 16px;*/
+    padding: 0;
 }
 article {
     position: relative;
