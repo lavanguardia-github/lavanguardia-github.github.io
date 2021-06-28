@@ -1,0 +1,207 @@
+/* TIPOS */
+    
+/*TIEMPOS HEADLINE BLACK*/
+@font-face{font-family:TiemposHeadline-Black;src:url("https://lavanguardia-github.github.io/tipos/TiemposHeadline-Black.woff") format("woff");font-weight:900;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE BOLD*/
+@font-face{font-family:TiemposHeadline-Bold;src:url("https://lavanguardia-github.github.io/tipos/TiemposHeadline-Bold.woff") format("woff");font-weight:700;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE SEMIBOLD*/
+@font-face{font-family:TiemposHeadline-Semibold;src:url("https://lavanguardia-github.github.io/tipos/TiemposHeadline-Semibold.woff") format("woff");font-weight:600;font-style:normal;font-display:swap}
+
+/*TIEMPOS HEADLINE MEDIUM*/
+@font-face{font-family:TiemposHeadline-Medium;src:url("https://lavanguardia-github.github.io/tipos/TiemposHeadline-Medium.woff") format("woff");font-weight:500;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE REGULAR*/
+@font-face{font-family:TiemposHeadline-Regular;src:url("https://lavanguardia-github.github.io/tipos/TiemposHeadline-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+
+/*TIEMPOS HEADLINE LIGHT*/
+@font-face{font-family:TiemposHeadline-Light;src:url("https://lavanguardia-github.github.io/tipos/TiemposHeadline-Light.woff") format("woff");font-weight:100;font-style:normal;font-display:swap}
+
+/*TIEMPOS TEXT BOLD*/
+@font-face{font-family:TiemposText-Bold;src:url("https://lavanguardia-github.github.io/tipos/TiemposText-Bold.woff") format("woff");font-weight:700;font-style:normal;font-display:swap}  
+    
+/*TIEMPOS TEXT SEMIBOLD*/
+@font-face{font-family:TiemposText-Semibold;src:url("https://lavanguardia-github.github.io/tipos/TiemposText-Semibold.woff") format("woff");font-weight:600;font-style:normal;font-display:swap}
+
+/*TIEMPOS TEXT MEDIUM*/
+@font-face{font-family:TiemposText-Medium;src:url("https://lavanguardia-github.github.io/tipos/TiemposText-Medium.woff") format("woff");font-weight:600;font-style:normal;font-display:swap}   
+    
+/*TIEMPOS TEXT REGULAR*/ 
+@font-face{font-family:TiemposText-Regular;src:url("https://lavanguardia-github.github.io/tipos/TiemposText-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+
+/*ROBOTO CONDENSED*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+/*ROBOTO*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*,body,html{
+    font-family: "TiemposText-Regular", sans-serif;
+    letter-spacing:normal;
+    -webkit-font-smoothing:antialiased;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    text-rendering:geometricPrecision;
+    -webkit-tap-highlight-color:transparent;
+    outline:0!important;
+    letter-spacing:-.1px;
+    word-wrap:break-word;
+}
+body {
+    overflow-y: 0;
+        }
+body::-webkit-scrollbar {
+    display: none;
+}
+body::scrollbar {
+    display: none;
+}
+body, p {
+    margin: 0 auto;
+}
+.fuera-scroll {
+  /*width: 100%;*/
+  /*height: 35vh;*/
+  background-color: #ffffff;
+  margin:10px 20px;
+}
+.fuera-scroll p {
+    color: #2e2e2e;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: .1px;
+    font-weight: 300;
+    text-align: left;
+    margin-bottom:20px;
+    max-width: 650px;
+}
+.fuera-scroll #primer-parrafo {
+    margin-top:30px!important;
+}
+.fuera-scroll p:last-child {
+    margin-bottom:30px;
+}
+.fuera-scroll .epigrafe{
+    font-family: "TiemposHeadline-Bold";
+    letter-spacing: -.1px;
+    font-size: 17px;
+    line-height: 19px;
+    color: #4f89b9;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    text-align: center;
+}
+.fuera-scroll .titulo{
+    font-family: "TiemposHeadline-Medium";
+    font-size: 42px;
+    line-height: 44px;
+    padding: 10px 0 20px 0;
+    text-shadow: 2px 0px 0px rgb(255 255 255);
+    text-align: center;
+    margin-bottom: 5px;
+}
+.fuera-scroll .subtitulo{
+    font-family: "TiemposHeadline-Regular";
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: -.1px;
+    color: #888;
+    padding: 10px 0;
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+}
+.fuera-scroll .autores{
+    font-family: "TiemposHeadline-medium";
+    font-size: 16px;
+    line-height: 18px;
+    color: #222;
+    margin-bottom: 35px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.fuera-scroll .titulo-parrafo {
+    font-family: "TiemposHeadline-Semibold", serif;
+    font-size: 30px;
+    line-height: 34px;
+    padding-bottom:0;
+    margin-top: 30px!important;
+}
+.fuera-scroll .creditos {
+    background: #f8f8f8;
+    border-top: solid 1px #ddd;
+    padding: 14px 16px 16px 16px;
+    font-family: "TiemposHeadline-Regular", serif;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 50px auto!important;
+    color: #666;
+    display: block;
+    text-align: left;
+}
+#scrolly {
+    position: relative;
+    background-color: #f3f3f3;
+    padding: 16px;
+}
+article {
+    position: relative;
+    padding: 0;
+    max-width: 40rem;
+    margin: 0 auto;
+}
+figure {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    max-height: 94vh;
+    margin: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.grafico {
+    height:700px;
+}
+.step {
+    margin: 0 auto 20px auto;
+    color: #fff;
+}
+.step:last-child {
+    margin-bottom: 0;
+}
+.step p {
+    text-align: left;
+    padding: 1rem 1.2rem;
+    color: #2e2e2e;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: .1px;
+    /*width:100%;*/
+}
+.step.is-active p {
+    background-color: #ffffff;
+    color: #3b3b3b;
+}
+.step__content {
+    box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 15%)!important;
+    opacity:0.10;
+}
+.step.is-active .step__content {
+    opacity:1;  
+}
+.step .titulo-step {
+    font-family: "TiemposHeadline-Semibold", serif;
+    font-size: 30px;
+    line-height: 34px;
+    padding-bottom:0;
+}
+.step .texto-step {
+    padding-bottom:1.2rem;
+}
+b {
+  font-family: "TiemposHeadline-Semibold", serif;  
+}
