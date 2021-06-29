@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+</head>
+<body>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+    .contenedor-modulo-formacion-emagister{
+        background-color: #ffffff;
+        font-family: "Open Sans", sans-serif;
+        margin: 0 0 30px 0;
+        padding:2% 0 0 0;
+    }
+    .header-modulo-formacion-emagister{
+        background:#001c4c;
+        background:-moz-linear-gradient(top,#001c4c 0,#2a4a73 100%);
+        background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#001c4c),color-stop(100%,#2a4a73));
+        background:-webkit-linear-gradient(top,#001c4c 0,#2a4a73 100%);
+        background:-o-linear-gradient(top,#001c4c 0,#2a4a73 100%);
+        background:-ms-linear-gradient(top,#001c4c 0,#2a4a73 100%);
+        background:linear-gradient(to bottom,#001c4c 0,#2a4a73 100%);
+        color:#ffffff;
+        margin: 0;
+        padding:0;
+    }
+    .logos-modulo-formacion{
+        border:none;
+        display: inline-block;
+        vertical-align: middle;
+        /*width:206px;*/
+        width:37%;
+    }
+    .titulo-modulo-formacion{
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 21px;
+        margin:0 auto;
+        padding:10px 0;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: middle;
+        width: 60%;
+    }
+    .cursos-modulo-formacion {
+        margin: 0;
+        padding:0;
+    }
+    .cursos-modulo-formacion .curso{
+        border-bottom: solid 1px #dddddd;
+        display: block;
+        margin: 20px 0;
+    }
+    .cursos-modulo-formacion .curso:last-child{
+        margin: 0;
+        padding: 0 0 2px 0;
+    }
+    .cursos-modulo-formacion .imagen-curso{
+        margin: 0 3.5% 4% 0;
+        padding:0;
+        /*width:138px;*/
+        width:24%;
+    }
+    .cursos-modulo-formacion .textos-curso{
+        display: inline-block;
+        margin: 0 10px 20px 0;
+        vertical-align: top;
+        width: 67.0%;
+    }
+    .cursos-modulo-formacion .titulo-curso{
+        color:#2e486f;
+        display: block;
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0 0 2% 0;
+        padding:0;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .cursos-modulo-formacion .titulo-curso:hover{
+        color:#379988;
+        text-decoration: none;
+    }
+    .cursos-modulo-formacion .texto-curso{
+        color:#666666;
+        display: block;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        margin: 0;
+        padding:0;
+    }
+    .cursiva {
+        font-style: italic;
+    }
+    .negrita {
+        font-weight: 700;
+        color:#379988;
+    }
+    .filete {
+        border: solid 1px #dddddd;
+    }
+    .searcher-formacion{
+        padding:15px;
+        background-color:#eee;
+        overflow: hidden;
+    }
+    .searcher-formacion__title{
+        font-family:Arial,Helvetica,sans-serif;
+        margin-bottom:10px;
+        display:block;
+        text-transform:uppercase;
+        font-size:12px;
+        font-size:.75rem;
+        line-height:12px;
+        line-height:.75rem;
+        color:#000;
+    }
+    .searcher-formacion__input{
+        -webkit-border-radius:6px;
+        -moz-border-radius:6px;
+        border-radius:6px;
+        color:#666;
+        font-size:14px;
+        font-size:.875rem;
+        line-height:16px;
+        line-height:1rem;
+        padding:5px 0 5px 3%;
+        height:35px;
+        display:block;
+        width:97%;
+        width:-webkit-fill-available;
+        border:1px solid #ccc;
+        margin:0 auto 10px auto;
+    }
+    .searcher-formacion__input::placeholder{
+        color:#c8c5c5;
+    }
+    .searcher-formacion__submit{
+        background-color:#019a88;
+        font-family:Arial,Helvetica,sans-serif;
+        font-weight:700;
+        color:#fff;
+        font-size:14px;
+        font-size:.875rem;
+        line-height:26px;
+        line-height:1.625rem;
+        -webkit-border-radius:6px;
+        -moz-border-radius:6px;
+        border-radius:6px;
+        height:35px;
+        padding:5px 10px;
+        text-align:center;
+        text-transform:uppercase;
+        border:none;
+        width:100%;
+        display:block;
+    }
+    .searcher-formacion__submit:hover{
+        cursor: pointer;
+    }
+@media ( max-width : 448px) {
+    .cursos-modulo-formacion .titulo-curso{
+        font-size: 16px;
+        line-height: 20px;
+        margin: 0 0 1.2% 0;
+    }
+    .cursos-modulo-formacion .texto-curso{
+        font-size: 15px;
+        line-height: 19px;
+    }
+}
+</style>
+<div class="contenedor-modulo-formacion-emagister">
+    <div class="header-modulo-formacion-emagister">
+        <img class="logos-modulo-formacion" src="https://lostsightsblog.files.wordpress.com/2020/05/logos-lv-emagister-206x75-1.png" title="" alt="">
+        <span class="titulo-modulo-formacion">Cursos recomendados</span>
+    </div>
+    <ul class="cursos-modulo-formacion">
+            <li class="curso">
+            <img class="imagen-curso filete" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/06/rrhh_3.png" title="Máster en Dirección de Recursos Humanos" alt="Máster en Dirección de Recursos Humanos">
+            <div class="textos-curso">
+                <a class="titulo-curso negrita" href="https://www.emagister.com/cursolanding?idbusqueda=2715250&dolead=true&pfump=1&pfichas=22167&sid=48&utm_source=lavanguardia&utm_medium=cpl&utm_content=la_vanguardia_cajas_noticias_formacion&utm_campaign=direccion_recursos_humanos_eae" title="Máster en Dirección de Recursos Humanos" alt="Máster en Dirección de Recursos Humanos" target="_top" rel="nofollow">Máster en Dirección de Recursos Humanos</a>
+                <span class="texto-curso">Amplía tus conocimientos para alcanzar grandes logros profesionales<br><span class="negrita">¡Prácticas Garantizadas!</span></span>
+            </div>
+        </li>
+        <li class="curso">
+            <img class="imagen-curso filete" src="https://www.vangstories.com/wpcms/wp-content/uploads/2021/06/profesor_ingles_4.png" title="Máster Online Profesor de Inglés + Titulación Universitaria" alt="Máster Online Profesor de Inglés + Titulación Universitaria">
+            <div class="textos-curso">
+                <a class="titulo-curso negrita" href="https://www.emagister.com/cursolanding?idbusqueda=3397284&dolead=true&pfump=1&pfichas=22167&sid=48&utm_source=lavanguardia&utm_medium=cpl&utm_content=la_vanguardia_cajas_noticias_formacion&utm_campaign=profesor_ingles_educa" title="Máster Online Profesor de Inglés + Titulación Universitaria" alt="Máster Online Profesor de Inglés + Titulación Universitaria" target="_top" rel="nofollow">Máster <i>Online</i> Profesor de Inglés + Titulación Universitaria</a>
+                <span class="texto-curso">Aprende metodologías innovadoras orientadas a facilitar la enseñanza del Inglés <span class="negrita">¡16% de dto!</span></span>
+            </div>
+        </li>
+    </ul>
+    <div class="searcher-formacion">
+        <span class="searcher-formacion__title">Busca tu curso ideal</span>
+        <form target="_blank" action="https://www.emagister.com/web/search/" method="GET" class="searcher-formacion__form" enctype="application/x-www-form-urlencoded" accept-charset="ISO-8859-1">
+            <input class="searcher-formacion__input" type="text" name="q" value="" placeholder="¿Qué quieres estudiar?">
+            <input type="hidden" name="pfichas" value="21948">
+            <input type="hidden" name="sid" value="48">
+            <input type="hidden" name="utm_source" value="lavanguardia">
+            <input type="hidden" name="utm_medium" value="cpl">
+            <input type="hidden" name="utm_content" value="la_vanguardia_buscador_formacion"><input type="hidden" name="utm_campaign" value="la_vanguardia_buscador_formacion">
+            <input type="hidden" name="btnBuscar" value="Buscar">
+            <button type="submit" value="Buscar" class="searcher-formacion__submit">Buscar</button>
+        </form>
+    </div>                  
+</div>
+</body>
+</html>
