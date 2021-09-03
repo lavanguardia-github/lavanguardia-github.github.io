@@ -141,6 +141,21 @@ body, p {
     display: block;
     text-align: left;
 }
+.fuera-scroll .credito-imagen {
+    background: #f5f5f5;
+    padding: 10px 15px;
+    font-family: 'Libre Franklin',sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -.1px;
+    color: #666;
+    display: block;
+    text-align: left;
+    width: 100%;
+}
+.fuera-scroll .imagen-apertura {
+    width:100;
+}
 #scrolly {
     position: relative;
     background-color: #ffffff;
