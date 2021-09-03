@@ -154,7 +154,7 @@ body, p {
     width: 100%;
 }
 .fuera-scroll .imagen-apertura {
-    width:100;
+    width:100%;
 }
 #scrolly {
     position: relative;
