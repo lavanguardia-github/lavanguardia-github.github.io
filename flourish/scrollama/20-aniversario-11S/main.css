@@ -192,7 +192,7 @@ figure {
 }
 .step p {
     text-align: left;
-    padding: 1rem 1.2rem;
+    padding: 1.2rem;
     color: #2e2e2e;
     font-size: 18px;
     line-height: 27px;
@@ -219,6 +219,7 @@ figure {
 }
 .step .texto-step {
     padding-bottom:1.2rem;
+    padding-top:0.5rem;
 }
 b {
   font-family: "TiemposHeadline-Semibold", serif;  
