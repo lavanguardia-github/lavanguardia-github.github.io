@@ -224,3 +224,13 @@ figure {
 b {
   font-family: "TiemposHeadline-Semibold", serif;  
 }
+@media screen and (max-width: 620px) {
+.step .titulo-step {
+    font-size: 20px;
+    line-height: 26px;
+    }
+.step p {
+    font-size: 14px;
+    line-height: 20px;
+    }
+}
