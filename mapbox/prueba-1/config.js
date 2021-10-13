@@ -21,18 +21,8 @@ var config = {
                 pitch: 0.00,
                 bearing: 0.00
             },
-            onChapterEnter: [
-                {
-                    layer: 'inicio',
-                    opacity: 0.95
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'inicio',
-                    opacity: 0.95
-                }
-            ]
+            onChapterEnter: [],
+            onChapterExit: []
         },
         {
             id: 'barcelona',
@@ -46,18 +36,8 @@ var config = {
                 pitch: 50.00,
                 bearing: 0.00
             },
-            onChapterEnter: [
-                {
-                    layer: 'barcelona',
-                    opacity: 0.95
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'barcelona',
-                    opacity: 0.95
-                }
-            ]
+            onChapterEnter: [],
+            onChapterExit: []
         },
         {
             id: 'madrid',
@@ -71,18 +51,8 @@ var config = {
                 pitch: 40.00,
                 bearing: 0.00
             },
-            onChapterEnter: [
-                {
-                    layer: 'madrid',
-                    opacity: 0.95
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'madrid',
-                    opacity: 0.95
-                }
-            ]
+            onChapterEnter: [],
+            onChapterExit: []
         },
         {
             id: 'paris',
@@ -96,18 +66,8 @@ var config = {
                 pitch: 47.00,
                 bearing: 0.00
             },
-            onChapterEnter: [
-                {
-                    layer: 'paris',
-                    opacity: 0.95
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'paris',
-                    opacity: 0.95
-                }
-            ]
+            onChapterEnter: [],
+            onChapterExit: []
         },
         {
             id: 'dublin',
@@ -121,18 +81,8 @@ var config = {
                 pitch: 35.50,
                 bearing: -12.80
             },
-            onChapterEnter: [
-                {
-                    layer: 'dublin',
-                    opacity: 0.95
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'dublin',
-                    opacity: 0.95
-                }
-            ]
+            onChapterEnter: [],
+            onChapterExit: []
         },
         {
             id: 'nueva-york',
@@ -146,18 +96,8 @@ var config = {
                 pitch: 0.00,
                 bearing: -2.59
             },
-            onChapterEnter: [
-                {
-                    layer: 'nueva-york',
-                    opacity: 0.95
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'nueva-york',
-                    opacity: 0.95
-                }
-            ]
+            onChapterEnter: [],
+            onChapterExit: []
         },
         {
             id: 'final',
@@ -171,18 +111,8 @@ var config = {
                 pitch: 0.00,
                 bearing: 0.00
             },
-            onChapterEnter: [
-                {
-                    layer: 'final',
-                    opacity: 0.95
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'final',
-                    opacity: 0.95
-                }
-            ]
+            onChapterEnter: [],
+            onChapterExit: []
         }
     ]
 };
