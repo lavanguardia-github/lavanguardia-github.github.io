@@ -24,17 +24,17 @@ var config = {
             onChapterEnter: [
                 {
                     layer: 'gnpglaciers-1998',
-                    opacity: 0.25
+                    opacity: 0.95
                 },
                 {
                     layer: 'glaciernp-boundary',
-                    opacity: 0.25
+                    opacity: 0.95
                 }
             ],
             onChapterExit: [
                 {
                     layer: 'glaciernp-boundary',
-                    opacity: 0
+                    opacity: 0.95
                 }
             ]
         },
@@ -68,13 +68,13 @@ var config = {
             onChapterEnter: [
                 {
                     layer: 'gnpglaciers-2015',
-                    opacity: 0.25
+                    opacity: 0.95
                 }
             ],
             onChapterExit: [
                 {
                     layer: 'gnpglaciers-2015',
-                    opacity: 0
+                    opacity: 0.95
                 }
             ]
         },
@@ -93,13 +93,13 @@ var config = {
             onChapterEnter: [
                 {
                     layer: 'gnpglaciers-2015',
-                    opacity: 0.25,
+                    opacity: 0.95
                 }
             ],
             onChapterExit: [
                 {
                     layer: 'gnpglaciers-2015',
-                    opacity: 0
+                    opacity: 0.95
                 }
             ]
         },
@@ -118,13 +118,13 @@ var config = {
             onChapterEnter: [
                 {
                     layer: 'gnpglaciers-2015',
-                    opacity: 0.25
+                    opacity: 0.95
                 }
             ],
             onChapterExit: [
                 {
                     layer: 'gnpglaciers-2015',
-                    opacity: 0
+                    opacity: 0.95
                 }
             ]
         },
@@ -158,13 +158,13 @@ var config = {
             onChapterEnter: [
                 {
                     layer: 'gnpglaciers-2015',
-                    opacity: 0.25,
+                    opacity: 0.95
                 }
             ],
             onChapterExit: [
                 {
                     layer: 'gnpglaciers-2015',
-                    opacity: 0
+                    opacity: 0.95
                 }
             ]
         }
