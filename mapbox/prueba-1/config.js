@@ -23,17 +23,13 @@ var config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'gnpglaciers-1998',
-                    opacity: 0.95
-                },
-                {
-                    layer: 'glaciernp-boundary',
+                    layer: 'inicio',
                     opacity: 0.95
                 }
             ],
             onChapterExit: [
                 {
-                    layer: 'glaciernp-boundary',
+                    layer: 'inicio',
                     opacity: 0.95
                 }
             ]
@@ -50,8 +46,18 @@ var config = {
                 pitch: 50.00,
                 bearing: 0.00
             },
-            onChapterEnter: [],
-            onChapterExit: []
+            onChapterEnter: [
+                {
+                    layer: 'barcelona',
+                    opacity: 0.95
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'barcelona',
+                    opacity: 0.95
+                }
+            ]
         },
         {
             id: 'madrid',
@@ -67,13 +73,13 @@ var config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'gnpglaciers-2015',
+                    layer: 'madrid',
                     opacity: 0.95
                 }
             ],
             onChapterExit: [
                 {
-                    layer: 'gnpglaciers-2015',
+                    layer: 'madrid',
                     opacity: 0.95
                 }
             ]
@@ -92,19 +98,19 @@ var config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'gnpglaciers-2015',
+                    layer: 'paris',
                     opacity: 0.95
                 }
             ],
             onChapterExit: [
                 {
-                    layer: 'gnpglaciers-2015',
+                    layer: 'paris',
                     opacity: 0.95
                 }
             ]
         },
         {
-            id: 'dublín',
+            id: 'dublin',
             alignment: 'left',
             title: 'Dublín',
             image: '',
@@ -117,19 +123,19 @@ var config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'gnpglaciers-2015',
+                    layer: 'dublin',
                     opacity: 0.95
                 }
             ],
             onChapterExit: [
                 {
-                    layer: 'gnpglaciers-2015',
+                    layer: 'dublin',
                     opacity: 0.95
                 }
             ]
         },
         {
-            id: 'nueva york',
+            id: 'nueva-york',
             alignment: 'left',
             title: 'Nueva York',
             image: '',
@@ -140,8 +146,18 @@ var config = {
                 pitch: 0.00,
                 bearing: -2.59
             },
-            onChapterEnter: [],
-            onChapterExit: []
+            onChapterEnter: [
+                {
+                    layer: 'nueva-york',
+                    opacity: 0.95
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'nueva-york',
+                    opacity: 0.95
+                }
+            ]
         },
         {
             id: 'final',
@@ -157,13 +173,13 @@ var config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'gnpglaciers-2015',
+                    layer: 'final',
                     opacity: 0.95
                 }
             ],
             onChapterExit: [
                 {
-                    layer: 'gnpglaciers-2015',
+                    layer: 'final',
                     opacity: 0.95
                 }
             ]
