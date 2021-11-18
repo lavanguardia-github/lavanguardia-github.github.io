@@ -13,6 +13,7 @@ body {
   line-height: 1.45;
   padding: 0 !important;
   margin: 0 !important;
+
 }
 
 .calculator {
@@ -25,6 +26,8 @@ body {
   position: relative;
   padding: 0 !important;
   margin: 0 !important;
+      height: 250px ;
+
 }
 
 .center {
@@ -113,37 +116,11 @@ select option {
   padding: 100px 40px;
 }
 
-@media (min-width: 1285px) {
-  .calculator, .data {
-    display: inline-block;
-  }
-
-  .calculator {
-    float: left;
-    width: 100%;
-    padding-left: 2%;
-  }
-
-  .data {
-    float: right;
-    width: 40%;
-    padding: 20px 40px;
-  }
-}
-.data p, .data h1, .data table {
-  width: 80%;
-}
-
-
 
 
 @media (max-width: 299px) {
-  .calculator {
-    height: 350px ;
+  .pollution {
+    height: 400px ;
   }
 }
-@media (min-width: 300px) {
-  .calculator {
-    height: 250px ;
-  }
-}
+
