@@ -26,7 +26,7 @@ body {
   position: relative;
   padding: 0 !important;
   margin: 0 !important;
-      height: 250px ;
+      height: 350px ;
 
 }
 
@@ -120,7 +120,13 @@ select option {
 
 @media (max-width: 299px) {
   .pollution {
-    height: 400px ;
+    height: 450px ;
   }
 }
+@media (min-width: 300px) {
+  .pollution {
+    height: 350px ;
+  }
+}
+
 
