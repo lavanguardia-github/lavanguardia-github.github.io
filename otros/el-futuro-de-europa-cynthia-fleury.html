@@ -28,14 +28,14 @@
         padding: 5px 0 0 0;
         text-align: center;
     }
-    .embajador {
+    .personaje {
         display:inline-block;
     }
-    .el-futuro-de-europa .imagen-embajador {
+    .el-futuro-de-europa .imagen-personaje {
         display:block;
     }
 
-    .el-futuro-de-europa .imagen-embajador {
+    .el-futuro-de-europa .imagen-personaje {
         float: left; 
         margin-right: 6px; 
         margin-top: 3px;
@@ -66,8 +66,23 @@
         font-size: 17px;
         line-height: 20px;
     }
+    .el-futuro-de-europa .todos-serie{
+        background-color:#ffffff;
+        color:#000000;
+        display: block;
+        font-size: 13px;
+        font-weight:700;
+        line-height: 16px;
+        text-decoration: none;
+        border-top:dotted 1px #cccccc;
+        padding:8px 7px 6px 7px;
+        text-transform:uppercase;
+    }
+    .el-futuro-de-europa .todos-serie:hover{
+        color:#0032ac;
+    }
 @media screen and (max-width: 820px){
-    .el-futuro-de-europa .imagen-embajador {
+    .el-futuro-de-europa .imagen-personaje {
         border-bottom: solid 1px #cccccc;
     }
     }
@@ -75,10 +90,10 @@
     .el-futuro-de-europa { 
         text-align: center; 
     } 
-    .embajador {
+    .personaje {
         margin-right: 0;
     }
-    .el-futuro-de-europa .imagen-embajador {
+    .el-futuro-de-europa .imagen-personaje {
         display:inline;
         float: inherit;
         margin-top:8px;
@@ -104,8 +119,8 @@
     <div class="logo-futuro-europa">
         <img src="https://lavanguardia-github.github.io/Imagenes/el-futuro-de-europa-250x25.png" title="El futuro de Europa" alt="El futuro de Europa"/>
     </div>
-    <div class="embajador">
-    <img class="imagen-embajador" src="https://lavanguardia-github.github.io/Imagenes/cynthia-fleury-150x125.png" title="Cynthia Fleury" alt="Cynthia Fleury"/> 
+    <div class="personaje">
+    <img class="imagen-personaje" src="https://lavanguardia-github.github.io/Imagenes/cynthia-fleury-150x125.png" title="Cynthia Fleury" alt="Cynthia Fleury"/> 
     <div class="info-el-futuro-de-europa"> 
         <h1>Cynthia Fleury</h1> 
         <div class="datos-el-futuro-de-europa"> 
@@ -113,6 +128,7 @@
         </div> 
     </div>
     </div>
+    <span class="todos-serie">Consulta todos los artículos de la serie</span>
 </a>
 </div>
 </body>
