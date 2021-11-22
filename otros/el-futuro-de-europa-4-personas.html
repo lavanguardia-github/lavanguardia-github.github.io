@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+</head>
+<body>
+<style>
+    .el-futuro-de-europa { 
+        background-color: #f8f8f8;
+        /*border-radius: 10px;*/
+        border-top:solid 1px #cccccc;
+        border-bottom:solid 1px #cccccc;
+        font-family: "TiemposText-Regular",serif;
+        overflow: hidden; 
+        margin: 0 0 15px 0; 
+        padding: 0;
+        text-align:center;
+    }
+    .el-futuro-de-europa .enlace-futuro-europa{
+        display: block;
+        height:100%;
+        text-decoration: none;
+    }
+    .el-futuro-de-europa .logo-futuro-europa {
+        background-color: #ffffff;
+        display: block;
+        border-bottom: dotted 1px #cccccc;
+        padding: 5px 0 0 0;
+        text-align: center;
+    }
+    .personaje {
+        display:inline-block;
+        margin-right: 20px;
+    }
+    .el-futuro-de-europa .imagen-personaje {
+        /*border:solid 1px #cccccc;*/
+        /*box-shadow: 5px 5px 5px #cccccc;*/
+                display:block;
+        float: left; 
+        margin-right: 6px; 
+        margin-top: 3px;
+        width: 150px; 
+    } 
+    .el-futuro-de-europa .info-el-futuro-de-europa { 
+        /*float: left;*/
+        margin-top:15px;
+        overflow: hidden; 
+        text-align:left; 
+    } 
+    .el-futuro-de-europa .datos-el-futuro-de-europa {  
+        margin-top: 2px;
+        text-align:left; 
+    } 
+    .el-futuro-de-europa h1 {
+        color: #000000;
+        font-size: 26px; 
+        font-weight: bold;
+        letter-spacing: -0.7px;
+        line-height: 28px; 
+        margin:0;
+        padding:0;
+    }
+    .el-futuro-de-europa .cargo {
+        color:#000000;
+        display: block;
+        font-size: 17px;
+        line-height: 20px;
+    } 
+    .el-futuro-de-europa .todos-serie{
+        background-color:#ffffff;
+        color:#000000;
+        display: block;
+        font-size: 13px;
+        font-weight:700;
+        line-height: 16px;
+        text-decoration: none;
+        border-top:dotted 1px #cccccc;
+        padding:8px 7px 6px 7px;
+        text-transform:uppercase;
+    }
+    .el-futuro-de-europa .todos-serie:hover{
+        color:#0032ac;
+    }
+@media screen and (max-width: 1441px){
+    #personaje-1, #personaje-2, #personaje-3 {
+        border-bottom: solid 1px #cccccc;
+    }
+}
+@media screen and (max-width: 1096px){
+    #personaje-3 {
+        border-bottom: none;
+    }
+}
+@media screen and (max-width: 733px){
+    #personaje-1, #personaje-2, #personaje-3 {
+        border-bottom: solid 1px #cccccc;
+    }
+}
+@media screen and (max-width: 720px){
+    .personaje {
+        border-bottom: solid 1px #cccccc;
+    }
+}
+@media screen and (max-width: 425px){
+    .el-futuro-de-europa { 
+        text-align: center; 
+    } 
+    #personaje-1, #personaje-2, #personaje-3, #personaje-4 {
+        border-bottom: none;
+    }
+    #personaje-4 {
+        margin-bottom: 15px;
+    }
+    .el-futuro-de-europa .imagen-personaje {
+        display:inline;
+        float: inherit;
+        margin-top:8px;
+        margin-left: 0;
+        border-bottom: solid 1px #cccccc;
+        margin-right: 0;
+    }
+    .el-futuro-de-europa .info-el-futuro-de-europa { 
+        margin-top:7px;
+    } 
+    .el-futuro-de-europa .datos-el-futuro-de-europa {  
+        text-align:center; 
+    }
+    .el-futuro-de-europa h1 { 
+        text-align: center;
+        font-size: 22px; 
+        line-height: 24px; 
+    } 
+}
+</style> 
+<div class="el-futuro-de-europa">
+<a class="enlace-futuro-europa" href="https://www.lavanguardia.com/temas/el-futuro-de-europa.html" title="El futuro de Europa" alt="El futuro de Europa" target="_top">
+    <div class="logo-futuro-europa">
+        <img src="https://lavanguardia-github.github.io/Imagenes/el-futuro-de-europa-250x25.png" title="El futuro de Europa" alt="El futuro de Europa"/>
+    </div>
+    <div class="personaje" id="personaje-1">
+    <img class="imagen-personaje" src="https://lavanguardia-github.github.io/Imagenes/grzegorz-nocko-150x125.png" title="Grzegorz Nocko" alt="Grzegorz Nocko"/> 
+    <div class="info-el-futuro-de-europa"> 
+        <h1>Grzegorz Nocko</h1> 
+        <div class="datos-el-futuro-de-europa"> 
+            <span class="cargo">Fundación Hertie<br>Director de la Oficina en Berlín
+</span>
+        </div> 
+    </div>
+    </div>
+    <div class="personaje" id="personaje-2">
+    <img class="imagen-personaje" src="https://lavanguardia-github.github.io/Imagenes/cynthia-fleury-150x125.png" title="Cyntia Fleury" alt="Cyntia Fleury"/> 
+    <div class="info-el-futuro-de-europa"> 
+        <h1>Cyntia Fleury</h1> 
+        <div class="datos-el-futuro-de-europa"> 
+            <span class="cargo">Filósofa<br>y psicoanalista</span>
+        </div> 
+    </div>     
+    </div>
+    <div class="personaje" id="personaje-3">
+    <img class="imagen-personaje" src="https://lavanguardia-github.github.io/Imagenes/daniel-innerarity-150x125.png" title="Daniel Innerarity" alt="Daniel Innerarity"/> 
+    <div class="info-el-futuro-de-europa"> 
+        <h1>Daniel Innerarity</h1> 
+        <div class="datos-el-futuro-de-europa"> 
+            <span class="cargo">Filósofo y director<br>del Instituto Globernance</span>
+        </div> 
+    </div>
+    </div>
+    <div class="personaje" id="personaje-4">
+    <img class="imagen-personaje" src="https://lavanguardia-github.github.io/Imagenes/julia-fernandez-150x125.png" title="Julia Fernández" alt="Julia Fernández"/> 
+    <div class="info-el-futuro-de-europa"> 
+        <h1>Julia Fernández</h1> 
+        <div class="datos-el-futuro-de-europa"> 
+            <span class="cargo">Fundadora y presidenta<br>de Equipo Aurora </span>
+        </div> 
+    </div>     
+    </div>
+    <span class="todos-serie">Consulta todos los artículos de la serie</span>
+    </a>
+</div>
+</body>
+</html>
