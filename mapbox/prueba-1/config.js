@@ -32,7 +32,7 @@ var config = {
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
                 center: [43.780, 23.539],
-                zoom: 3.00,
+                zoom: 2.00,
                 pitch: 40.00,
                 bearing: -5.00
             },
