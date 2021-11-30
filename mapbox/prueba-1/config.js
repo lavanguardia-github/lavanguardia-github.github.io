@@ -18,8 +18,8 @@ var config = {
             location: {
                 center: [39.1925, 21.48581],
                 zoom: 1.50,
-                pitch: 0.00,
-                bearing: 0.00
+                pitch: 60.00,
+                bearing: 30.00
             },
             onChapterEnter: [],
             onChapterExit: []
@@ -34,7 +34,7 @@ var config = {
                 center: [39.1925, 21.48581],
                 zoom: 7.68,
                 pitch: 50.00,
-                bearing: 0.00
+                bearing: 50.00
             },
             onChapterEnter: [],
             onChapterExit: []
@@ -49,7 +49,7 @@ var config = {
                 center: [41.72082, 27.51141],
                 zoom: 8.46,
                 pitch: 40.00,
-                bearing: 0.00
+                bearing: 50.00
             },
             onChapterEnter: [],
             onChapterExit: []
