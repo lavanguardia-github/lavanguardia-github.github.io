@@ -34,7 +34,7 @@ var config = {
                 center: [39.1925, 21.48581],
                 zoom: 7.68,
                 pitch: 40.00,
-                bearing: 10.00
+                bearing: -5.00
             },
             onChapterEnter: [],
             onChapterExit: []
