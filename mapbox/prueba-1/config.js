@@ -16,7 +16,7 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem. Etiam hendrerit libero vel neque fringilla, vulputate mollis nisl ullamcorper. Praesent ac massa nec velit fringilla viverra ut quis felis.',
             location: {
-                center: [39.203,21.486],
+                center: [39.1925, 21.48581],
                 zoom: 1.50,
                 pitch: 0.00,
                 bearing: 0.00
@@ -31,7 +31,7 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [39.203,21.486],
+                center: [39.1925, 21.48581],
                 zoom: 7.68,
                 pitch: 50.00,
                 bearing: 0.00
@@ -46,7 +46,7 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [41.72082,27.51141],
+                center: [41.72082, 27.51141],
                 zoom: 8.46,
                 pitch: 40.00,
                 bearing: 0.00
@@ -61,7 +61,7 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [45.34634,26.50175],
+                center: [45.34634, 26.50175],
                 zoom: 8.27,
                 pitch: 47.00,
                 bearing: 0.00
@@ -76,8 +76,8 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [46.12017,28.30567],
-                zoom: 9.87,
+                center: [46.12017, 28.30567],
+                zoom: 8.00,
                 pitch: 35.50,
                 bearing: -12.80
             },
@@ -91,8 +91,8 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [46.67529,24.71355],
-                zoom: 10.77,
+                center: [46.67529, 24.71355],
+                zoom: 8.30,
                 pitch: 0.00,
                 bearing: -2.59
             },
@@ -106,8 +106,8 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [46.67529,24.71355],
-                zoom: 10.77,
+                center: [44.41817, 24.5167],
+                zoom: 8.00,
                 pitch: 0.00,
                 bearing: -2.59
             },
@@ -121,7 +121,7 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [44.85011,20.44928],
+                center: [44.85011, 20.44928],
                 zoom: 10.77,
                 pitch: 0.00,
                 bearing: -2.59
@@ -136,8 +136,8 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [42.59016,219.97635],
-                zoom: 10.77,
+                center: [42.59016, 19.97635],
+                zoom: 7.77,
                 pitch: 0.00,
                 bearing: -2.59
             },
@@ -151,8 +151,8 @@ var config = {
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.).',
             location: {
-                center: [39.1925,21.48581],
-                zoom: 1.50,
+                center: [39.1925, 21.48581],
+                zoom: 8.20,
                 pitch: 0.00,
                 bearing: 0.00
             },
