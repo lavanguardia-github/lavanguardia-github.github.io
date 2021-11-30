@@ -13,7 +13,7 @@ var config = {
             id: 'inicio',
             alignment: 'left',
             title: 'Dakkar 2022',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/2015-06-19_Glacier_National_Park_%28U.S.%29_8633.jpg/800px-2015-06-19_Glacier_National_Park_%28U.S.%29_8633.jpg',
+            image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem. Etiam hendrerit libero vel neque fringilla, vulputate mollis nisl ullamcorper. Praesent ac massa nec velit fringilla viverra ut quis felis.',
             location: {
                 center: [21.48581, 39.1925],
@@ -25,13 +25,13 @@ var config = {
             onChapterExit: []
         },
         {
-            id: 'barcelona',
+            id: 'jeddah',
             alignment: 'left',
-            title: 'Barcelona',
+            title: 'Jeddah',
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [2.17459, 41.38111],
+                center: [21.48581, 39.1925],
                 zoom: 7.68,
                 pitch: 50.00,
                 bearing: 0.00
@@ -40,13 +40,13 @@ var config = {
             onChapterExit: []
         },
         {
-            id: 'madrid',
+            id: 'hail',
             alignment: 'left',
-            title: 'Madrid',
+            title: 'Hail',
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [-3.69422, 40.41576],
+                center: [27.51141, 41.72082],
                 zoom: 8.46,
                 pitch: 40.00,
                 bearing: 0.00
@@ -55,13 +55,13 @@ var config = {
             onChapterExit: []
         },
         {
-            id: 'paris',
+            id: 'al-artawiya',
             alignment: 'left',
-            title: 'París',
+            title: 'Al Artawiya',
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [2.34220, 48.86520],
+                center: [26.50175, 45.34634],
                 zoom: 8.27,
                 pitch: 47.00,
                 bearing: 0.00
@@ -70,13 +70,13 @@ var config = {
             onChapterExit: []
         },
         {
-            id: 'dublin',
+            id: 'al-qaysumah',
             alignment: 'left',
-            title: 'Dublín',
+            title: 'Al Qaysumah',
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [-6.25841, 53.35098],
+                center: [28.30567, 46.12017],
                 zoom: 9.87,
                 pitch: 35.50,
                 bearing: -12.80
@@ -85,13 +85,13 @@ var config = {
             onChapterExit: []
         },
         {
-            id: 'nueva-york',
+            id: 'riyadh',
             alignment: 'left',
-            title: 'Nueva York',
+            title: 'Riyadh',
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
             location: {
-                center: [-73.98784, 40.75006],
+                center: [24.71355, 46.67529],
                 zoom: 10.77,
                 pitch: 0.00,
                 bearing: -2.59
@@ -100,13 +100,58 @@ var config = {
             onChapterExit: []
         },
         {
-            id: 'final',
+            id: 'al-dawadimi',
             alignment: 'left',
-            title: 'Final',
+            title: 'Al Dawadimi',
+            image: '',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
+            location: {
+                center: [24.71355, 46.67529],
+                zoom: 10.77,
+                pitch: 0.00,
+                bearing: -2.59
+            },
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+         {
+            id: 'wadi-ad-dawasir',
+            alignment: 'left',
+            title: 'AWadi Ad Dawasir',
+            image: '',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
+            location: {
+                center: [20.44928, 44.85011],
+                zoom: 10.77,
+                pitch: 0.00,
+                bearing: -2.59
+            },
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+         {
+            id: 'bisha',
+            alignment: 'left',
+            title: 'Bisha',
+            image: '',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.',
+            location: {
+                center: [219.97635, 42.59016],
+                zoom: 10.77,
+                pitch: 0.00,
+                bearing: -2.59
+            },
+            onChapterEnter: [],
+            onChapterExit: []
+        },
+        {
+            id: 'jeddah',
+            alignment: 'left',
+            title: 'Jeddah',
             image: '',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem.).',
             location: {
-                center: [-113.91666, 48.66451],
+                center: [21.48581, 39.1925],
                 zoom: 1.50,
                 pitch: 0.00,
                 bearing: 0.00
