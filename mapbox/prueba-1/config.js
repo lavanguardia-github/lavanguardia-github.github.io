@@ -13,7 +13,7 @@ var config = {
             id: 'inicio',
             alignment: 'left',
             title: 'Dakkar 2022',
-            image: '',
+            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/2015-06-19_Glacier_National_Park_%28U.S.%29_8633.jpg/800px-2015-06-19_Glacier_National_Park_%28U.S.%29_8633.jpg',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem. Etiam hendrerit libero vel neque fringilla, vulputate mollis nisl ullamcorper. Praesent ac massa nec velit fringilla viverra ut quis felis.',
             location: {
                 center: [39.1925, 21.48581],
