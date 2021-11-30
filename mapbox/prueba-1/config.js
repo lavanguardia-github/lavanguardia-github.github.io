@@ -17,9 +17,9 @@ var config = {
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget venenatis orci, a sollicitudin nulla. Proin sit amet pharetra nulla, vitae cursus nisl. Praesent quam mi, lacinia vitae quam eu, ornare pulvinar urna. Sed aliquet turpis consectetur, tristique risus eu, molestie ante. Donec dapibus tincidunt ligula, et cursus nunc. Mauris scelerisque, nibh ut sollicitudin aliquet, libero enim congue erat, non sagittis tellus magna et sem. Etiam hendrerit libero vel neque fringilla, vulputate mollis nisl ullamcorper. Praesent ac massa nec velit fringilla viverra ut quis felis.',
             location: {
                 center: [39.1925, 21.48581],
-                zoom: 1.50,
-                pitch: 60.00,
-                bearing: 30.00
+                zoom: 3,
+                pitch: 40.00,
+                bearing: 10.00
             },
             onChapterEnter: [],
             onChapterExit: []
@@ -33,8 +33,8 @@ var config = {
             location: {
                 center: [39.1925, 21.48581],
                 zoom: 7.68,
-                pitch: 50.00,
-                bearing: 50.00
+                pitch: 40.00,
+                bearing: 10.00
             },
             onChapterEnter: [],
             onChapterExit: []
