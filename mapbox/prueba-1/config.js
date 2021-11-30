@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/conisco/ckowq6z8m0tgq18pchl47cf5b',
+    style: 'mapbox://styles/conisco/ckw3pz0r91cvs15o1hywbawn1',
     accessToken: 'pk.eyJ1IjoiY29uaXNjbyIsImEiOiJjamxkaWNyOXUwYW4zM3ZxZ2c1ZXFlNWE2In0.ytG8rMF1nf5OZtOMpZVQHg',
     showMarkers: false,
     theme: 'light',
