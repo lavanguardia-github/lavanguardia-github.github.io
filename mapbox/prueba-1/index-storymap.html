@@ -77,9 +77,10 @@ body::scrollbar {
             margin: auto;
         }
         .light {
-            color: #444;
-            background-color: #fafafa;
+            color: #000;
+        background-color: #fafafa;
         }
+
         .dark {
             color: #fafafa;
             background-color: #444;
@@ -88,28 +89,42 @@ body::scrollbar {
             padding-bottom: 50vh;
             margin-bottom: 50vh;
             opacity: 0.95;
+            filter: drop-shadow(0.2rem 0.2rem 0.15rem rgba(0,0,0,.25));
+        }
+        .step div {
+            margin:0;
+            padding:20px;
         }
         .step.active {
             opacity: 0.95;
         }
-
-        .step div {
-            padding:  25px 50px;
-            line-height: 25px;
-            font-size: 13px;
+        h3 {
+            font-family: 'TiemposHeadline', serif;
+            font-weight: 700;
+            font-size: 26px;
+            line-height: 28px;
+            margin:0 0 6px 0;
+            padding:0;
+            filter: drop-shadow(0.12rem 0.12rem .0 rgba(255,255,255,.6));
+}
+        p {
+            font-family: 'Libre Franklin',sans-serif;
+            font-size: 16px;
+            line-height: 22px;
+            margin:0;
+            padding:0;
+            text-shadow: 1px 1px #fff;
         }
-
         .step img {
             width: 100%;
+            margin:5px 0 10px 0;
         }
-
         @media (max-width: 750px) {
             .centered, .lefty, .righty, .fully {
                 width: 90vw;
                 margin: 0 auto;
             }
         }
-
         /* Fix issue on mobile browser where scroll breaks  */
         .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan, 
         .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
