@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* TIPOS */
+    
+/*TIEMPOS HEADLINE BLACK*/
+@font-face{font-family:tiemposheadline-black;src:url(/css/fonts/v2/TiemposHeadline-Black.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Black.eot#iefix) format("embedded-opentype");font-weight:700;font-style:normal;font-display:swap}
+
+@font-face{font-family:TiemposHeadline-Black;src:url(fonts/v2/TiemposHeadline-Black.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE BOLD*/
+@font-face{font-family:tiemposheadline-bold;src:url(/css/fonts/v2/TiemposHeadline-Bold.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Bold.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
+    
+@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Bold.woff) format("woff");font-weight:900;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE SEMIBOLD*/
+@font-face{font-family:tiemposheadline-semibold;src:url(/css/fonts/v2/TiemposHeadline-Semibold.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Semibold.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
+
+/*TIEMPOS HEADLINE MEDIUM*/
+@font-face{font-family:tiemposheadline-medium;src:url(/css/fonts/v2/TiemposHeadline-Medium.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Medium.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
+
+@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Medium.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE REGULAR*/
+@font-face{font-family:tiemposheadline-regular;src:url(/css/fonts/v2/TiemposHeadline-Regular.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Regular.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
+
+@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
+
+/*TIEMPOS HEADLINE LIGHT*/
+@font-face{font-family:tiemposheadline-light;src:url(/css/fonts/v2/TiemposHeadline-Light.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Light.eot#iefix) format("embedded-opentype");font-weight:100;font-style:normal;font-display:swap}
+    
+@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Light.woff) format("woff");font-weight:100;font-style:normal;font-display:swap}
+    
+/*TIEMPOS TEXT SEMOBIBOLD*/
+@font-face{font-family:TiemposText;src:url(fonts/v2/TiemposText-Semibold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}    
+    
+/*TIEMPOS TEXT REGULAR*/
+@font-face{font-family:tiempostext-regular;src:url(/css/fonts/v2/TiemposText-Regular.woff) format("woff"),url(/css/fonts/v2/TiemposText-Regular.eot#iefix) format("embedded-opentype");font-style:normal;font-display:swap}
+    
+@font-face{font-family:TiemposText;src:url(fonts/v2/TiemposText-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
+
+/* ELEMENTOS */
+.accordion {
+    background-color: #f8f8f8;
+    border: none;
+    color: #4f89b9;
+    cursor: pointer;
+    font-family: 'TiemposHeadline', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    outline: none;
+    position:relative;
+    padding: 18px;
+    text-align: left;
+    transition: 0.4s;
+    vertical-align: top;
+    width: 100%;
+}
+.accordion:focus {
+    outline: none;
+    outline: none -webkit-focus-ring-color;
+    }
+.inicial {
+    border-top: 1px solid #001c4c!important;
+    margin-top:40px;
+    }
+.final {
+    margin-bottom:20px;
+    }
+.accordion:hover {
+  background-color: #eeeeee;
+}
+.active {
+  color:#ffffff;
+  background-color: #4f89b9
+}
+.active:hover {
+  color:#ffffff;
+  background-color: #4f89b9
+}
+.active:focus {
+    outline: none;
+    outline: none -webkit-focus-ring-color;
+    }
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-size:28px;
+  font-weight: 700;
+  /*float: right;*/
+  margin-left: 5px;
+  position:absolute;
+  top:18px;
+  right:10px;
+}
+.active:after {
+  content: "\2212";
+  color: #ffffff;
+}
+.pregunta {
+    display:contents;
+    font-family: 'TiemposHeadline', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    outline: none;      
+    }
+.desplegado {
+    background-color: #ffffff;
+    border-bottom: 1px solid #001c4c!important;
+    font-family: 'TiemposText', serif;
+    font-size: 16px;
+    line-height: 22px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    text-align: justify;
+    word-wrap: break-word;
+    transition: max-height 0.3s ease-out;
+}
+.texto-desplegado {
+    padding:30px 0 30px 0;
+    }
+</style>
+<!--<h2>Acorde&oacute;n con s&iacute;mbolos</h2>
+<p></p>--><button class="accordion inicial"><h2 class="pregunta">¿Cuándo es el sorteo de la Lotería del Niño?</h2></button>
+<div class="desplegado">
+<p class="texto-desplegado">El sorteo de la Lotería del Niño es el segundo más importante del año. Se celebra casi dos semanas después del Sorteo Extraordinario de Navidad, concretamente el 6 de enero, el tradicional día de Reyes. Como manda la tradición, el bombo de la Lotería del Niño comienza a rodar a las 12:00 horas en el Salón de Sorteos de Loterías y Apuestas del Estado, en Madrid. En este caso, el sistema es bastante distinto al del sorteo de Navidad, ya que hay más de un bombo y cada uno de ellos arroja una bola correspondida con la decena, unidad y centena de millar.
+<br><br>
+A diferencia del sorteo de la Lotería de Navidad, cuya duración es de unas tres o cuatro horas aproximadamente, el de Reyes solamente dura media hora. El primer premio de la Lotería del Niño 2022 salió a las 12:17 horas, el segundo a las 12:15 horas y el primero a las 12:12 horas.</p>
+</div>
+
+<button class="accordion"><h2 class="pregunta">¿Cuál es el último día para comprar Lotería del Niño 2023?</h2></button>
+<div class="desplegado">
+  <p class="texto-desplegado">A diferencia del sorteo de la Lotería de Navidad, en el caso del sorteo del Niño se pueden comprar boletos tanto por Internet como en las administraciones de lotería hasta dos horas antes del sorteo. Es decir, hasta las 10:00 de la mañana aún hay tiempo para comprar un número este 6 de enero. Igual que con la Lotería de Navidad, cada décimo de la Lotería del Niño juega 20 euros.</p>
+</div>
+
+<button class="accordion"><h2 class="pregunta">¿Cuáles son los premios de la Lotería del Niño?</h2></button>
+<div class="desplegado">
+<p class="texto-desplegado">Aunque el más popular es el sorteo de Navidad, el del Niño también reparte mucho dinero, concretamente 700 millones de euros. El primer premio es de 200.000 euros por décimo, el segundo de 75.000 euros por décimo, y el tercer premio de 25.000 euros por décimo.
+<br><br>
+Además de los tres grandes premios, el sorteo extraordinario de la Lotería del Niño reparte otros premios menores, como los reintegros, que suelen ser la terminación del primer premio y que está dotada con 20 euros por décimo. También existen otros dos reintegros, que se extraen justo después de cantar el primer premio. Asimismo, hay otros premios que se llaman extracciones que son combinaciones de dos, tres o cuatro cifras premiadas con 40, 100 y 350 euros respectivamente.
+<br><br>
+El Gordo de la Lotería del Niño 2022 cayó en La Rioja. El número 41665 repartió 100 millones de euros en Logroño y se vendió en la administración número seis de la ciudad, situada en la calle Muro del Carmen, 4. El ‘Gordo’ repartió suerte en el bar 'La Trompeta' y en el establecimiento del camping de Haro. El número agraciado con los 750.000 euros por serie del segundo premio de la Lotería del Niño 2022 fue el 44.469 y fue muy repartido, entre otras ciudades, cayó en Cantabria, Gijón, Valladolid, A Coruña, Madrid, Santa Cruz de Tenerife, Barcelona, Valencia… El tercer premio, que también quedó bastante repartido, cayó ene l número 19.467.
+<br><br>
+A diferencia del sorteo de 2022, en los años anteriores el primer premio de la Lotería del Niño quedó muy repartido. Los números 19670 (2021) y 57342 (2020) cayeron en muchas provincias de España. En cambio, en 2019, el número agraciado (37142) cayó de manera íntegra en Barcelona; el de 2018, el 05685 lo hizo en Bilbao y el anterior, el de 2017 ,(08354) también se repartió de manera íntegra en Torrent (Valencia).</p>
+</div>
+    
+<button class="accordion"><h2 class="pregunta">¿Cuánto se queda Hacienda?</h2></button>
+<div class="desplegado">
+  <p class="texto-desplegado">En el caso de la Lotería del Niño, igual que ocurre con la de Navidad, los premios que sean inferiores a 40.000 euros no tendrán que tributar. Así que solo se gravarán el primer y segundo premio del sorteo. En los dos casos, Hacienda se queda el 20% de la cantidad resultante. En total, la Agencia Tributaria se lleva 32.000 euros por cada décimo del primer premio y 7.000 del segundo.</p>
+</div>
+    
+<button class="accordion"><h2 class="pregunta">¿Hasta cuándo y dónde puedo cobrar el décimo del Niño?</h2></button>
+<div class="desplegado">
+<p class="texto-desplegado">Los premios de la Lotería de Reyes se pueden cobrar a partir del día siguiente del sorteo, es decir, a partir del 7 de enero. Como en la Lotería de Navidad, los ganadores dispondrán de tres meses para cobrar su dinero.
+<br><br>
+Al igual que la Lotería de Navidad, cuando el premio es inferior a 2.000 euros, se puede cobrar en cualquier administración de loterías presentando el décimo.
+<br><br>En cambio, cuando se trata de un premio superior a 2.000 euros, hay que acudir a las entidades financieras concertadas por la Sociedad Estatal de Loterías y Apuestas del Estado (CaixaBank, BBVA, Santander, Ibercaja, Kutxabank, Sabadell, Unicaja Banco, Bankinter, Abanca, Cajamar y Cajasur, entre otros).
+<br><br>En ambos casos el pago se realiza al instante y lo habitual, sobre todo cuando la cantidad supera los 2.000 euros, se suele emitir un cheque o realizar una transferencia al banco del ganador del premio.</p>
+</div>
+
+<button class="accordion"><h2 class="pregunta">¿Dónde se puede seguir el sorteo por TV?</h2></button>
+<div class="desplegado">
+<p class="texto-desplegado final">Como cada año, el Sorteo de Reyes se podrá seguir por TV en directo a través de La 1 de Televisión Española.</p>
+</div>
+    
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var desplegado = this.nextElementSibling;
+    if (desplegado.style.maxHeight) {
+      desplegado.style.maxHeight = null;
+    } else {
+      desplegado.style.maxHeight = desplegado.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* TIPOS */
+    
+/*TIEMPOS HEADLINE BLACK*/
+@font-face{font-family:tiemposheadline-black;src:url(/css/fonts/v2/TiemposHeadline-Black.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Black.eot#iefix) format("embedded-opentype");font-weight:700;font-style:normal;font-display:swap}
+
+@font-face{font-family:TiemposHeadline-Black;src:url(fonts/v2/TiemposHeadline-Black.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE BOLD*/
+@font-face{font-family:tiemposheadline-bold;src:url(/css/fonts/v2/TiemposHeadline-Bold.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Bold.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
+    
+@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Bold.woff) format("woff");font-weight:900;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE SEMIBOLD*/
+@font-face{font-family:tiemposheadline-semibold;src:url(/css/fonts/v2/TiemposHeadline-Semibold.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Semibold.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
+
+/*TIEMPOS HEADLINE MEDIUM*/
+@font-face{font-family:tiemposheadline-medium;src:url(/css/fonts/v2/TiemposHeadline-Medium.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Medium.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
+
+@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Medium.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE REGULAR*/
+@font-face{font-family:tiemposheadline-regular;src:url(/css/fonts/v2/TiemposHeadline-Regular.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Regular.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
+
+@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
+
+/*TIEMPOS HEADLINE LIGHT*/
+@font-face{font-family:tiemposheadline-light;src:url(/css/fonts/v2/TiemposHeadline-Light.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Light.eot#iefix) format("embedded-opentype");font-weight:100;font-style:normal;font-display:swap}
+    
+@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Light.woff) format("woff");font-weight:100;font-style:normal;font-display:swap}
+    
+/*TIEMPOS TEXT SEMOBIBOLD*/
+@font-face{font-family:TiemposText;src:url(fonts/v2/TiemposText-Semibold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}    
+    
+/*TIEMPOS TEXT REGULAR*/
+@font-face{font-family:tiempostext-regular;src:url(/css/fonts/v2/TiemposText-Regular.woff) format("woff"),url(/css/fonts/v2/TiemposText-Regular.eot#iefix) format("embedded-opentype");font-style:normal;font-display:swap}
+    
+@font-face{font-family:TiemposText;src:url(fonts/v2/TiemposText-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
+
+/* ELEMENTOS */
+.accordion {
+    background-color: #f8f8f8;
+    border: none;
+    color: #4f89b9;
+    cursor: pointer;
+    font-family: 'TiemposHeadline', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    outline: none;
+    position:relative;
+    padding: 18px;
+    text-align: left;
+    transition: 0.4s;
+    vertical-align: top;
+    width: 100%;
+}
+.accordion:focus {
+    outline: none;
+    outline: none -webkit-focus-ring-color;
+    }
+.inicial {
+    border-top: 1px solid #001c4c!important;
+    margin-top:40px;
+    }
+.final {
+    margin-bottom:20px;
+    }
+.accordion:hover {
+  background-color: #eeeeee;
+}
+.active {
+  color:#ffffff;
+  background-color: #4f89b9
+}
+.active:hover {
+  color:#ffffff;
+  background-color: #4f89b9
+}
+.active:focus {
+    outline: none;
+    outline: none -webkit-focus-ring-color;
+    }
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-size:28px;
+  font-weight: 700;
+  /*float: right;*/
+  margin-left: 5px;
+  position:absolute;
+  top:18px;
+  right:10px;
+}
+.active:after {
+  content: "\2212";
+  color: #ffffff;
+}
+.pregunta {
+    display:contents;
+    font-family: 'TiemposHeadline', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    outline: none;      
+    }
+.desplegado {
+    background-color: #ffffff;
+    border-bottom: 1px solid #001c4c!important;
+    font-family: 'TiemposText', serif;
+    font-size: 16px;
+    line-height: 22px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    text-align: justify;
+    word-wrap: break-word;
+    transition: max-height 0.3s ease-out;
+}
+.texto-desplegado {
+    padding:30px 0 30px 0;
+    }
+</style>
+
+<button class="accordion inicial"><h2 class="pregunta">¿Cuándo es el sorteo extraordinario de la Lotería de Navidad?</h2></button>
+<div class="desplegado">
+<p class="texto-desplegado">El sorteo de la Lotería de Navidad 2022, se celebrará, como cada año, en el Teatro Real de Madrid, el jueves 22 de diciembre. Las bolas del bombo empezarán a girar a partir de las 9.00 horas. Como es tradición, el teatro abre sus puertas a las 08:00 horas para que los espectadores que lo deseen puedan conocer de primera mano el Gordo de Navidad.
+<br><br>
+En la edición pasada, y por segundo año consecutivo, el sorteo se celebró con aforo reducido de público y siguiendo un protocolo de medidas anticovid para reducir los contagios de coronavirus. Cada asistente tuvo que identificarse con su DNI y facilitar un número de teléfono y/o correo electrónico para garantizar la trazabilidad de los contactos durante el Sorteo. La primera fila estuvo vacía para garantizar la distancia de seguridad con el escenario y los niños de San Ildefonso. También se dejó un espacio libre entre un asistente y otro para mantener la distancia interpersonal de seguridad.
+<br><br>
+El Sorteo Extraordinario de Navidad dura aproximadamente tres horas y media, por lo que puede alargarse hasta las 13:00 horas. El pasado año duró cuatro horas y media. La hora en la que sale el Gordo de la lotería es la más esperada. En los últimos años ha habido una cierta tendencia a que se cantara más tarde de lo habitual. El año pasado no salió hasta las 12:12 horas. En 2020 no fue hasta las 12:02 y en 2015 se retrasó hasta las 12:14 horas. Sin embargo, el más tardón fue el de 2014, que se cantó a las 13:00 horas.</p>
+</div>
+
+<button class="accordion"><h2 class="pregunta">¿Cuál es el último día para comprar Lotería de Navidad 2022?</h2></button>
+<div class="desplegado">
+<p class="texto-desplegado">Los más de 11.000 puntos de venta oficiales de Loterías y Apuestas del Estado venderán décimos hasta el día anterior al gran sorteo, es decir, el 21 de diciembre. El horario de apertura y cierre depende de cada establecimiento, así que es recomendable consultar previamente el horario de la administración antes de esperar al último día para comprar un décimo.
+<br><br>
+Si eres de los que prefiere comprar el número por internet y así evitar las largas colas que se forman en las administraciones días antes del sorteo, debes saber que podrás adquirir un boleto hasta 22:00 horas del día 21 de diciembre desde cualquiera de los canales oficiales de Loterías y Apuestas del Estado o desde las páginas web de las administraciones que ofrezcan la posibilidad de comprar un décimo online. Recuerda que en ningún caso podrás adquirirlo por Amazon.</p>
+</div>
+
+<button class="accordion"><h2 class="pregunta">¿Cuáles son los premios de la Lotería de Navidad?</h2></button>
+<div class="desplegado">
+<p class="texto-desplegado">En total, la Lotería de Navidad reparte tres grandes premios. El premio más buscado cada año es el Gordo de la Navidad, que reparte 4.000.000 euros. O lo que es lo mismo, 400.000 euros para cada décimo premiado. Por su parte, el segundo premio otorga 1.250.000 euros, o lo que es lo mismo, 125.000 euros al décimo. Y finalmente el tercer premio de este sorteo de lotería de Navidad reparte medio millón de euros, es decir, 50.000 euros por cada décimo premiado. Además, los dos cuartos premios son agraciados con 20.000 euros cada uno y, finalmente, los ocho quintos premios reciben 6.000 euros por cada boleto premiado.
+<br><br>
+En la Lotería de Navidad 2021, el primer premio recayó en el número 86.148 y repartió fortuna en la Comunidad de Madrid, concretamente en la capital. La administración 458, situada en la estación de Atocha, repartió hasta 129 series del primer premio del Sorteo Extraordinario de Navidad (516 millones de euros). El número agraciado con el segundo premio en el sorteo de la Lotería de Navidad de 2021 fue el 72.119, que vendió de manera íntegra la administración número 3 de Basauri (Bizkaia), situada en la calle de Nagusia número 9. Finalmente, el tercer premio cayó en el 19.517 y tocó en Valencia, Calella, Granollers, Almería y Badajoz.</p>
+</div>
+    
+<button class="accordion"><h2 class="pregunta">¿Cuánto se queda Hacienda?</h2></button>
+<div class="desplegado">
+<p class="texto-desplegado">Los premios de la Lotería de Navidad pagarán los mismos impuestos que el año pasado. Según fija la Ley de Presupuestos Generales del Estado del 2018, los premios de importe inferior o igual a 40.000 euros no estarán sujetos a pagar impuestos a Hacienda, por lo que solo lo tendrán que hacer los agraciados con el primer, segundo y tercer premio. Concretamente tendrán que abonar un 20% del premio en impuestos. Eso sí, este tan por ciento no se aplica a la totalidad del premio, ya que los primeros 40.000 euros del premio ganado seguirán exentos de impuestos.
+<br><br>
+Por ejemplo, el primer premio de 400.000 euros se tributará solo por 360.000 euros, sobre los que se le aplicará este 20%. Así, el importe final se quedará en 328.000 euros. El segundo premio, de 125.000 euros por décimo, las personas premiadas ganarán 108.000 euros mientras que Hacienda se llevará 17.000 euros. Y el tercer, con un premio de 50.000 euros por décimo, los premiados ganarán 48.000 euros. El resto de premios, quedan exentos de impuestos.</p>
+</div>
+    
+<button class="accordion"><h2 class="pregunta">¿Cómo cobrar un décimo de la Lotería de Navidad? ¿Cuál es el último día para hacerlo?</h2></button>
+<div class="desplegado">
+  <p class="texto-desplegado">Los premios de la Lotería de Navidad también caducan. Los agraciados con algún premio pueden cobrarlo el mismo 22 de diciembre a partir de las 18:00 horas. Desde entonces, hay tres meses de margen para hacerlo. Así, se pueden reclamar los premios hasta el 22 de marzo de 2023.</p>
+ </div>
+    
+<button class="accordion"><h2 class="pregunta">¿Dónde cobrar los premios de la Lotería de Navidad?</h2></button>
+<div class="desplegado final">
+  <p class="texto-desplegado">Antes de nada, hay que distinguir entre premios mayores y menores. Cuando el premio es inferior a 2.000 euros, se puede cobrar en cualquier administración de loterías presentando el décimo. El año pasado, como novedad, también se podían cobrar a través de Bizum y en bancos compatibles.<br><br>En cambio, cuando se trata de un premio superior a 2.000 euros, hay que acudir a las entidades financieras concertadas por la Sociedad Estatal de Loterías y Apuestas del Estado (CaixaBank, BBVA, Santander, Ibercaja, Kutxabank, Sabadell, Unicaja Banco, Bankinter, Abanca, Cajamar y Cajasur, entre otros).<br><br>En ambos casos el pago se realiza al instante y lo habitual , sobre todo cuando la cantidad supera los 2.000 euros, se suele emitir un cheque o realizar una transferencia al banco del ganador del premio.</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var desplegado = this.nextElementSibling;
+    if (desplegado.style.maxHeight) {
+      desplegado.style.maxHeight = null;
+    } else {
+      desplegado.style.maxHeight = desplegado.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+</html>
