@@ -9,7 +9,7 @@ let scroller = scrollama();
 
 // generic window resize listener event
 function handleScrollamaResize() {
-    let stepH = Math.floor(window.innerHeight * 0.75);
+    let stepH = Math.floor(window.innerHeight * 0.50);
     step.style("height", stepH + "px");
 
     let altoVentana = window.innerHeight;
