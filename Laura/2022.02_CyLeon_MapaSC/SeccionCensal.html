@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>¿De qué vive tu vecino?</title>
+<style>
+     @import url('https://fonts.googleapis.com/css?family=Open+Sans:200,400,600,700,800');
+    *{margin: 0; padding: 0;}
+#map {
+    width: 100%;
+    height: 550px;
+
+}
+
+
+</style>
+<script src='https://cdn.rawgit.com/duroty/responsive/master/app.embed.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.css' type='text/css' />
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:200,400,600,700&display=swap" rel="stylesheet"> <!-- CAMBIAR3 -->
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<body>
+    <div id="cabecera">
+        <nav id="menuPartidos">
+        </nav>
+        <div id='geocoder' class='geocoder'></div>
+
+
+<div id='map'>
+    <div id='legend' style="opacity: 0"> 
+        <nav class='legend clearfix'>
+          <h1 id="legend-title">Renta por hogar (en miles de €)</h1></br>
+          <span id="legend1" style='background:#a6611a;opacity:1;'></span>
+          <span id="legend2" style='background:#dfc27d;opacity:0.4;'></span>
+          <span id="legend3" style='background:#80cdc1;opacity:0.6;'></span>
+          <span id="legend4" style='background:#018571;opacity:0.8;'></span>
+          <span id="legend5" style='background:#018571;opacity:1;'></span>
+
+          <div id="labels-legend"><label>12-20</label><label>20-30</label><label>30-40</label><label>30-40</label><label>+40</label></div>
+        </nav></div></div></div>
+</nav></div></div>
+
+
+<script>
+
+
+mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cjA1IiwiYSI6ImNpbmtmM2FjazAwODF2eG0yNjhteTcxdHIifQ.l7uzjVe2b1L8dHh_Z9JjoQ';
+var map = new mapboxgl.Map({
+container: 'map', // container id
+style: 'mapbox://styles/laur05/cjuvi3xkc8dik1fmtpwe3xjhh', 
+center:  [ -4.753653397102364, 41.72965738812713,], // starting position [lng, lat]
+zoom: 6,// starting zoom
+minZoom: 2,
+maxZoom: 15,
+attributionControl: false,
+});
+var hoveredStateId =  null;
+var searched_lngLat = null;
+
+
+map.on('load', function () {
+// Add a layer showing the state polygons.
+
+
+map.addSource("resultados", {
+    type: 'vector',
+    url: 'mapbox://laur05.5jeg5pjy',
+});
+
+var layers = map.getStyle().layers;
+// Find the index of the first symbol layer in the map style
+
+map.addLayer({
+'id': 'tiles-fills-Ganador',
+'type': 'fill',
+'renderingMode': '2d',
+'source': 'resultados',
+'source-layer': 'censales2022D',
+'filter': ['>', 'PPGanador', -1],
+'paint':{
+'fill-color': ["match", ["get","Ganador"],
+        "PSOE", "#cc001e",
+        "PP", "#119bd1",
+        "Cs", "#ff9324",
+        "MM", "#0eb089",
+        "UP", "#ad18ad",
+        "VOX", "#6fc92e",
+        "#d6d6d6"],
+'fill-opacity': ["interpolate", ["linear", 100], ["get", "vganador"],
+        0.00, 0.05,
+        19.99, 0.05,
+        20, 0.2,
+        29.9, 0.2,
+        30, 0.4,
+        39.9, 0.4,
+        40, 0.6,
+        49., 0.6,
+        50, 0.8]
+}}, "admin");
+
+map.addLayer({
+'id': 'tiles-fills-PP',
+'type': 'fill',
+'renderingMode': '2d',
+'source': 'resultados',
+'source-layer': 'censales2022D',
+'filter': ['==', 'PPGanador', -1],
+'paint': {
+'fill-color': '#119bd1',
+'fill-opacity': ["interpolate", ["linear", 100], ["get", "PP"],
+        0.00, 0.05,
+        9.99, 0.05,
+        10, 0.2,
+        19.9, 0.2,
+        20, 0.4,
+        29.9, 0.4,
+        30, 0.6,
+        39., 0.6,
+        40, 0.8]
+}}, "admin");
+
+map.addLayer({
+'id': 'tiles-fills-PSOE',
+'type': 'fill',
+'renderingMode': '2d',
+'source': 'resultados',
+'source-layer': 'censales2022D',
+'filter': ['==', 'PPGanador', -1],
+'paint': {
+'fill-color': '#cc001e',
+'fill-opacity': ["interpolate", ["linear", 100], ["get", "PSOE"],
+        0.00, 0.05,
+        9.99, 0.05,
+        10, 0.2,
+        19.9, 0.2,
+        20, 0.4,
+        29.9, 0.4,
+        30, 0.6,
+        39., 0.6,
+        40, 0.8]
+}}, "admin");
+
+
+map.addLayer({
+'id': 'tiles-fills-VOX',
+'type': 'fill',
+'renderingMode': '2d',
+'source': 'resultados',
+'source-layer': 'censales2022D',
+'filter': ['==', 'PPGanador', -1],
+'paint': {
+'fill-color': '#6fc92e',
+'fill-opacity': ["interpolate", ["linear", 100], ["get", "VOX"],
+        0.00, 0.05,
+        9.99, 0.05,
+        10, 0.2,
+        19.9, 0.2,
+        20, 0.4,
+        29.9, 0.4,
+        30, 0.6,
+        39., 0.6,
+        40, 0.8]
+}}, "admin");
+
+map.addLayer({
+'id': 'tiles-fills-UP',
+'type': 'fill',
+'renderingMode': '2d',
+'source': 'resultados',
+'source-layer': 'censales2022D',
+'filter': ['==', 'PPGanador', -1],
+'paint': {
+'fill-color': 'purple',
+'fill-opacity': ["interpolate", ["linear", 100], ["get", "UP"],
+        0.00, 0.05,
+        9.99, 0.05,
+        10, 0.2,
+        19.9, 0.2,
+        20, 0.4,
+        29.9, 0.4,
+        30, 0.6,
+        39., 0.6,
+        40, 0.8]
+}}, "admin");
+
+map.addLayer({
+'id': 'tiles-fills-REGIONALES',
+'type': 'fill',
+'renderingMode': '2d',
+'source': 'resultados',
+'source-layer': 'censales2022D',
+'filter': ['==', 'PPGanador', -1],
+'paint': {
+'fill-color': 'gray',
+'fill-opacity': ["interpolate", ["linear", 100], ["get", "Regionales"],
+        0.00, 0.05,
+        9.99, 0.05,
+        10, 0.2,
+        19.9, 0.2,
+        20, 0.4,
+        29.9, 0.4,
+        30, 0.6,
+        39., 0.6,
+        40, 0.8]
+}}, "admin");
+
+map.addLayer({
+'id': 'SC-borders',
+'type': 'line',
+'renderingMode': '2d',
+'source': 'resultados',
+'source-layer': 'censales2022D',
+'filter': ['has', 'NMUN'],
+'paint': {
+"line-color": ["case", ["boolean", ["feature-state", "hover"], false], "black", "white"],
+            "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 2, 0]}
+    }, "admin");
+
+
+
+// Add zoom and rotation controls to the map.
+var nav = new mapboxgl.NavigationControl( {showCompass:false});
+map.addControl(nav, 'top-left');
+
+// disable map zoom when using scroll
+map.scrollZoom.disable();
+
+
+
+var geocoder = new MapboxGeocoder({
+countries: 'es',
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl,
+language: 'es',
+types: 'region, place, locality, neighborhood, address',
+placeholder: 'Busca tu calle',
+zoom: 15,
+});
+
+ 
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+}); 
+//Hover GANADOR
+map.on('mousemove', 'tiles-fills-Ganador', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'censales2022D',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'censales2022D',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+       map.getCanvas().style.cursor = 'pointer';
+
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var municipio = e.features[0].properties.NMUN;
+        var distrito = e.features[0].properties.CDIS;
+        var ganador = e.features[0].properties.Ganador;
+        var colorganador = e.features[0].properties.GanadorColor;
+        var porcentaje = e.features[0].properties.PPGanador.toLocaleString('es-ES');
+
+         popup.setLngLat(e.lngLat)
+         .setHTML("<div style='color:black;font-size:14px;text-align:center;font-family: OpenSans, Open Sans;padding-bottom:3px'><b>" + municipio + "</b><p style='color:grey'> Distrito: " + distrito +  "</div><hr><div style='padding-top: 4px; font-size: 14px;font-family: Open Sans;text-align: center;'>" + "<span ><b>" + ganador + "</b></br></span><b style='color:" + colorganador + "'>" + porcentaje + " %</b></div>")
+         .addTo(map);
+  });   
+
+  map.on('mouseleave', 'tiles-fills-Ganador', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'censales2022D',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+//Hover PP
+map.on('mousemove', 'tiles-fills-PP', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'censales2022D',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'censales2022D',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+       map.getCanvas().style.cursor = 'pointer';
+
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var municipio = e.features[0].properties.NMUN;
+        var distrito = e.features[0].properties.CDIS;
+        var partido = e.features[0].properties.PP.toLocaleString('es-ES');
+
+         popup.setLngLat(e.lngLat)
+         .setHTML("<div style='color:black;font-size:14px;text-align:center;font-family: OpenSans, Open Sans;padding-bottom:3px'><b>" + municipio + "</b><p style='color:grey'> Distrito: " + distrito +  "</div><hr><div style='padding-top: 4px; font-size: 14px;font-family: Open Sans;text-align: center;'>" + "<span ><b>PP</b></br></span><b style='color:#119bd1'>" + partido + " %</b></div>")
+         .addTo(map);
+  });   
+
+  map.on('mouseleave', 'tiles-fills-PP', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'censales2022D',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+//Hover PSOE
+   map.on('mousemove', 'tiles-fills-PSOE', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'censales2022D',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'censales2022D',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+       map.getCanvas().style.cursor = 'pointer';
+
+       var coordinates = e.features[0].geometry.coordinates.slice();
+        var municipio = e.features[0].properties.NMUN;
+        var distrito = e.features[0].properties.CDIS;
+        var partido = e.features[0].properties.PSOE.toLocaleString('es-ES');
+
+         popup.setLngLat(e.lngLat)
+         .setHTML("<div style='color:black;font-size:14px;text-align:center;font-family: OpenSans, Open Sans;padding-bottom:3px'><b>" + municipio + "</b><p style='color:grey'> Distrito: " + distrito +  "</div><hr><div style='padding-top: 4px; font-size: 14px;font-family: Open Sans;text-align: center;'>" + "<span ><b>PSOE</b></br></span><b style='color:#aa1e1e'>" + partido + " %</b></div>")
+         .addTo(map);
+  });   
+
+  map.on('mouseleave', 'tiles-fills-PSOE', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'censales2022D',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+      //Hover MMADRID
+   map.on('mousemove', 'tiles-fills-MM', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'censales2022D',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'censales2022D',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+       map.getCanvas().style.cursor = 'pointer';
+
+       var coordinates = e.features[0].geometry.coordinates.slice();
+        var municipio = e.features[0].properties.NMUN;
+        var distrito = e.features[0].properties.CDIS;
+        var partido = e.features[0].properties.MM.toLocaleString('es-ES');
+
+         popup.setLngLat(e.lngLat)
+         .setHTML("<div style='color:black;font-size:14px;text-align:center;font-family: OpenSans, Open Sans;padding-bottom:3px'><b>" + municipio + "</b><p style='color:grey'> Distrito: " + distrito +  "</div><hr><div style='padding-top: 4px; font-size: 14px;font-family: Open Sans;text-align: center;'>" + "<span ><b>MM</b></br></span><b style='color:#0eb089'>" + partido + " %</b></div>")
+         .addTo(map);
+  });   
+
+  map.on('mouseleave', 'tiles-fills-MM', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'censales2022D',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+      //Hover capital Vox
+      map.on('mousemove', 'tiles-fills-VOX', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'censales2022D',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'censales2022D',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+       map.getCanvas().style.cursor = 'pointer';
+
+       var coordinates = e.features[0].geometry.coordinates.slice();
+        var municipio = e.features[0].properties.NMUN;
+        var distrito = e.features[0].properties.CDIS;
+        var partido = e.features[0].properties.VOX.toLocaleString('es-ES');
+
+         popup.setLngLat(e.lngLat)
+         .setHTML("<div style='color:black;font-size:14px;text-align:center;font-family: OpenSans, Open Sans;padding-bottom:3px'><b>" + municipio + "</b><p style='color:grey'> Distrito: " + distrito +  "</div><hr><div style='padding-top: 4px; font-size: 14px;font-family: Open Sans;text-align: center;'>" + "<span ><b>Vox</b></br></span><b style='color:#6fc92e'>" + partido + " %</b></div>")
+         .addTo(map);
+  });   
+
+  map.on('mouseleave', 'tiles-fills-VOX', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'censales2022D',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+
+            //Hover UP
+            map.on('mousemove', 'tiles-fills-UP', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'censales2022D',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'censales2022D',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+       map.getCanvas().style.cursor = 'pointer';
+
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var municipio = e.features[0].properties.NMUN;
+        var distrito = e.features[0].properties.CDIS;
+        var partido = e.features[0].properties.UP.toLocaleString('es-ES');
+
+         popup.setLngLat(e.lngLat)
+         .setHTML("<div style='color:black;font-size:14px;text-align:center;font-family: OpenSans, Open Sans;padding-bottom:3px'><b>" + municipio + "</b><p style='color:grey'> Distrito: " + distrito +  "</div><hr><div style='padding-top: 4px; font-size: 14px;font-family: Open Sans;text-align: center;'>" + "<span ><b>UP</b></br></span><b style='color:purple'>" + partido + " %</b></div>")
+         .addTo(map);
+  });   
+
+  map.on('mouseleave', 'tiles-fills-UP', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'censales2022D',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+                 //Hover CS
+                 map.on('mousemove', 'tiles-fills-REGIONALES', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'censales2022D',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'censales2022D',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+       map.getCanvas().style.cursor = 'pointer';
+
+       var coordinates = e.features[0].geometry.coordinates.slice();
+        var municipio = e.features[0].properties.NMUN;
+        var distrito = e.features[0].properties.CDIS;
+        var partido = e.features[0].properties.Regionales.toLocaleString('es-ES');
+
+         popup.setLngLat(e.lngLat)
+         .setHTML("<div style='color:black;font-size:14px;text-align:center;font-family: OpenSans, Open Sans;padding-bottom:3px'><b>" + municipio + "</b><p style='color:grey'> Distrito: " + distrito +  "</div><hr><div style='padding-top: 4px; font-size: 14px;font-family: Open Sans;text-align: center;'>" + "<span ><b>Regionales</b></br></span><b style='color:gray'>" + partido + " %</b></div>")
+         .addTo(map);
+  });   
+
+  map.on('mouseleave', 'tiles-fills-REGIONALES', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'censales2022D',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+}); 
+
+// BOTONES PARTIDOS
+        var toggleableLayerIds = ['Ganador', 'PP', 'PSOE', 'VOX', 'UP', 'REGIONALES']; 
+        // Poner los partidos por orden en el que han ganado? // CAMBIAR COMPROMIS POR MAS PAIS
+        var colors1 = ['#a6611a', "#119bd1", "#de1600", "#6fc92e", "purple", "gray"];
+        var colors2 = ['#a6611a', "#119bd1",  "#de1600", "#6fc92e", "purple", "gray"];
+        var colors3 = ['#a6611a', "#119bd1",  "#de1600", "#6fc92e", "purple", "gray"];
+        var colors4 = ['#a6611a', "#119bd1",  "#de1600", "#6fc92e", "purple", "gray"];
+        var colors5 = ['#a6611a', "#119bd1",  "#de1600", "#6fc92e", "purple", "gray"];
+        var titles = ['% de voto', '% de voto',  '% de voto', '% de voto', '% de voto','% de voto','% de voto']
+        // Colores de cada partido de toogleableLayerIds, las posiciones tienen que ser las mismas.
+        var labels = ["<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>"]
+
+        for (var i = 0; i < toggleableLayerIds.length; i++) {
+            var id = toggleableLayerIds[i];
+            var link = document.createElement('button');
+            link.href = '#';
+            link.className = 'desactive';
+            link.id = id;
+            link.textContent = id;
+            if(i == 0){
+              link.className = 'active';
+            }
+
+            link.onclick = function (e) {
+              var clickedLayer = this.textContent;
+              e.preventDefault();
+              e.stopPropagation();
+              var visibility = map.getLayoutProperty(('tiles-fills-Ganador'), 'visibility');
+
+              if (visibility === 'visible') {
+                  for (var j = 0; j < toggleableLayerIds.length; j++) {
+                    if(clickedLayer == toggleableLayerIds[j]){
+                      if(clickedLayer){
+                        map.setFilter('tiles-fills-'+ toggleableLayerIds[j], ['>', 'vganador', -1])
+                       // La capa que hemos clicado la filtra en el mapa (los valores > 1)
+                        document.getElementById('legend1').style.backgroundColor = colors1[j];
+                        document.getElementById('legend1').style.opacity = 0.05;
+                        document.getElementById('legend2').style.backgroundColor = colors2[j];
+                        document.getElementById('legend2').style.opacity = 0.2;
+                        document.getElementById('legend3').style.backgroundColor = colors3[j];
+                        document.getElementById('legend3').style.opacity = 0.4;
+                        document.getElementById('legend4').style.backgroundColor = colors4[j];
+                        document.getElementById('legend4').style.opacity = 0.6;
+                        document.getElementById('legend5').style.backgroundColor = colors5[j];
+                        document.getElementById('legend5').style.opacity = 0.8;
+                        document.getElementById('labels-legend').innerHTML = labels[j];
+                        document.getElementById('legend-title').innerHTML = titles[j]
+                      }
+                    }else{
+                       if(toggleableLayerIds[j] != "Ganador"){
+                         map.setFilter('tiles-fills-'+ toggleableLayerIds[j], ['==', toggleableLayerIds[j], -1]) // Las que no hemos clicado no los filtra (valores -1, que no habrán)
+                         
+                       }
+                       document.getElementById(toggleableLayerIds[j]).className = 'desactive';
+                    }
+                    if(clickedLayer == "Ganador"){
+                          map.setFilter('tiles-fills-Ganador', ['>', 'PPGanador', -1]) // He puesto psoe, pero sirve para filtrar o no los datos del Layer ResultadosTodos.
+                           document.getElementById('legend').style.opacity = 0;
+                    }else{
+                          map.setFilter('tiles-fills-Ganador', ['==', 'PPGanador', -1])
+                          document.getElementById('legend').style.opacity = 1;
+                    }
+                  }          
+                  this.className = 'active'; 
+                  //console.log(this);            
+              }
+            };
+
+            var layers = document.getElementById('menuPartidos');
+            layers.appendChild(link);
+
+        }  // CLOSE for
+
+        
+
+
+
+</script>
+ 
+
+   
+	</body>
+</html>
