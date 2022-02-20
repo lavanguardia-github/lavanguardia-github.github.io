@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,12 +35,38 @@ user-select: none;
  
 .map {
 position: absolute;
-top: 0;
+top: 40px;
 bottom: 0;
 width: 100%;
 }
 
+.left{
+  display: block;
+  float:left;
+  font-family: OpenSans-Semibold, Open Sans;
+  font-size:20px;
+  font-weight: 300;
+  margin-left: 20px;
 
+}
+
+.right{
+  display: block;
+  float:right;
+  font-family: OpenSans-Semibold, Open Sans;
+  font-size:20px;
+  font-weight: 300;
+  margin-right: 20px;
+
+
+
+
+}
+
+.leyenda {
+    z-index: 1;
+
+}
 .legend {
   background-color: #ffffff;
     border-radius: 3px;
@@ -100,7 +127,7 @@ href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbo
 type="text/css"
 />
       
-
+<div class='leyenda'><span class='left' style="color: #810f7c;">ANTES</span><span class='right' style="color: #a50f15;">DESPUÉS</span></div>
 <div id="comparison-container">
 <div id="before" class="map"></div>
 <div id="after" class="map"><div id='legend'>
@@ -457,7 +484,7 @@ countries: 'es',
 accessToken: mapboxgl.accessToken,
 mapboxgl: mapboxgl,
 types: 'place',
-placeholder: 'Busca tu municipio',
+placeholder: 'Busca tu calle',
 zoom: 7,
 });
 
