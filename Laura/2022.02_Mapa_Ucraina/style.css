@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    font-family: 'Roboto Condensed';
+  }
+  
+  #map {
+    width: 100%;
+    height: 500px;
+    position: absolute;
+  }
+  
+  h1 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  
+  h2 {
+    font-size: 1em;
+    text-align: left !important;
+    font-weight: 200;
+    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0.5rem !important;
+
+  }
+  h3 {
+    font-size: 1.2em;
+    text-align: center !important;
+    color: #5c5c5c;
+    font-weight: 800;
+    margin: 0;
+
+  }
+  
+  a {
+    text-decoration: none;
+    color: #2dc4b2;
+  }
+  
+  /*generated with Input range slider CSS style generator (version 20201227)
+https://toughengineer.github.io/demo/slider-styler*/
+input[type=range].styled-slider {
+  height: 1em;
+  -webkit-appearance: none;
+}
+
+.styled-slider.slider-progress {
+ width: 100%;
+}
+/*progress support*/
+input[type=range].styled-slider.slider-progress {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--value) - var(--min)) / var(--range));
+  --sx: calc(0.5 * 1.5em + var(--ratio) * (100% - 1.5em));
+  
+}
+
+input[type=range].styled-slider:focus {
+  outline: none;
+}
+
+/*webkit*/
+input[type=range].styled-slider::-webkit-slider-thumb {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 1em;
+  background: #303030;
+  border: none;
+  box-shadow: 0 0 2px black;
+  margin-top: calc(max((0.7em - 1px - 1px) * 0.5,0px) - 1.5em * 0.5);
+  -webkit-appearance: none;
+}
+
+input[type=range].styled-slider::-webkit-slider-runnable-track {
+  height: 0.7em;
+  border-radius: 0.5em;
+  background: #DEDEDE;
+  border: 1px solid #b2b2b2;
+  box-shadow: none;
+}
+input[type=range].styled-slider.slider-progress::-webkit-slider-runnable-track {
+  background: linear-gradient(#767676,#767676) 0/var(--sx) 100% no-repeat, #DEDEDE;
+}
+
+/*mozilla*/
+input[type=range].styled-slider::-moz-range-thumb {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 1em;
+  background: #303030;
+  border: none;
+  box-shadow: 0 0 2px black;
+}
+
+input[type=range].styled-slider::-moz-range-track {
+  height: max(calc(0.7em - 1px - 1px),0px);
+  border-radius: 0.5em;
+  background: #DEDEDE;
+  border: 1px solid #b2b2b2;
+  box-shadow: none;
+}
+
+input[type=range].styled-slider.slider-progress::-moz-range-track {
+  background: linear-gradient(#767676,#767676) 0/var(--sx) 100% no-repeat, #DEDEDE;
+}
+
+/*ms*/
+input[type=range].styled-slider::-ms-fill-upper {
+  background: transparent;
+  border-color: transparent;
+}
+
+input[type=range].styled-slider::-ms-fill-lower {
+  background: transparent;
+  border-color: transparent;
+}
+
+input[type=range].styled-slider::-ms-thumb {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 1em;
+  background: #303030;
+  border: none;
+  box-shadow: 0 0 2px black;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+input[type=range].styled-slider::-ms-track {
+  height: 0.7em;
+  border-radius: 0.5em;
+  background: #DEDEDE;
+  border: 1px solid #b2b2b2;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+input[type=range].styled-slider.slider-progress::-ms-fill-lower {
+  height: max(calc(0.7em - 1px - 1px),0px);
+  border-radius: 0.5em 0 0 0.5em;
+  margin: -1px 0 -1px -1px;
+  background: #767676;
+  border: 1px solid #b2b2b2;
+  border-right-width: 0;
+}
+
+
+
+.mapboxgl-ctrl-geocoder input[type="text"] {
+  font-family: 'Roboto Condensed';
+  font-size: 0.8em !important;
+
+}
+
+.mapboxgl-ctrl-geocoder{
+min-width: 100%;
+}
+.geocoder-icon, .geocoder-icon-search{
+  fill: #323232;
+}
+
+  @media (min-width: 500px) {
+
+    .container {
+      position: relative;
+      width: 100%;
+      background-color: white;
+      opacity: 0.95;
+      box-shadow: 0px 4px 4px rgba(151, 151, 151, 0.25);
+
+    }
+    #console {
+      position: relative;
+      padding: 0.5rem;
+      width: 50vw;
+      margin: 0 auto;
+
+    }
+  
+    .session {
+      margin-bottom: 0.5rem;
+    }
+  
+    .row {
+      height: 12px;
+      width: 100%;
+    }
+  
+    .colors {
+      background: linear-gradient(to right, #ffa600 11.1%, #ff7c43 11.1% 22.2%, #f95d6a 22.2% 33.3%, #d45087 33.3% 44.4%, #a05195 44.4% 55.5%, #665191 55.5% 66.6%, #2f4b7c 66.6% 77.7%, #003f5c 77.7% 88.8%, #00202e 88.8% 100%);
+      margin-bottom: 0.5rem;
+    }
+  
+    .label {
+      width: 19%;
+      display: inline-block;
+      text-align: center;
+      font-weight: 200;
+      color: #5c5c5c;
+    }
+  
+    .label-r {
+      width: 19%;
+      display: inline-block;
+      text-align: right;
+      font-weight: 200;
+      color: #5c5c5c;
+  
+    }
+  
+    .label-l {
+      width: 19%;
+      display: inline-block;
+      text-align: left;
+      font-weight: 200;
+      color: #5c5c5c;
+
+
+
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .container {
+      position: relative;
+      margin: 0 auto;
+      padding: 0.5rem;
+      width: 100%;
+      background-color: white;
+      opacity: 0.95;
+      box-shadow: 0px 4px 4px rgba(151, 151, 151, 0.25);
+
+    }
+
+    #console {
+      position: relative;
+      margin: 0 auto;
+      padding: 0.5rem;
+      width: 90vw;
+
+    }
+  
+    .session {
+      margin-bottom: 0.5rem;
+    }
+  
+    .row {
+      height: 12px;
+      width: 100%;
+    }
+  
+    .colors {
+      background: linear-gradient(to right, #ffa600 11.1%, #ff7c43 11.1% 22.2%, #f95d6a 22.2% 33.3%, #d45087 33.3% 44.4%, #a05195 44.4% 55.5%, #665191 55.5% 66.6%, #2f4b7c 66.6% 77.7%, #003f5c 77.7% 88.8%, #00202e 88.8% 100%);
+      margin-bottom: 0.5rem;
+    }
+  
+    .label {
+      width: 18%;
+      display: inline-block;
+      text-align: center;
+      color: #5c5c5c;
+    }
+  
+    .label-r {
+      width: 20%;
+      display: inline-block;
+      text-align: right;
+      color: #5c5c5c;
+
+    }
+  
+    .label-l {
+      width: 18%;
+      display: inline-block;
+      text-align: left;
+      color: #5c5c5c;
+
+    }
+  }

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Slider</title>
+    <style>
+
+    
+    </style>
+    <!-- Duroty LV -->
+    <script src='https://cdn.rawgit.com/duroty/responsive/master/app.embed.js'></script>
+    <!-- Mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.css' type='text/css' />
+
+    <!-- CSS style -->
+    <link href='style.css' rel='stylesheet' type="text/css"/>
+    <!-- Range input css js -->
+
+
+
+</head>
+<body>
+    <div id='map' style='width: 100%; height: 600px;'></div>
+    <div class='container'>
+    <div id="console">
+        <div class="session">
+          <div class="row labels">
+            <div class="label-l">01/01</div>
+            <div class="label">15/01</div>
+            <div class="label">01/02</div>
+            <div class="label">15/02</div>
+            <div class="label-r">24/02</div>
+          </div>
+        </div>
+        <div class="session" id="sliderbar">
+          <input
+            id="slider"
+            class="styled-slider slider-progress"
+            type="range"
+            min="18993"
+            max="19045"
+            step="1"
+            value="0"
+        
+          />
+        </div>
+
+        </div>
+
+  
+        <script src="range-input.js"></script>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cjA1IiwiYSI6ImNpbmtmM2FjazAwODF2eG0yNjhteTcxdHIifQ.l7uzjVe2b1L8dHh_Z9JjoQ';
+    
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/laur05/ckusajnmp54yy17pjowjqvd73', 
+        center:  { lon:33.11699911041927, lat: 49.02086134438026 }, // starting position [lng, lat] , 
+        zoom: 4,
+        minZoom: 2,
+        maxZoom: 16,
+        attributionControl: false,
+    });
+
+   
+
+
+    var hoveredStateId =  null;
+    var searched_lngLat = null;
+
+    var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+    }); 
+
+    var nav = new mapboxgl.NavigationControl( {showCompass:false});
+    map.addControl(nav, 'bottom-right');
+
+    // disable map zoom when using scroll
+    map.scrollZoom.disable();
+
+    map.on('load', function () {
+
+
+    
+    map.addSource("ataques", {
+        type: 'vector',
+        url: 'mapbox://laur05.9hoxp3xd',
+    });
+
+    map.addLayer({
+        'id': 'Circulos-ataques',
+        'type': 'circle',
+        'source': 'ataques',
+        'source-layer': 'ucrainaMap',
+        //'filter': ['==', ['number', ['get', 'FecNum']], 18993],
+        'paint': {
+                  'circle-radius': {
+                  property: 'Suma',
+                  stops: [
+                  [{zoom: 13, value: 0}, 0],
+                  [{zoom: 13, value: 1}, 2],
+                  [{zoom: 13, value: 4}, 2],
+                  [{zoom: 13, value: 5}, 5],
+                  [{zoom: 13, value: 10}, 5],
+                  [{zoom: 13, value: 11}, 8],
+                  [{zoom: 13, value: 20}, 8],
+                  [{zoom: 13, value: 30}, 10],
+                  [{zoom: 13, value: 49}, 10],
+                  [{zoom: 13, value: 50}, 12],
+                  [{zoom: 13, value: 124}, 12],
+                  [{zoom: 13, value: 125}, 15],
+                  [{zoom: 13, value: 267}, 15],
+                  [{zoom: 13, value: 268}, 20],
+
+                  [{zoom: 15, value: 0}, 0],
+                  [{zoom: 15, value: 1}, 7],
+                  [{zoom: 15, value: 5}, 7],
+                  [{zoom: 15, value: 6}, 10],
+                  [{zoom: 15, value: 10}, 10],
+                  [{zoom: 15, value: 11}, 13],
+                  [{zoom: 15, value: 20}, 13],
+                  [{zoom: 15, value: 30}, 15],
+                  [{zoom: 15, value: 49}, 15],
+                  [{zoom: 15, value: 50}, 17],
+                  [{zoom: 15, value: 124}, 17],
+                  [{zoom: 15, value: 125}, 20],
+                  [{zoom: 15, value: 267}, 20],
+                  [{zoom: 15, value: 268}, 25],
+
+                  [{zoom: 20, value: 0}, 0],
+                  [{zoom: 20, value: 1}, 7],
+                  [{zoom: 20, value: 5}, 7],
+                  [{zoom: 20, value: 6}, 10],
+                  [{zoom: 20, value: 10}, 10],
+                  [{zoom: 20, value: 11}, 15],
+                  [{zoom: 20, value: 20}, 15],
+                  [{zoom: 20, value: 30}, 20],
+                  [{zoom: 20, value: 49}, 20],
+                  [{zoom: 20, value: 50}, 25],
+                  [{zoom: 20, value: 124}, 25],
+                  [{zoom: 20, value: 125}, 30],
+                  [{zoom: 20, value: 267}, 30],
+                  [{zoom: 20, value: 268}, 40],
+
+                  ]
+                  },
+                  'circle-color': "#e3501b",
+
+                'circle-opacity': ["case", ["boolean", ["feature-state", "hover"], false], 0.8, 0.5],
+                'circle-stroke-color': ["case", ["boolean", ["feature-state", "hover"], false], "black", "white"],
+                'circle-stroke-width': 0.5
+
+
+              }}, "admin-0-boundary");
+
+       
+
+
+
+
+     // update hour filter when the slider is dragged
+     document
+          .getElementById('slider')
+          .addEventListener('input', function (e) {
+            var fecha = parseInt(e.target.value);
+            window.setInterval(function() { parseInt(e.target.value) }, 19045);          
+
+            // update the map
+            map.setFilter('Circulos-ataques', [
+              '==',
+              ['number',['get', 'FecNum']],
+              fecha
+            ]);
+            var elected = null;
+
+            // update text in the UI
+        });
+    
+
+        hoveredStateId = null;    
+map.on('mousemove', 'Circulos-ataques', function(e) {
+if (e.features.length > 0) {
+  if (hoveredStateId) {          
+    map.setFeatureState({ source: 'ataques', 
+                          sourceLayer: 'ucrainaMap',
+                          id: hoveredStateId}, { hover: false});
+  }
+  hoveredStateId = e.features[0].id;
+  map.setFeatureState({ source: 'ataques', 
+                      sourceLayer: 'ucrainaMap',
+                      id: hoveredStateId}, { hover: true});
+}
+
+map.getCanvas().style.cursor = 'pointer';
+
+var coordinates = e.features[0].geometry.coordinates.slice();
+var ciudad = e.features[0].properties.Localitzacio;
+var viviendas = e.features[0].properties.Fecha.toLocaleString('es-ES');
+var inicio = e.features[0].properties.Suma.toLocaleString('es-ES');
+
+ popup.setLngLat(e.lngLat)
+ .setHTML("<div style='color:black;font-size:14px;text-align:center;font-family: OpenSans, Open Sans;padding-bottom:3px'><b>" + ciudad + "</b></br><i>" + viviendas + "</i></div><hr><div style='padding-top: 4px; font-size: 14px;font-family: Open Sans;text-align: center;'>Ataques:<b> " + inicio + "</b></br></span></div>")
+ .addTo(map);
+});   
+
+map.on('mouseleave', 'Circulos-ataques', function() {
+map.getCanvas().style.cursor = '';
+popup.remove();
+if (hoveredStateId) {          
+  map.setFeatureState({ source: 'ataques', 
+                        sourceLayer: 'ucrainaMap',    
+                        id: hoveredStateId}, { hover: false});
+}
+hoveredStateId = null;
+});
+
+});
+
+</script>
+
+</body>
+</html>
