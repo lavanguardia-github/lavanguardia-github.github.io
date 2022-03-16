@@ -1,45 +1,16 @@
 <html>
 <head>
 <script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+<link rel="preload" href="https://static.lavanguardia.com/css/fonts/v2/TiemposHeadline-Bold.woff2" as="font" crossorigin />
+<link rel="preload" href="https://static.lavanguardia.com/css/fonts/v2/TiemposHeadline-Black.woff2" as="font" crossorigin />
+<link rel="preload" href="https://static.lavanguardia.com/css/fonts/v2/TiemposHeadline-Medium.woff2" as="font" crossorigin />
+<link rel="preload" href="https://static.lavanguardia.com/css/fonts/v2/TiemposHeadline-Regular.woff2" as="font" crossorigin />
+<link rel="preload" href="https://static.lavanguardia.com/css/fonts/v2/TiemposHeadline-Light.woff2" as="font" crossorigin />
+<link rel="preload" href="https://static.lavanguardia.com/css/fonts/v2/TiemposText-Regular.woff2" as="font" crossorigin />
+<link rel="preload" href="https://static.lavanguardia.com/css/fonts/iconsfont/iconsfont-v10.woff2" as="font" crossorigin />
+<meta name="copyright" content="La Vanguardia Ediciones"/>
 </head>
-<body style="margin:0; padding:0;">
-<style>
-/*TIEMPOS HEADLINE BLACK*/
-@font-face{font-family:tiemposheadline-black;src:url(/css/fonts/v2/TiemposHeadline-Black.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Black.eot#iefix) format("embedded-opentype");font-weight:700;font-style:normal;font-display:swap}
-
-@font-face{font-family:TiemposHeadline-Black;src:url(fonts/v2/TiemposHeadline-Black.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
-    
-/*TIEMPOS HEADLINE BOLD*/
-@font-face{font-family:tiemposheadline-bold;src:url(/css/fonts/v2/TiemposHeadline-Bold.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Bold.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
-    
-@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Bold.woff) format("woff");font-weight:900;font-style:normal;font-display:swap}
-    
-/*TIEMPOS HEADLINE SEMIBOLD*/
-@font-face{font-family:tiemposheadline-semibold;src:url(/css/fonts/v2/TiemposHeadline-Semibold.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Semibold.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
-
-/*TIEMPOS HEADLINE MEDIUM*/
-@font-face{font-family:tiemposheadline-medium;src:url(/css/fonts/v2/TiemposHeadline-Medium.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Medium.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
-
-@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Medium.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}
-    
-/*TIEMPOS HEADLINE REGULAR*/
-@font-face{font-family:tiemposheadline-regular;src:url(/css/fonts/v2/TiemposHeadline-Regular.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Regular.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
-
-@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
-
-/*TIEMPOS HEADLINE LIGHT*/
-@font-face{font-family:tiemposheadline-light;src:url(/css/fonts/v2/TiemposHeadline-Light.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Light.eot#iefix) format("embedded-opentype");font-weight:100;font-style:normal;font-display:swap}
-    
-@font-face{font-family:TiemposHeadline;src:url(fonts/v2/TiemposHeadline-Light.woff) format("woff");font-weight:100;font-style:normal;font-display:swap}
-    
-/*TIEMPOS TEXT SEMOBIBOLD*/
-@font-face{font-family:TiemposText;src:url(fonts/v2/TiemposText-Semibold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}    
-    
-/*TIEMPOS TEXT REGULAR*/
-@font-face{font-family:tiempostext-regular;src:url(/css/fonts/v2/TiemposText-Regular.woff) format("woff"),url(/css/fonts/v2/TiemposText-Regular.eot#iefix) format("embedded-opentype");font-style:normal;font-display:swap}
-    
-@font-face{font-family:TiemposText;src:url(fonts/v2/TiemposText-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
-
+<style> 
 /* COLORES */
     .blanco {
         background-color: #ffffff;
@@ -143,7 +114,7 @@ body, div, ul, li, span {
 .miniheader-premios-oscar-2022 .titulo-largo, .titulo-corto {
     color: #424242;
 	display:inline-block;
-	font-family: "TiemposHeadline-Bold", serif;
+    font-family: 'Tiempos Headline',serif;
 	font-size:20px;
     font-weight: 700;
 	line-height:24px;
@@ -180,7 +151,7 @@ body, div, ul, li, span {
 	} 
 .miniheader-premios-oscar-2022 .patrocinio .claim-patrocinio{
     display: inline-block;
-	font-family: "Libre Franklin", sans-serif;
+    font-family: 'Libre Franklin',serif;
 	font-size:11px;
 	line-height:13px;
     margin: 10px -5px 0 0;
@@ -194,7 +165,7 @@ body, div, ul, li, span {
 	}
 .cuerpo-premios-oscar-2022 {
     border-top:solid 2px #ffffff;
-	height: 230px;
+	height: 216px;
 	text-align: center; 
 	width: 100%;
 	white-space: nowrap;  
@@ -225,7 +196,7 @@ body, div, ul, li, span {
     background-color: rgba(0, 0, 0, 0.6);
     bottom: 3px;
     color: #ffffff;
-    font-family: "Libre Franklin", sans-serif;
+    font-family: 'Libre Franklin',serif;
     font-size: 11px;
     line-height: 14px;
     padding: 6px 0 4px 0;
@@ -241,12 +212,12 @@ body, div, ul, li, span {
 	width:100%;
 	} 
 .cuerpo-premios-oscar-2022 .categoria .textos-categoria {
-	padding: 6px 10px; 
+	padding: 10px; 
 	text-align:left; 
 	}
 .cuerpo-premios-oscar-2022 .categoria .textos-categoria .texto-categoria-2 {
     /*font-family: "Libre Franklin", sans-serif;*/
-    font-family: "TiemposText-Semibold", serif;
+    font-family: 'Tiempos Text',serif;
 	font-size: 16px;
 	line-height: 18px;    
 	}
@@ -260,7 +231,7 @@ body, div, ul, li, span {
     }*/
 .cuerpo-premios-oscar-2022 .categoria .textos-categoria .texto-categoria-3 {
 	color: #7d683e;
-    font-family: "Libre Franklin", sans-serif;
+    font-family: 'Libre Franklin',serif;
 	font-size: 13px; 
 	line-height: 16px;  
 	margin-top:2px; 
@@ -285,7 +256,7 @@ body, div, ul, li, span {
 		display:inline-block; 
 		} 
     .cuerpo-premios-oscar-2022 {
-        height:242px;  
+        height:225px;  
     }
 } @media screen and (max-width: 512px) { 
 	.miniheader-premios-oscar-2022 .patrocinio { 
@@ -299,7 +270,7 @@ body, div, ul, li, span {
 	}
 } @media screen and (max-width: 425px) { 
     .cuerpo-premios-oscar-2022 {
-        height:250px;  
+        height:240px;  
     }
 	.cuerpo-premios-oscar-2022 .categoria { 
 		width:192px;  
@@ -321,7 +292,7 @@ body, div, ul, li, span {
 		display:inline-block; 
 	}
     .cuerpo-premios-oscar-2022 {
-        height:238px;  
+        height:222px;  
     }
 	.cuerpo-premios-oscar-2022 .categoria { 
 		width:167px;  
@@ -351,8 +322,9 @@ body, div, ul, li, span {
     .cuerpo-premios-oscar-2022 .texto-categoria-1{
         width:140px;  
     }
-}
+} 
 </style>
+<body>
 <div class="premios-oscar-2022 oscar-claro">
     <div class="miniheader-premios-oscar-2022 oscar-claro"> 
         <a class="titulo-largo" href="http://www.lavanguardia.com/temas/premios-oscar" title="Premios Oscar 2022" alt="Premios Oscar 2022" target="_top">Premios Oscar 2022</a>
@@ -374,8 +346,8 @@ body, div, ul, li, span {
             <img class="imagen-categoria" src="https://stories.lavanguardia.com/media/2021/04/generica-premios-oscar-2021-156x109-2.png">
 		</a>
 		<div class="textos-categoria"> 
-			<div class="texto-categoria-2 cursiva"><a href="#" title="" alt="" target="_top">---</a></div> 
-			<div class="texto-categoria-3">De <span class="negrita">---</span></div>
+			<div class="texto-categoria-2 cursiva"><a href="#" title="" alt="" target="_top">El callejón de las almas perdidas</a></div> 
+			<div class="texto-categoria-3">De <span class="negrita">Guillermo del Toro</span></div>
 		</div> 
 	</div>
 	<!--MEJOR DIRECCIÓN-->
@@ -385,8 +357,8 @@ body, div, ul, li, span {
 			<img class="imagen-categoria" src="https://stories.lavanguardia.com/media/2021/04/generica-premios-oscar-2021-156x109-2.png">
 		</a>
 		<div class="textos-categoria"> 
-			<div class="texto-categoria-2 negrita"><a href="#" title="Mejor dirección" alt="Mejor dirección" target="_top">---</a></div> 
-			<div class="texto-categoria-3">Por <span class="cursiva">---</span></div>
+			<div class="texto-categoria-2 negrita"><a href="#" title="Mejor dirección" alt="Mejor dirección" target="_top">Jane Campion</a></div> 
+			<div class="texto-categoria-3">Por <span class="cursiva">El poder del perro</span></div>
 		</div> 
 	</div>
 	<!--MEJOR ACTOR PROTAGONISTA-->
@@ -396,8 +368,8 @@ body, div, ul, li, span {
 			<img class="imagen-categoria" src="https://stories.lavanguardia.com/media/2021/04/generica-premios-oscar-2021-156x109-2.png">
 		</a>
 		<div class="textos-categoria"> 
-			<div class="texto-categoria-2"><a href="#" title="Mejor actor protagonista" alt="Mejor actor protagonista" target="_top">---</a></div> 
-			<div class="texto-categoria-3">Por <span class="cursiva">---</span></div>
+			<div class="texto-categoria-2"><a href="#" title="Mejor actor protagonista" alt="Mejor actor protagonista" target="_top">Denzel Washington</a></div> 
+			<div class="texto-categoria-3">Por <span class="cursiva">La tragedia de Macbeth</span></div>
 		</div> 
 	</div> 
 	<!--MEJOR ACTRIZ PROTAGONISTA-->
@@ -407,8 +379,8 @@ body, div, ul, li, span {
 			<img class="imagen-categoria" src="https://stories.lavanguardia.com/media/2021/04/generica-premios-oscar-2021-156x109-2.png">
 		</a>
 		<div class="textos-categoria">
-			<div class="texto-categoria-2"><a href="#" title="Mejor actriz protagonista" alt="Mejor actriz protagonista" target="_top">---</a></div> 
-			<div class="texto-categoria-3">Por <span class="cursiva">---</span></div>
+			<div class="texto-categoria-2"><a href="#" title="Mejor actriz protagonista" alt="Mejor actriz protagonista" target="_top">Jessica Chastain</a></div> 
+			<div class="texto-categoria-3">Por <span class="cursiva">Los ojos de Tammy Faye</span></div>
 		</div> 
 	</div> 
 	<!--MEJOR ACTOR DE REPARTO-->
@@ -418,8 +390,8 @@ body, div, ul, li, span {
 			<img class="imagen-categoria" src="https://stories.lavanguardia.com/media/2021/04/generica-premios-oscar-2021-156x109-2.png">
 		</a>
 		<div class="textos-categoria"> 
-			<div class="texto-categoria-2"><a href="#" title="Mejor actor de reparto" alt="Mejor actor de reparto" target="_top">---</a></div> 
-			<div class="texto-categoria-3">Por <span class="cursiva">---</span></div>
+			<div class="texto-categoria-2"><a href="#" title="Mejor actor de reparto" alt="Mejor actor de reparto" target="_top">Kodi Smit-McPhee</a></div> 
+			<div class="texto-categoria-3">Por <span class="cursiva">El poder del perro</span></div>
 		</div> 
 	</div> 
 	<!--MEJOR ACTRIZ DE REPARTO-->
@@ -429,8 +401,8 @@ body, div, ul, li, span {
 			<img class="imagen-categoria" src="https://stories.lavanguardia.com/media/2021/04/generica-premios-oscar-2021-156x109-2.png">
 		</a>
 		<div class="textos-categoria"> 
-			<div class="texto-categoria-2"><a href="#" title="Mejor actriz de reparto" alt="Mejor actriz de reparto" target="_top">---</a></div> 
-			<div class="texto-categoria-3">Por <span class="cursiva">---</span></div>
+			<div class="texto-categoria-2"><a href="#" title="Mejor actriz de reparto" alt="Mejor actriz de reparto" target="_top">Aunjanue Ellis</a></div> 
+			<div class="texto-categoria-3">Por <span class="cursiva">El método Williams</span></div>
 		</div> 
 	</div> 
 	<!--MEJOR GUIÓN ADAPTADO-->
@@ -440,8 +412,8 @@ body, div, ul, li, span {
 			<img class="imagen-categoria" src="https://stories.lavanguardia.com/media/2021/04/generica-premios-oscar-2021-156x109-2.png">
 		</a>
 		<div class="textos-categoria">  
-			<div class="texto-categoria-2"><a href="#" title="Mejor gui&oacute;n adaptado" alt="Mejor gui&oacute;n adaptado" target="_top">---</a></div> 
-			<div class="texto-categoria-3">Por <span class="cursiva">---</span></div>
+			<div class="texto-categoria-2"><a href="#" title="Mejor gui&oacute;n adaptado" alt="Mejor gui&oacute;n adaptado" target="_top">Jon Spaihts, Denis Villeneuve y Eric Roth</a></div> 
+			<div class="texto-categoria-3">Por <span class="cursiva">Dune</span></div>
 		</div> 
 	</div> 
 	<!--MEJOR GUIÓN ORIGINAL-->
@@ -451,8 +423,8 @@ body, div, ul, li, span {
             <img class="imagen-categoria" src="https://stories.lavanguardia.com/media/2021/04/generica-premios-oscar-2021-156x109-2.png">
 		</a>
 		<div class="textos-categoria"> 
-			<div class="texto-categoria-2"><a href="#" title="Mejor gui&oacute;n original" alt="Mejor gui&oacute;n original" target="_top">---</a></div> 
-			<div class="texto-categoria-3">Por <span class="cursiva">---</span></div>
+			<div class="texto-categoria-2"><a href="#" title="Mejor gui&oacute;n original" alt="Mejor gui&oacute;n original" target="_top">Joachim Trier y Eskil Vogt</a></div> 
+			<div class="texto-categoria-3">Por <span class="cursiva">La peor persona del mundo</span></div>
 		</div> 
 	</div>
 	<!--MEJOR PELÍCULA INTERNACIONAL-->
@@ -462,8 +434,8 @@ body, div, ul, li, span {
             <img class="imagen-categoria" src="https://stories.lavanguardia.com/media/2021/04/generica-premios-oscar-2021-156x109-2.png">
 		</a>
 		<div class="textos-categoria"> 
-			<div class="texto-categoria-2 cursiva"><a href="#" title="Mejor pel&iacute;cula internacional" alt="Mejor pel&iacute;cula internacional" target="_top">---</a></div> 
-			<div class="texto-categoria-3">De <span class="negrita">---</span></div>
+			<div class="texto-categoria-2 cursiva"><a href="#" title="Mejor pel&iacute;cula internacional" alt="Mejor pel&iacute;cula internacional" target="_top">Lunana: A Yak in the Classroom</a></div> 
+			<div class="texto-categoria-3">De <span class="negrita">Bután</span></div>
 		</div> 
 	</div>
 	<!--FIN CATEGORÍAS--> 
