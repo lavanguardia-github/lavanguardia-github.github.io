@@ -426,7 +426,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `El mismo patrón se repite en Sevilla: la capital baja y crecen municipios anexos como <span style="background-color:#67a9cf;color:white;padding:2px;"> Dos Hermanas</span> o la <span style="background-color:#67a9cf;color:white;padding:2px;"> Rinconada</span> mientras que otros como Valencina de la <span style="background-color:#ff7b77;color:white;padding:2px;"> Concepción</span>, <span style="background-color:#ff7b77;color:white;padding:2px;"> Camas</span> o <span style="background-color:#ff7b77;color:white;padding:2px;"> Gelves</span>, suben.
+            description: `El mismo patrón se repite en Sevilla: la capital baja y algunos municipios anexos como <span style="background-color:#ff7b77;color:white;padding:2px;"> Dos Hermanas</span> o la <span style="background-color:#ff7b77;color:white;padding:2px;"> Rinconada</span> bajan mientras que otros como Valencina de la <span style="background-color:#67a9cf;color:white;padding:2px;"> Concepción</span>, <span style="background-color:#67a9cf;color:white;padding:2px;"> Camas</span> o <span style="background-color:#67a9cf;color:white;padding:2px;"> Gelves</span>, suben.
             `,
             location: {
                 center: { lon: -5.98696442185484, lat: 37.39665019485439} ,
@@ -771,75 +771,7 @@ bearing: -20.00
                }
             ]
         },
-        {
-            id: 'SantAdria',
-            alignment: 'center',
-            hidden: false,
-            title: '',
-            image: '',
-            description: `Aquellas localidades donde más suben los precios de compra tras la pandemia, tal y como reflejan los datos de Idealista, son entornos rurales, propicios para segundas residencias y cambios de vida: solo el 13% de los municipios que más puntos porcentuales crecen tras la pandemia tienen más de 1.000 habitantes, mientras que solo uno —Cieza, en Murcia— tiene más de 10.000.             `,
-            location: {
-                center: { lon: -3.69256737279958, lat: 40.423902590522104},
-                zoom:  7,
-                pitch: 0.00,
-                bearing: 0.00
-            },
-            mapAnimation: 'flyTo',
-            rotateAnimation: false,
-            callback: '',
-            onChapterEnter: [
-                {
-                    layer: 'EsfuerzoAlquiler',
-                    opacity: 0.85,
-                    duration: 1
-                 },
-                 {
-                     layer: 'EsfuerzoBorders',
-                     opacity: 1,
-                     duration: 1
-                  },
-                  {
-                     layer: 'Madrid',
-                     opacity: 0,
-                     duration: 1
-                  },
-                  {
-                    layer: 'Barcelona',
-                    opacity: 0,
-                    duration: 1
-                 },{
-                  layer: 'Sevilla',
-                  opacity: 0,
-                  duration: 1
-               }
-           ],
-            onChapterExit: [
-                {
-                    layer: 'EsfuerzoAlquiler',
-                    opacity: 0.85,
-                    duration: 1
-                 },
-                 {
-                     layer: 'EsfuerzoBorders',
-                     opacity: 1,
-                     duration: 1
-                  },
-                  {
-                     layer: 'Madrid',
-                     opacity: 0,
-                     duration: 1
-                  },
-                  {
-                    layer: 'Barcelona',
-                    opacity: 0,
-                    duration: 1
-                 },{
-                  layer: 'Sevilla',
-                  opacity: 0,
-                  duration: 1
-               }
-            ]
-        },
+        
         {
          id: 'utlim',
          alignment: 'center',
