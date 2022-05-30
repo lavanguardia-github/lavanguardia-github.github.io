@@ -1,0 +1,236 @@
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ganador 10-N</title>
+<style>
+     @import url('https://fonts.googleapis.com/css?family=Open+Sans:200,400,600,700,800');
+    *{margin: 0; padding: 0;}
+#map {
+    width: 100%;
+    height: 700px;
+}
+.legend {
+  background-color: #ffffff;
+    border-radius: 3px;
+    bottom: 10px;
+    padding: 7px;
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
+}
+.legend clearfix {
+    background-color: #ffffff;
+    border-radius: 3px;
+    bottom: 10px;
+    padding: 7px 10px 8px 5px;
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+    width: 200px;
+    text-align: left;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
+}
+.legend h1 {
+    font-size: 10px;
+    font-family: OpenSans-Semibold, Open Sans;
+    font-weight: 600;
+    fill: #aeaeaf;
+    margin: 0px 0 -11px 0;
+    text-transform: uppercase;
+    text-align: left;
+}
+.legend span {
+    float: left;
+    height: 10px;
+    width: 15.9%;
+    font-size: 9px;
+    color: #aeaeaf;
+    margin-bottom: 5px;
+    padding: 2px;
+}
+.legend label {
+    font-size: 10px;
+    font-family: OpenSans-Semibold, Open Sans;
+    fill: #aeaeaf;
+    padding: 0 5px;
+    text-align: left;
+}
+</style>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script type="text/javascript" src="https://rawcdn.githack.com/VangData/prova/303a4dd5dd7d718c2ecab4b40035ce5baa53e662/junto_cartodb_1_mergeb.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.css' type='text/css' />
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+<script src='https://cdn.rawgit.com/duroty/responsive/master/app.embed.js'></script>
+<body>
+
+<div id='map'>
+
+</nav></div></div><div id='geocoder' class='geocoder'></div>
+
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cjA1IiwiYSI6ImNpbmtmM2FjazAwODF2eG0yNjhteTcxdHIifQ.l7uzjVe2b1L8dHh_Z9JjoQ';
+var map = new mapboxgl.Map({
+container: 'map', // container id
+style: "mapbox://styles/laur05/ckusajnmp54yy17pjowjqvd73",
+center:  [-3.332814054792655, 40.26471732173187],  // starting position [lng, lat] 
+zoom: 5,// starting zoom
+minZoom: 1,
+maxZoom: 15,
+attributionControl: false,
+
+});
+var hoveredStateId =  null;
+var searched_lngLat = null;
+const to_ES = (number, digits=0) => number.toLocaleString("es", {
+          minimumFractionDigits: digits, 
+          maximumFractionDigits: digits} )
+
+map.on('load', function () {
+    map.addSource("vivienda", {
+                type: 'vector',
+                url: 'mapbox://laur05.8w8yvayd',
+            });
+          
+
+            map.addSource("provincias", {
+                type: 'vector',
+                url: 'mapbox://laur05.dz760sy5',
+            });
+// Add a layer showing the state polygons.
+map.addLayer({
+                'id': 'EsfuerzoAlquiler',
+                'type': 'fill',
+                'renderingMode': '2d',
+                'source': 'vivienda',
+                'source-layer': 'vivienda',
+                'filter': ['>', 'Variacion', -689.19],
+                'paint': {
+                    'fill-color': ["interpolate", ["linear", 1],
+                        ["get", "Variacion"],
+                        -1000, "#f83838",
+                        -50, "#f83838",
+                        -49.9, "#ff7b77",
+                        -25, "#ff7b77",
+                        -24.9, "#fcb1b1",
+                        -0.0001 ,"#fcb1b1",
+                        0.0001 ,"#d1e5f0", 
+                        24.9, "#d1e5f0",
+                        25, "#67a9cf",
+                        49.9, "#67a9cf",
+                        50, "#2166ac",
+                        1000, "#2166ac",
+
+                    ],
+                }
+            }, "settlement-minor-label");
+
+            map.addLayer({
+                'id': 'EsfuerzoBorders',
+                'type': 'line',
+                'renderingMode': '2d',
+                'source': 'vivienda',
+                'source-layer': 'vivienda',
+                'paint': {
+                    "line-color":  "white",
+                    "line-width":  0.25,
+                }
+            }, "settlement-minor-label");
+
+            map.addLayer({
+                'id': 'Provincias',
+                'type': 'line',
+                'renderingMode': '2d',
+                'source': 'provincias',
+                'source-layer': 'provinces',
+                'paint': {
+                    "line-color":  "#4a4a4a",
+                    "line-width":  0.5,
+
+                    
+                }
+            }, "settlement-minor-label");
+          
+
+// Add zoom and rotation controls to the map.
+var nav = new mapboxgl.NavigationControl( {showCompass:false});
+map.addControl(nav, 'top-left');
+// disable map zoom when using scroll
+map.scrollZoom.disable();
+var geocoder = new MapboxGeocoder({
+countries: 'es',
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl,
+types: 'region, place, locality, neighborhood, address',
+placeholder: 'Busca tu municipio',
+zoom: 15,
+});
+map.addControl(geocoder, 'top-right');
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+}); 
+   map.on('mousemove', 'EsfuerzoAlquiler', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'vivienda', 
+                                  sourceLayer: 'vivienda',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'vivienda', 
+                              sourceLayer: 'vivienda',
+                              id: hoveredStateId}, { hover: true});
+
+        }
+       map.getCanvas().style.cursor = 'pointer';
+ 
+                 
+                
+                
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var abans = e.features[0].properties.Abans;
+        var despres = e.features[0].properties.Després;
+        var Variacion = e.features[0].properties.Després;
+
+        var municipio = e.features[0].properties.NAMEUNIT;
+
+
+        
+         popup.setLngLat(e.lngLat)
+            .setHTML("<div style='color:black;font-size:12px;font-family: OpenSans-bold, Open Sans; text-transform: uppercase'><b>" + municipio + "</b></div><hr><div style='padding-top: 4px; font-size: 14px;font-family: Open Sans;text-align: center;'>" + abans + ": <b>" + despres + "%</div>")
+            .addTo(map);
+  });   
+        // Change the cursor style as a UI indicator.
+        
+        // Display a popup with the name of the county
+  map.on('mouseleave', 'EsfuerzoAlquiler', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'vivienda', 
+                                sourceLayer: 'vivienda',
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+});  
+
+
+</script>
+ 
+
+   
+	</body>
+</html>
