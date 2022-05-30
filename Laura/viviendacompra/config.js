@@ -9,8 +9,9 @@ var config = {
     subtitle: '',
     byline: '',
     footer: `
-    
-    
+    <p>Busca tu municipio: </b>
+    <div class="d-none lazyload iframe iframe-resize embed text-center"><iframe style="width: 0; min-width: 100% !important; border: none;" src="https://datawrapper.dwcdn.net/Bzgez/" height="2225" frameborder="0" scrolling="no"></iframe></div>
+
     <b>Metodología</b></br>Para elaborar este reportaje, La Vanguardia ha utilizado los datos de precios de venta por metro cuadrado municipio a municipio de Idealista. Para estudiar la evolución del mercado inmobiliario antes de la pandemia se ha usado como referencia el valor marcado en enero de 2019 hasta el de febrero de 2020. Para observar la situación actual y su evolución tras lo peor de la covid, se ha tomado como valor inicial el marcado en marzo de 2020 hasta enero de 2022. 
 
     </br></br>Con el fin de no distorsionar los resultados, se han omitido aquellos municipios que no contenían ningún valor en una de estas fechas.
