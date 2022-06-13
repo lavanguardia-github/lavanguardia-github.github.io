@@ -1,8 +1,8 @@
 [
-	["PSOE-A",           "psoe-a",      "#d41621", 33],
-	["CS-A",                 "cs-a",    "#ef6c40", 21],
-    ["PP-A",                   "pp-a",  "#28599b", 26],
-    ["ADELANTE-A",                 "adelante-a",  "#7fdc91", 11],
+	["PSOE-A",           "psoe-a",      "#c10f1a", 33],
+	["CS-A",                 "cs-a",    "#de531a", 21],
+    ["PP-A",                   "pp-a",  "#30569e", 26],
+    ["ADELANTE-A",                 "adelante-a",  "#73c681", 11],
 	["POR-A",                "por-a",  "#682a7b", 6],
-    ["VOX-A",              "vox-a",	   "#84ba37", 12]
+    ["VOX-A",              "vox-a",	   "#81bf45", 12]
 ]
