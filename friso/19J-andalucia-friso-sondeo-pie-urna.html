@@ -1,0 +1,280 @@
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+</head>
+<body style="margin:0; padding:0;">
+<style>
+/* TIPOS */
+    
+/*TIEMPOS HEADLINE BLACK*/
+@font-face{font-family:tiemposheadline-black;src:url("/css/fonts/v2/TiemposHeadline-Black.woff") format("woff"),url("/css/fonts/v2/TiemposHeadline-Black.eot#iefix") format("embedded-opentype");font-weight:900;font-style:normal;font-display:swap}
+
+@font-face{font-family:TiemposHeadline-Black;src:url("fonts/v2/TiemposHeadline-Black.woff") format("woff");font-weight:900;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE BOLD*/
+@font-face{font-family:tiemposheadline-bold;src:url("/css/fonts/v2/TiemposHeadline-Bold.woff") format("woff"),url("/css/fonts/v2/TiemposHeadline-Bold.eot#iefix") format("embedded-opentype");font-weight:700;font-style:normal;font-display:swap}
+    
+@font-face{font-family:TiemposHeadline;src:url("fonts/v2/TiemposHeadline-Bold.woff") format("woff");font-weight:700;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE SEMIBOLD*/
+@font-face{font-family:tiemposheadline-semibold;src:url("/css/fonts/v2/TiemposHeadline-Semibold.woff") format("woff"),url("/css/fonts/v2/TiemposHeadline-Semibold.eot#iefix") format("embedded-opentype");font-weight:600;font-style:normal;font-display:swap}
+
+/*TIEMPOS HEADLINE MEDIUM*/
+@font-face{font-family:tiemposheadline-medium;src:url("/css/fonts/v2/TiemposHeadline-Medium.woff") format("woff"),url("/css/fonts/v2/TiemposHeadline-Medium.eot#iefix") format("embedded-opentype");font-weight:500;font-style:normal;font-display:swap}
+
+@font-face{font-family:TiemposHeadline;src:url("fonts/v2/TiemposHeadline-Medium.woff") format("woff");font-weight:500;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE REGULAR*/
+@font-face{font-family:tiemposheadline-regular;src:url("/css/fonts/v2/TiemposHeadline-Regular.woff") format("woff"),url("/css/fonts/v2/TiemposHeadline-Regular.eot#iefix") format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
+
+@font-face{font-family:TiemposHeadline;src:url("fonts/v2/TiemposHeadline-Regular.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+
+/*TIEMPOS HEADLINE LIGHT*/
+@font-face{font-family:tiemposheadline-light;src:url("/css/fonts/v2/TiemposHeadline-Light.woff") format("woff"),url("/css/fonts/v2/TiemposHeadline-Light.eot#iefix") format("embedded-opentype");font-weight:100;font-style:normal;font-display:swap}
+    
+@font-face{font-family:TiemposHeadline;src:url("fonts/v2/TiemposHeadline-Light.woff") format("woff");font-weight:100;font-style:normal;font-display:swap}
+
+/*ROBOTO*/
+@font-face{font-family:roboto-bold,sans-serif;src:url("/css/fonts/roboto/Roboto-Bold.woff") format("woff"),url("/css/fonts/roboto/Roboto-Bold.eot#iefix") format("embedded-opentype");font-style:normal;font-weight:700;font-display:swap}
+    
+/*ELEMENTOS ESTRUCTURALES*/   
+div, ul, li, span {
+	margin:0;
+	padding:0;
+	}
+.resultados-elecciones-mad-4m {
+	background-color:#eeeeee;
+	text-align:left;
+	vertical-align:top;
+	width:100%;
+	}
+.header-resultados {
+	border-bottom: solid 2px #000000;
+    border-top: solid 1px #ffffff;
+	}
+.header-resultados .titulo-largo, .titulo-corto {
+    color:#000000;
+	display:inline-block;
+    font-family: 'Tiempos Headline', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    opacity:1;
+    padding: 6px 10px 5px 12px;
+    text-decoration: none;
+	}
+.header-resultados .titulo-largo:hover {
+    opacity:0.6;
+	}
+.header-resultados .titulo-corto:hover {
+    opacity:0.6;
+	}
+.header-resultados .titulo-corto {
+	display:none;
+	}
+.header-resultados .nota {
+    display:none;
+	/*display:inline-block;*/
+	float:right;
+	font-family:"Roboto";
+	font-size:11px;
+	line-height:13px;
+    margin:0 20px 0 0;
+	padding: 16px 16px 0 0;
+	text-transform:uppercase;
+	}
+.header-resultados .icono-swipe {
+    display:none;
+    /*display:inline-block;*/
+    filter: invert(100%);
+    float: right;
+    opacity: 0.2;
+    position: absolute;
+    right: 2px;
+    top: 4px;
+    width: 32px;   
+	}
+.header-resultados .icono-swipe:hover { 
+    opacity:0.3;
+	}
+.resultados {
+	border-top: solid 2px #ffffff;
+	height:76px;
+	list-style:none;
+	overflow-x:scroll;
+	overflow-y:hidden;
+	-webkit-overflow-scrolling: touch;
+	padding:10px 0 8px 4px;
+	white-space: nowrap;
+	}
+.resultados li {
+	display:inline-block;
+	margin:0 0 8px 0;
+	}
+.resultados li .logo-partido {
+	background-color: #ffffff;
+	border:none;
+	border-radius:50px;
+    box-shadow: 1px 1px 3px #d3d3d3;
+	display:inline-block;
+	height: 62px;
+	margin: 0 4px 0 6px;
+	width:60px;
+	}
+.resultados li .resultados-partido {
+	border-right: solid 1px #b5b5b5;
+	display:inline-block;
+	padding: 0 11px 0 0;
+	vertical-align:top;
+	}
+#ultimo {
+	border-right: none;
+	}
+.resultados li .resultados-partido .actuales, .escaños, anteriores {
+	display:block;
+	}
+.resultados li .resultados-partido .actuales-intervalo {
+	font-family:"Roboto", Helvetica, Arial, sans-serif;
+	font-size:25px;
+	font-weight:900;
+	line-height:27px;
+    padding:2px 0 0 0;
+	text-shadow: 2px 2px #ffffff;
+}
+.resultados li .resultados-partido .escaños {
+	font-family:"Roboto", Helvetica, Arial, sans-serif;
+	font-size:13px;
+	line-height:15px;
+    padding:2px 0 2px 0;
+}
+.resultados li .resultados-partido .anteriores {
+	color:#777777;
+	font-family:"Roboto", Helvetica, Arial, sans-serif;
+	font-size:16px;
+	font-weight:700;
+	line-height:18px;
+    padding: 3px 0 0 0;
+	text-shadow: 1px 1px #ffffff;
+}
+.resultados li .resultados-partido .anteriores .numero {
+	font-family:"Roboto", Helvetica, Arial, sans-serif;
+	font-size:18px;
+	line-height:20px;	
+}
+/* Altura-Anchura */
+::-webkit-scrollbar {
+	height: 12px;
+    width: 20px;
+}
+/* Barra */
+::-webkit-scrollbar-track {
+    background: #eeeeee; 
+    box-shadow: inset 0 0 1px #c5c5c5; 
+	-webkit-box-shadow: inset 0 0 1px #c5c5c5; 
+    border-radius: 0;
+	-webkit-border-radius: 0;
+}
+/* Deslizador */
+::-webkit-scrollbar-thumb {
+    background: #d5d5d5; 
+    border-radius: 0
+	-webkit-border-radius: 0;
+}
+@media ( max-width : 977px) {
+	.header-resultados .icono-swipe {
+    display:inline-block;
+	}
+}
+@media ( max-width : 650px) {
+	.header-resultados .nota {
+		display:none;
+	}
+}
+@media ( max-width : 480px) {
+	.header-resultados .titulo-largo {
+		display:none;
+	}
+	.header-resultados .titulo-corto {
+		display:inline-block;
+	}
+	.header-resultados .nota {
+		display:inherit;
+	}
+}
+@media ( max-width : 340px) {
+	.header-resultados .nota {
+		display:none;
+	}
+}
+</style>
+<div class="resultados-elecciones-mad-4m">
+<!-- CABECERA -->
+	<div class="header-resultados">
+		<a class="titulo-largo" href="https://www.lavanguardia.com/politica" title="Elecciones Andalucía 19-J" alt="Elecciones Andalucía 19-J" target="_blank">Andalucía 19-J: Encuesta a cierre de urna</a>
+		<a class="titulo-corto" href="https://www.lavanguardia.com/politica" title="Elecciones Andalucía 19-J" alt="Elecciones Andalucía 19-J" target="_blank">Andalucía 19-J</a>
+		<span class="nota">Encuesta a cierre de urna</span>
+        <img class="icono-swipe" src="https://lostsightsblog.files.wordpress.com/2020/03/icono-slider-blanco-3.png" title="Desliza horizontalmente para ver el resto de información" alt="Desliza horizontalmente para ver el resto de información">
+	</div>
+	<ul class="resultados">
+<!-- PP -->
+		<li class="partido">
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2022/06/pp-a.png" title="PP" alt="PP"/>
+			<div class="resultados-partido">
+				<span class="actuales-intervalo">XX-XX</span>
+				<span class="escaños">ESCAÑOS</span>
+				<span class="anteriores">2018: <span class="numero">26</span></span>
+			</div>
+		</li>  
+<!-- PSOE -->
+		<li class="partido">
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2022/06/psoe-a.png" title="PSOE" alt="PSOE"/>
+			<div class="resultados-partido">
+				<span class="actuales-intervalo">XX-XX</span>
+				<span class="escaños">ESCAÑOS</span>
+				<span class="anteriores">2018: <span class="numero">33</span></span>
+			</div>
+		</li>
+<!-- VOX -->
+		<li class="partido">
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2022/06/vox-a.png" title="Vox" alt="Vox"/>
+			<div class="resultados-partido">
+				<span class="actuales-intervalo">XX-XX</span>
+				<span class="escaños">ESCAÑOS</span>
+				<span class="anteriores">2018: <span class="numero">12</span></span>
+			</div>
+		</li>  
+<!-- CIUDADANOS -->
+		<li class="partido">
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2022/06/cs-a-2.png" title="Ciudadanos" alt="Ciudadanos"/>
+			<div class="resultados-partido">
+				<span class="actuales-intervalo">XX-XX</span>
+				<span class="escaños">ESCAÑOS</span>
+				<span class="anteriores">2018: <span class="numero">21</span></span>
+			</div>
+		</li>
+<!-- ADELANTE ANDALUCÍA -->
+		<li class="partido">
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2022/06/adelante-a-2.png" title="Adelante Andalucía" alt="Adelante Andalucía"/>
+			<div class="resultados-partido">
+				<span class="actuales-intervalo">XX-XX</span>
+				<span class="escaños">ESCAÑOS</span>
+				<span class="anteriores">2018: <span class="numero">11</span></span>
+			</div>
+		</li>
+
+<!-- POR ANDALUCÍA -->
+		<li class="partido">
+			<img class="logo-partido" src="https://stories.lavanguardia.com/media/2022/06/por-a-2.png" title="Por Andalucía" alt="Por Andalucía"/>
+			<div class="resultados-partido" id="ultimo">
+				<span class="actuales-intervalo">XX-XX</span>
+				<span class="escaños">ESCAÑOS</span>
+				<span class="anteriores">2019: <span class="numero">6</span></span>
+			</div>
+		</li>   
+	</ul>
+</div>
+</body>
+</html>
