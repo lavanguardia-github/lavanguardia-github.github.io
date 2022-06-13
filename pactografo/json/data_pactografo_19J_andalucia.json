@@ -1,8 +1,8 @@
 [
-	["PSOE-A",           "psoe-a",      "#c10f1a", 33],
-	["CS-A",                 "cs-a",    "#de531a", 21],
-    ["PP-A",                   "pp-a",  "#30569e", 26],
-    ["ADELANTE-A",                 "adelante-a",  "#73c681", 11],
-	["POR-A",                "por-a",  "#682a7b", 6],
-    ["VOX-A",              "vox-a",	   "#81bf45", 12]
+	["PSOE ANDALUCÍA",           "psoe-a",      "#c10f1a", 33],
+	["CIUDADANOS ANDALUCÍA",                 "cs-a",    "#de531a", 21],
+    ["PP ANDALUCÍA",                   "pp-a",  "#30569e", 26],
+    ["ADELANTE ANDALUCÍA",                 "adelante-a",  "#73c681", 11],
+	["POR ANDALUCÍA",                "por-a",  "#682a7b", 6],
+    ["VOX",              "vox-a",	   "#81bf45", 12]
 ]
