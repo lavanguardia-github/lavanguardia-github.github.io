@@ -57,6 +57,11 @@
   var totalWidth = window.innerWidth;
   var isMobile = totalWidth < 600;
 
+  var bounds = [
+    [-7.4, 34], // Southwest coordinates
+    [-1.4, 41] // Northeast coordinates
+  ];
+
   //Specify the acces token key
   mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cjA1IiwiYSI6ImNpbmtmM2FjazAwODF2eG0yNjhteTcxdHIifQ.l7uzjVe2b1L8dHh_Z9JjoQ';
   
@@ -64,10 +69,11 @@
   var map = new mapboxgl.Map({
     container: 'map', 
     style: 'mapbox://styles/laur05/cl4fwjd56002p15ny24nzqog1', 
-    center: isMobile ? [-4.6474951786578355,  37.54046053170615] : [-4.9185146425663575,  37.72798621599337] , // starting position [lng, lat],, -
-    zoom:  isMobile ? 5.5 : 6.5,// starting zoom
-    minZoom: 2,
-    maxZoom: 15,
+    center: isMobile ? { lon: -4.68680, lat: 37.43766 } : { lon: -4.68680, lat: 37.73766 } , // starting position [lng, lat],, -
+    zoom: isMobile ? 5.5 : 6.5,
+ 
+    maxBounds: isMobile ? bounds : null,
+
     attributionControl: false,
   });
 
@@ -825,7 +831,8 @@ map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
         hoveredStateId = null;
       });
 
-   
+  
+      //ADD CLOSNGING
       map.on('click', 'tiles-fills-Ganador', function (e) {
 
       var coordinatespolygon = e.features[0].geometry;
@@ -834,7 +841,10 @@ map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
       map.fitBounds(boundsselected, {
           padding: 0,
           maxZoom: 9,
+
+
       });
+
       document.getElementById('return').style.display = 'block'
     });
 
@@ -845,15 +855,203 @@ map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
   function handleMainMap() {
     popup.remove();
     map.flyTo({
-      center:  isMobile ? [-4.6474951786578355,  37.54046053170615] : [-4.9185146425663575,  37.72798621599337],
+      center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
       zoom: isMobile ? 5.5 : 6.5,
-      essential: isMobile ? true : false
+      maxBounds: isMobile ? bounds : null,
+
+
     });
     document.getElementById('return').style.display = 'none'
   }
+        //ADD CLOSNGING
+        map.on('click', 'tiles-fills-IZQ/DER', function (e) {
 
+var coordinatespolygon = e.features[0].geometry;
+var boundsselected = turf.extent(coordinatespolygon);
+
+map.fitBounds(boundsselected, {
+    padding: 0,
+    maxZoom: 9,
+
+
+});
+
+document.getElementById('return').style.display = 'block'
+});
+
+//Button to return to the map
+
+var returnmainmap = document.getElementById('return');
+returnmainmap.addEventListener("click", handleMainMap);
+function handleMainMap() {
+popup.remove();
+map.flyTo({
+center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+zoom: isMobile ? 5.5 : 6.5,
+maxBounds: isMobile ? bounds : null,
+
+
+});
+document.getElementById('return').style.display = 'none'
+}
+
+      //ADD CLOSNGING
+      map.on('click', 'tiles-fills-PP', function (e) {
+
+var coordinatespolygon = e.features[0].geometry;
+var boundsselected = turf.extent(coordinatespolygon);
+
+map.fitBounds(boundsselected, {
+    padding: 0,
+    maxZoom: 9,
+
+
+});
+
+document.getElementById('return').style.display = 'block'
+});
+
+//Button to return to the map
+
+var returnmainmap = document.getElementById('return');
+returnmainmap.addEventListener("click", handleMainMap);
+function handleMainMap() {
+popup.remove();
+map.flyTo({
+center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+zoom: isMobile ? 5.5 : 6.5,
+maxBounds: isMobile ? bounds : null,
+
+
+});
+document.getElementById('return').style.display = 'none'
+}
+      //ADD CLOSNGING
+      map.on('click', 'tiles-fills-PSOE', function (e) {
+
+var coordinatespolygon = e.features[0].geometry;
+var boundsselected = turf.extent(coordinatespolygon);
+
+map.fitBounds(boundsselected, {
+    padding: 0,
+    maxZoom: 9,
+
+
+});
+
+document.getElementById('return').style.display = 'block'
+});
+
+//Button to return to the map
+
+var returnmainmap = document.getElementById('return');
+returnmainmap.addEventListener("click", handleMainMap);
+function handleMainMap() {
+popup.remove();
+map.flyTo({
+center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+zoom: isMobile ? 5.5 : 6.5,
+maxBounds: isMobile ? bounds : null,
+
+
+});
+document.getElementById('return').style.display = 'none'
+}
+   map.on('click', 'tiles-fills-VOX' , function (e) {
+
+      var coordinatespolygon = e.features[0].geometry;
+      var boundsselected = turf.extent(coordinatespolygon);
+
+      map.fitBounds(boundsselected, {
+          padding: 0,
+          maxZoom: 9,
+
+
+      });
+
+      document.getElementById('return').style.display = 'block'
+    });
+
+  //Button to return to the map
+
+  var returnmainmap = document.getElementById('return');
+  returnmainmap.addEventListener("click", handleMainMap);
+  function handleMainMap() {
+    popup.remove();
+    map.flyTo({
+      center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+      zoom: isMobile ? 5.5 : 6.5,
+      maxBounds: isMobile ? bounds : null,
+
+
+    });
+    document.getElementById('return').style.display = 'none'
+  }
+        //ADD CLOSNGING
+        map.on('click', 'tiles-fills-PorA', function (e) {
+
+var coordinatespolygon = e.features[0].geometry;
+var boundsselected = turf.extent(coordinatespolygon);
+
+map.fitBounds(boundsselected, {
+    padding: 0,
+    maxZoom: 9,
+
+
+});
+
+document.getElementById('return').style.display = 'block'
+});
+
+//Button to return to the map
+
+var returnmainmap = document.getElementById('return');
+returnmainmap.addEventListener("click", handleMainMap);
+function handleMainMap() {
+popup.remove();
+map.flyTo({
+center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+zoom: isMobile ? 5.5 : 6.5,
+maxBounds: isMobile ? bounds : null,
+
+
+});
+document.getElementById('return').style.display = 'none'
+}
+      //ADD CLOSNGING
+      map.on('click', 'tiles-fills-AA', function (e) {
+
+var coordinatespolygon = e.features[0].geometry;
+var boundsselected = turf.extent(coordinatespolygon);
+
+map.fitBounds(boundsselected, {
+    padding: 0,
+    maxZoom: 9,
+
+
+});
+
+document.getElementById('return').style.display = 'block'
+});
+
+//Button to return to the map
+
+var returnmainmap = document.getElementById('return');
+returnmainmap.addEventListener("click", handleMainMap);
+function handleMainMap() {
+popup.remove();
+map.flyTo({
+center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+zoom: isMobile ? 5.5 : 6.5,
+maxBounds: isMobile ? bounds : null,
+
+
+});
+document.getElementById('return').style.display = 'none'
+}
 
 }); 
+
 
 // BOTONES PARTIDOS
         var toggleableLayerIds = ['Ganador', 'IZQ/DER', 'PP', 'PSOE', 'VOX', 'PorA', 'AA']; 
