@@ -407,7 +407,7 @@ min-width: 100%;
 
 .mapboxgl-ctrl-top-right {
 
-  margin-top: 15px;
+  margin-top: 25px;
   margin-right: 5px;
   
 
@@ -424,6 +424,7 @@ min-width: 100%;
   border: 1px solid #323232 ;
   background-color: #ffffff !important;
   box-shadow: border-box;
+  z-index: 9999;
 }
 
 /* For mobile phones: */
