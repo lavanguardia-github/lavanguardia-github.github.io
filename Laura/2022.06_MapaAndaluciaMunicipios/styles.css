@@ -332,7 +332,7 @@ min-width: 100%;
 /* cs */
 
 
-#menuPartidos a:nth-child(7).active{
+#menuPartidos button:nth-child(7).active{
   outline: none;
   border: 1px solid purple;
   color:  purple;
@@ -350,7 +350,7 @@ min-width: 100%;
 
 }
 
-#menuPartidos a:nth-child(7).desactive:hover {
+#menuPartidos button:nth-child(7).desactive:hover {
   border: 1px solid purple;
   color:  purple;
   box-shadow: 0px 0px 2px purple,
