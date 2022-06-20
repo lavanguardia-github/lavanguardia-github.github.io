@@ -1,0 +1,1179 @@
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Elecciones 2022</title>
+
+    <!-- Call scripts and styles -->
+    <script src='https://cdn.rawgit.com/duroty/responsive/master/app.embed.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.css' type='text/css' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,400,600,700&display=swap" rel="stylesheet"> <!-- CAMBIAR3 -->
+    <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <body>
+    <!-- Create the map, menus, legend and geocoder -->
+    <nav id="menuPartidos">
+    </nav>
+    <div id='geocoder' class='geocoder'>
+    </div>
+    <div id='map'>
+      <button id="return" class="return-button">
+        <img src="./Andalucia.svg" width="100%">
+      </button>
+      <div id='legend' style="opacity: 1"> 
+        <nav class='legend clearfix'>
+          <h1 id="legend-title">Partido más votado</h1></br>
+          <span id="legend1" style='background:#119bd1;opacity:1;margin-right: 3px;width:16%;'></span>
+          <span id="legend2" style='background:#de1600;opacity:1;margin-right: 3px;width:16%;'></span>
+          <span id="legend3" style='background:#6fc92e;opacity:1;margin-right: 3px;width:16%;'></span>
+          <span id="legend4" style='background:#166e5e;opacity:1;margin-right: 3px;width:16%;'></span>
+          <span id="legend5" style='background:orange;opacity:1;margin-right: 3px;width:16%;'></span>
+  
+          <div id="labels-legend">
+            <label>PP</label>
+            <label>PSOE</label>
+            <label>Vox</label>
+            <label>PorA</label>
+            <label>Cs</label>
+  
+          </div>
+        </nav>
+      </div>
+    </div>
+   
+
+<script>
+  //Set the maximum size of mobile wireframe: in this case 600px
+  var totalWidth = window.innerWidth;
+  var isMobile = totalWidth < 600;
+
+  var bounds = [
+    [-7.4, 34], // Southwest coordinates
+    [-1.4, 41] // Northeast coordinates
+  ];
+
+  //Specify the acces token key
+  mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cjA1IiwiYSI6ImNpbmtmM2FjazAwODF2eG0yNjhteTcxdHIifQ.l7uzjVe2b1L8dHh_Z9JjoQ';
+  
+  //Generate the map
+  var map = new mapboxgl.Map({
+    container: 'map', 
+    style: 'mapbox://styles/laur05/cl4fwjd56002p15ny24nzqog1', 
+    center: isMobile ? { lon: -4.68680, lat: 37.43766 } : { lon: -4.68680, lat: 37.73766 } , // starting position [lng, lat],, -
+    zoom: isMobile ? 5.5 : 6.5,
+ 
+    maxBounds: isMobile ? bounds : null,
+
+    attributionControl: false,
+  });
+
+  //Don't know why but just in case
+
+  var hoveredStateId =  null;
+  var searched_lngLat = null;
+  
+  //Start adding stuff on the map
+  map.on('load', function () {
+    
+    //Add the data and call it resultados
+    map.addSource("resultados", {
+      type: 'vector',
+      url: 'mapbox://laur05.7oviufns',
+    });
+    
+    //Find the index of the first symbol layer in the map style
+    var layers = map.getStyle().layers;
+    
+    //Add the layer Ganador
+    map.addLayer({
+      'id': 'tiles-fills-Ganador',
+      'type': 'fill',
+      'renderingMode': '2d',
+      'source': 'resultados',
+      'source-layer': 'Andalucia2022SC',
+      'filter': ['>', 'PPRIMERO', -1],
+      'paint':{
+        'fill-color': ["match", ["get","PRIMERO"],
+          "PSOE", "#cc001e",
+          "PP", "#119bd1",
+          "Cs", "#ff9324",
+          "Por And.", "#166e5e",
+          "Adelante A.", "#ad18ad",
+          "Vox", "#6fc92e",
+          "JM", "#323232",
+
+          "#d6d6d6"
+        ],
+        'fill-opacity': ["interpolate", ["linear", 100], ["get", "PPRIMERO"],
+          0.00, 0.05,
+          19.99, 0.05,
+          20, 0.2,
+          29.9, 0.2,
+          30, 0.4,
+          39.9, 0.4,
+          40, 0.6,
+          49., 0.6,
+          50, 0.8
+        ]
+      }
+    }, 'admin');
+
+    //Add the layer Bloques
+    map.addLayer({
+      'id': 'tiles-fills-IZQ/DER',
+      'type': 'fill',
+      'renderingMode': '2d',
+      'source': 'resultados',
+      'source-layer': 'Andalucia2022SC',
+      'filter': ['==', 'PPRIMERO', -1],
+
+      'paint':{
+        'fill-color': ["match", ["get","BLOQUE"],
+              "Izquierda", "#cc001e",
+              "Derecha", "#119bd1",
+              "#d6d6d6"
+          ],
+        'fill-opacity': ["interpolate", ["linear", 100], ["get", "PBLOQUE"],
+              0.00, 0.05,
+              19.99, 0.05,
+              20, 0.2,
+              29.9, 0.2,
+              30, 0.4,
+              39.9, 0.4,
+              40, 0.6,
+              49., 0.6,
+              50, 0.8
+          ]
+        }
+    }, 'admin');
+
+    //Add the layer PP
+
+    map.addLayer({
+    'id': 'tiles-fills-PP',
+    'type': 'fill',
+    'renderingMode': '2d',
+    'source': 'resultados',
+    'source-layer': 'Andalucia2022SC',
+    'filter': ['==', 'PPRIMERO', -1],
+    'paint': {
+    'fill-color': '#119bd1',
+    'fill-opacity': ["interpolate", ["linear", 100], ["get", "PP"],
+            0.00, 0.05,
+            9.99, 0.05,
+            10, 0.2,
+            19.9, 0.2,
+            20, 0.4,
+            29.9, 0.4,
+            30, 0.6,
+            39., 0.6,
+            40, 0.8]
+    }}, "admin");
+
+    //Add the layer PSOE
+
+    map.addLayer({
+    'id': 'tiles-fills-PSOE',
+    'type': 'fill',
+    'renderingMode': '2d',
+    'source': 'resultados',
+    'source-layer': 'Andalucia2022SC',
+    'filter': ['==', 'PPRIMERO', -1],
+    'paint': {
+    'fill-color': '#cc001e',
+    'fill-opacity': ["interpolate", ["linear", 100], ["get", "PSOE"],
+            0.00, 0.05,
+            9.99, 0.05,
+            10, 0.2,
+            19.9, 0.2,
+            20, 0.4,
+            29.9, 0.4,
+            30, 0.6,
+            39., 0.6,
+            40, 0.8]
+    }}, "admin");
+
+    //Add the layer VOX
+
+    map.addLayer({
+    'id': 'tiles-fills-VOX',
+    'type': 'fill',
+    'renderingMode': '2d',
+    'source': 'resultados',
+    'source-layer': 'Andalucia2022SC',
+    'filter': ['==', 'PPRIMERO', -1],
+    'paint': {
+    'fill-color': '#6fc92e',
+    'fill-opacity': ["interpolate", ["linear", 100], ["get", "Vox"],
+            0.00, 0.05,
+            9.99, 0.05,
+            10, 0.2,
+            19.9, 0.2,
+            20, 0.4,
+            29.9, 0.4,
+            30, 0.6,
+            39., 0.6,
+            40, 0.8]
+    }}, "admin");
+
+    //Add the layer POR ANDALUCIA
+
+    map.addLayer({
+    'id': 'tiles-fills-PorA',
+    'type': 'fill',
+    'renderingMode': '2d',
+    'source': 'resultados',
+    'source-layer': 'Andalucia2022SC',
+    'filter': ['==', 'PPRIMERO', -1],
+    'paint': {
+    'fill-color': '#166e5e',
+    'fill-opacity': ["interpolate", ["linear", 100], ["get", "PorA"],
+            0.00, 0.05,
+            9.99, 0.05,
+            10, 0.2,
+            19.9, 0.2,
+            20, 0.4,
+            29.9, 0.4,
+            30, 0.6,
+            39., 0.6,
+            40, 0.8]
+    }}, "admin");
+
+    //Add the layer ADELANTE ANDALUCÍA
+
+    map.addLayer({
+    'id': 'tiles-fills-AA',
+    'type': 'fill',
+    'renderingMode': '2d',
+    'source': 'resultados',
+    'source-layer': 'Andalucia2022SC',
+    'filter': ['==', 'PPRIMERO', -1],
+    'paint': {
+    'fill-color': 'purple',
+    'fill-opacity': ["interpolate", ["linear", 100], ["get", "AA"],
+            0.00, 0.05,
+            9.99, 0.05,
+            10, 0.2,
+            19.9, 0.2,
+            20, 0.4,
+            29.9, 0.4,
+            30, 0.6,
+            39., 0.6,
+            40, 0.8]
+    }}, "admin");
+
+    //Add the borders with hover effect
+
+    map.addLayer({
+    'id': 'SC-borders',
+    'type': 'line',
+    'renderingMode': '2d',
+    'source': 'resultados',
+    'source-layer': 'Andalucia2022SC',
+    'paint': {
+    "line-color": ["case", ["boolean", ["feature-state", "hover"], false], "black", "white"],
+                "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 2, 0]
+              }
+    }, "admin");//*
+
+
+    //Add zoom and rotation controls to the map.
+    var nav = new mapboxgl.NavigationControl( {showCompass:false});
+    map.addControl(nav, 'top-right');
+
+    //disable map zoom when using scroll
+    map.scrollZoom.disable();
+
+
+    //Add geocoder to the map
+    var geocoder = new MapboxGeocoder({
+      countries: 'es',
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      language: 'es',
+      types: 'region, place, locality',
+      placeholder: 'Busca tu municipio',
+      zoom: 15,
+    });
+    
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+    
+    //Create close button for popup
+    var popup = new mapboxgl.Popup({
+      closeButton: isMobile ? true : false,
+      closeOnClick: false,
+    }); 
+
+    //Create the hover effect and tooltip for Ganador layer
+    map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-Ganador', function(e) {
+      if (e.features.length > 0) {
+        if (hoveredStateId) {
+          map.setFeatureState({
+            source: 'resultados', 
+            sourceLayer: 'Andalucia2022SC',
+            id: hoveredStateId
+          }, { hover: false
+          });
+        }
+        hoveredStateId = e.features[0].id;
+          map.setFeatureState({
+            source: 'resultados', 
+            sourceLayer: 'Andalucia2022SC',
+            id: hoveredStateId
+          }, { hover: true
+          });
+      }
+      
+      map.getCanvas().style.cursor = 'pointer';
+      
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
+      var distrito = e.features[0].properties.PROVINCIA;
+      var color = e.features[0].properties.COLORGANADOR;
+      var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
+      var pp = e.features[0].properties.PP.toLocaleString('es-ES');
+      var psoe = e.features[0].properties.PSOE.toLocaleString('es-ES');
+      var vox = e.features[0].properties.Vox.toLocaleString('es-ES');
+      var porA = e.features[0].properties.PorA.toLocaleString('es-ES');
+      var aa = e.features[0].properties.AA.toLocaleString('es-ES');
+      var ppInc = e.features[0].properties.ppInc.toLocaleString('es-ES');
+      var psoeInc = e.features[0].properties.psoeInc.toLocaleString('es-ES');
+      var voxInc = e.features[0].properties.voxInc.toLocaleString('es-ES');
+      var aaInc = e.features[0].properties.aaInc.toLocaleString('es-ES');
+      var derecha = e.features[0].properties.DERECHA.toLocaleString('es-ES');
+      var izquierda = e.features[0].properties.IZQUIERDA.toLocaleString('es-ES');
+      var izqInc = e.features[0].properties.izqInc.toLocaleString('es-ES');
+      var derInc = e.features[0].properties.derInc.toLocaleString('es-ES');
+
+
+      
+      popup.setLngLat(e.lngLat)
+      .setHTML("<div style='background-color:"
+            + color + ";padding:6px;color:#fff;'><p><b style='font-size:15px;'>" 
+            + municipio + "</b></p><p>Participación: "
+            + participacion + "%</p><i>"
+            + distrito + "</i></br></div><table style='width:100%;padding:6px;text-align: right;'><tr><th></th><th style='color: gray; font-size: 14px;font-weight:300;'>%</th><th style='color: gray; font-size: 14px; font-weight:300;'>DIF</th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px' ></span><b>PP</b></td><td>"
+            + pp + "</td><td>"
+            + ppInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px'></span><b>PSOE</b></td><td>"
+            + psoe + "</td><td>"
+            + psoeInc + "</td><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #6fc92e; margin-right: 4px;margin-bottom:-1px'></span><b>Vox</b></td><td>"
+            + vox + "</td><td>"
+            + voxInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #166e5e; margin-right: 4px;margin-bottom:-1px'></span><b>PorA</b></td><td>"
+            + porA + "</td><td> - </td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: purple; margin-right: 4px;margin-bottom:-1px'></span><b>AA</b></td><td>"
+            + aa + "</td><td>"
+            + aaInc + "</td></tr><tr><td><hr style='height:1px;border-width:0;color:gray;background-color:gray'></td><td></td><td></td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px;'></span><b>DERECHA</b></td><td>"
+            + derecha + "</td><td>"
+            + derInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px;font-size:14px;' ></span><b>IZQUIERDA</b></td><td>"
+            + izquierda + "</td><td>"
+            + izqInc + "</td></tr></table>"
+            )
+          
+            .addTo(map);
+      });   
+      
+      map.on('mouseleave', 'tiles-fills-Ganador', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'Andalucia2022SC',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+//Hover bloques
+map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
+      if (e.features.length > 0) {
+        if (hoveredStateId) {
+          map.setFeatureState({
+            source: 'resultados', 
+            sourceLayer: 'Andalucia2022SC',
+            id: hoveredStateId
+          }, { hover: false
+          });
+        }
+        hoveredStateId = e.features[0].id;
+          map.setFeatureState({
+            source: 'resultados', 
+            sourceLayer: 'Andalucia2022SC',
+            id: hoveredStateId
+          }, { hover: true
+          });
+      }
+      
+      map.getCanvas().style.cursor = 'pointer';
+      
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
+      var distrito = e.features[0].properties.PROVINCIA;
+      var color = e.features[0].properties.COLORGANADOR;
+      var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
+      var pp = e.features[0].properties.PP.toLocaleString('es-ES');
+      var psoe = e.features[0].properties.PSOE.toLocaleString('es-ES');
+      var vox = e.features[0].properties.Vox.toLocaleString('es-ES');
+      var porA = e.features[0].properties.PorA.toLocaleString('es-ES');
+      var aa = e.features[0].properties.AA.toLocaleString('es-ES');
+      var ppInc = e.features[0].properties.ppInc.toLocaleString('es-ES');
+      var psoeInc = e.features[0].properties.psoeInc.toLocaleString('es-ES');
+      var voxInc = e.features[0].properties.voxInc.toLocaleString('es-ES');
+      var aaInc = e.features[0].properties.aaInc.toLocaleString('es-ES');
+      var derecha = e.features[0].properties.DERECHA.toLocaleString('es-ES');
+      var izquierda = e.features[0].properties.IZQUIERDA.toLocaleString('es-ES');
+      var izqInc = e.features[0].properties.izqInc.toLocaleString('es-ES');
+      var derInc = e.features[0].properties.derInc.toLocaleString('es-ES');
+
+
+      
+      popup.setLngLat(e.lngLat)
+      .setHTML("<div style='background-color:"
+            + color + ";padding:6px;color:#fff;'><p><b style='font-size:15px;'>" 
+            + municipio + "</b></p><p>Participación: "
+            + participacion + "%</p><i>"
+            + distrito + "</i></br></div><table style='width:100%;padding:6px;text-align: right;'><tr><th></th><th style='color: gray; font-size: 14px;font-weight:300;'>%</th><th style='color: gray; font-size: 14px; font-weight:300;'>DIF</th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px' ></span><b>PP</b></td><td>"
+            + pp + "</td><td>"
+            + ppInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px'></span><b>PSOE</b></td><td>"
+            + psoe + "</td><td>"
+            + psoeInc + "</td><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #6fc92e; margin-right: 4px;margin-bottom:-1px'></span><b>Vox</b></td><td>"
+            + vox + "</td><td>"
+            + voxInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #166e5e; margin-right: 4px;margin-bottom:-1px'></span><b>PorA</b></td><td>"
+            + porA + "</td><td> - </td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: purple; margin-right: 4px;margin-bottom:-1px'></span><b>AA</b></td><td>"
+            + aa + "</td><td>"
+            + aaInc + "</td></tr><tr><td><hr style='height:1px;border-width:0;color:gray;background-color:gray'></td><td></td><td></td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px;'></span><b>DERECHA</b></td><td>"
+            + derecha + "</td><td>"
+            + derInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px;font-size:14px;' ></span><b>IZQUIERDA</b></td><td>"
+            + izquierda + "</td><td>"
+            + izqInc + "</td></tr></table>"
+            )
+          
+            .addTo(map);
+      });   
+      
+      map.on('mouseleave', 'tiles-fills-IZQ/DER', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'Andalucia2022SC',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+//Hover PP
+  map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-PP', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'Andalucia2022SC',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'Andalucia2022SC',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+        map.getCanvas().style.cursor = 'pointer';
+      
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
+      var distrito = e.features[0].properties.PROVINCIA;
+      var color = e.features[0].properties.COLORGANADOR;
+      var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
+      var pp = e.features[0].properties.PP.toLocaleString('es-ES');
+      var psoe = e.features[0].properties.PSOE.toLocaleString('es-ES');
+      var vox = e.features[0].properties.Vox.toLocaleString('es-ES');
+      var porA = e.features[0].properties.PorA.toLocaleString('es-ES');
+      var aa = e.features[0].properties.AA.toLocaleString('es-ES');
+      var ppInc = e.features[0].properties.ppInc.toLocaleString('es-ES');
+      var psoeInc = e.features[0].properties.psoeInc.toLocaleString('es-ES');
+      var voxInc = e.features[0].properties.voxInc.toLocaleString('es-ES');
+      var aaInc = e.features[0].properties.aaInc.toLocaleString('es-ES');
+      var derecha = e.features[0].properties.DERECHA.toLocaleString('es-ES');
+      var izquierda = e.features[0].properties.IZQUIERDA.toLocaleString('es-ES');
+      var izqInc = e.features[0].properties.izqInc.toLocaleString('es-ES');
+      var derInc = e.features[0].properties.derInc.toLocaleString('es-ES');
+
+
+      
+      popup.setLngLat(e.lngLat)
+      .setHTML("<div style='background-color:"
+            + color + ";padding:6px;color:#fff;'><p><b style='font-size:15px;'>" 
+            + municipio + "</b></p><p>Participación: "
+            + participacion + "%</p><i>"
+            + distrito + "</i></br></div><table style='width:100%;padding:6px;text-align: right;'><tr><th></th><th style='color: gray; font-size: 14px;font-weight:300;'>%</th><th style='color: gray; font-size: 14px; font-weight:300;'>DIF</th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px' ></span><b>PP</b></td><td>"
+            + pp + "</td><td>"
+            + ppInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px'></span><b>PSOE</b></td><td>"
+            + psoe + "</td><td>"
+            + psoeInc + "</td><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #6fc92e; margin-right: 4px;margin-bottom:-1px'></span><b>Vox</b></td><td>"
+            + vox + "</td><td>"
+            + voxInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #166e5e; margin-right: 4px;margin-bottom:-1px'></span><b>PorA</b></td><td>"
+            + porA + "</td><td> - </td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: purple; margin-right: 4px;margin-bottom:-1px'></span><b>AA</b></td><td>"
+            + aa + "</td><td>"
+            + aaInc + "</td></tr><tr><td><hr style='height:1px;border-width:0;color:gray;background-color:gray'></td><td></td><td></td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px;'></span><b>DERECHA</b></td><td>"
+            + derecha + "</td><td>"
+            + derInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px;font-size:14px;' ></span><b>IZQUIERDA</b></td><td>"
+            + izquierda + "</td><td>"
+            + izqInc + "</td></tr></table>"
+            )
+          
+            .addTo(map);
+  });   
+
+  map.on('mouseleave', 'tiles-fills-PP', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'Andalucia2022SC',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+//Hover PSOE
+  map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-PSOE', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'Andalucia2022SC',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'Andalucia2022SC',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+        map.getCanvas().style.cursor = 'pointer';
+      
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
+      var distrito = e.features[0].properties.PROVINCIA;
+      var color = e.features[0].properties.COLORGANADOR;
+      var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
+      var pp = e.features[0].properties.PP.toLocaleString('es-ES');
+      var psoe = e.features[0].properties.PSOE.toLocaleString('es-ES');
+      var vox = e.features[0].properties.Vox.toLocaleString('es-ES');
+      var porA = e.features[0].properties.PorA.toLocaleString('es-ES');
+      var aa = e.features[0].properties.AA.toLocaleString('es-ES');
+      var ppInc = e.features[0].properties.ppInc.toLocaleString('es-ES');
+      var psoeInc = e.features[0].properties.psoeInc.toLocaleString('es-ES');
+      var voxInc = e.features[0].properties.voxInc.toLocaleString('es-ES');
+      var aaInc = e.features[0].properties.aaInc.toLocaleString('es-ES');
+      var derecha = e.features[0].properties.DERECHA.toLocaleString('es-ES');
+      var izquierda = e.features[0].properties.IZQUIERDA.toLocaleString('es-ES');
+      var izqInc = e.features[0].properties.izqInc.toLocaleString('es-ES');
+      var derInc = e.features[0].properties.derInc.toLocaleString('es-ES');
+
+
+      
+      popup.setLngLat(e.lngLat)
+      .setHTML("<div style='background-color:"
+            + color + ";padding:6px;color:#fff;'><p><b style='font-size:15px;'>" 
+            + municipio + "</b></p><p>Participación: "
+            + participacion + "%</p><i>"
+            + distrito + "</i></br></div><table style='width:100%;padding:6px;text-align: right;'><tr><th></th><th style='color: gray; font-size: 14px;font-weight:300;'>%</th><th style='color: gray; font-size: 14px; font-weight:300;'>DIF</th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px' ></span><b>PP</b></td><td>"
+            + pp + "</td><td>"
+            + ppInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px'></span><b>PSOE</b></td><td>"
+            + psoe + "</td><td>"
+            + psoeInc + "</td><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #6fc92e; margin-right: 4px;margin-bottom:-1px'></span><b>Vox</b></td><td>"
+            + vox + "</td><td>"
+            + voxInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #166e5e; margin-right: 4px;margin-bottom:-1px'></span><b>PorA</b></td><td>"
+            + porA + "</td><td> - </td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: purple; margin-right: 4px;margin-bottom:-1px'></span><b>AA</b></td><td>"
+            + aa + "</td><td>"
+            + aaInc + "</td></tr><tr><td><hr style='height:1px;border-width:0;color:gray;background-color:gray'></td><td></td><td></td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px;'></span><b>DERECHA</b></td><td>"
+            + derecha + "</td><td>"
+            + derInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px;font-size:14px;' ></span><b>IZQUIERDA</b></td><td>"
+            + izquierda + "</td><td>"
+            + izqInc + "</td></tr></table>"
+            )
+            .addTo(map);
+    });   
+
+  map.on('mouseleave', 'tiles-fills-PSOE', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'Andalucia2022SC',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+    });
+
+ //Hover VOX
+
+  map.on(isMobile ? 'click' :'mousemove', 'tiles-fills-VOX', function(e) {
+    if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'Andalucia2022SC',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'Andalucia2022SC',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+        map.getCanvas().style.cursor = 'pointer';
+      
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
+      var distrito = e.features[0].properties.PROVINCIA;
+      var color = e.features[0].properties.COLORGANADOR;
+      var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
+      var pp = e.features[0].properties.PP.toLocaleString('es-ES');
+      var psoe = e.features[0].properties.PSOE.toLocaleString('es-ES');
+      var vox = e.features[0].properties.Vox.toLocaleString('es-ES');
+      var porA = e.features[0].properties.PorA.toLocaleString('es-ES');
+      var aa = e.features[0].properties.AA.toLocaleString('es-ES');
+      var ppInc = e.features[0].properties.ppInc.toLocaleString('es-ES');
+      var psoeInc = e.features[0].properties.psoeInc.toLocaleString('es-ES');
+      var voxInc = e.features[0].properties.voxInc.toLocaleString('es-ES');
+      var aaInc = e.features[0].properties.aaInc.toLocaleString('es-ES');
+      var derecha = e.features[0].properties.DERECHA.toLocaleString('es-ES');
+      var izquierda = e.features[0].properties.IZQUIERDA.toLocaleString('es-ES');
+      var izqInc = e.features[0].properties.izqInc.toLocaleString('es-ES');
+      var derInc = e.features[0].properties.derInc.toLocaleString('es-ES');
+
+
+      
+      popup.setLngLat(e.lngLat)
+      .setHTML("<div style='background-color:"
+            + color + ";padding:6px;color:#fff;'><p><b style='font-size:15px;'>" 
+            + municipio + "</b></p><p>Participación: "
+            + participacion + "%</p><i>"
+            + distrito + "</i></br></div><table style='width:100%;padding:6px;text-align: right;'><tr><th></th><th style='color: gray; font-size: 14px;font-weight:300;'>%</th><th style='color: gray; font-size: 14px; font-weight:300;'>DIF</th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px' ></span><b>PP</b></td><td>"
+            + pp + "</td><td>"
+            + ppInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px'></span><b>PSOE</b></td><td>"
+            + psoe + "</td><td>"
+            + psoeInc + "</td><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #6fc92e; margin-right: 4px;margin-bottom:-1px'></span><b>Vox</b></td><td>"
+            + vox + "</td><td>"
+            + voxInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #166e5e; margin-right: 4px;margin-bottom:-1px'></span><b>PorA</b></td><td>"
+            + porA + "</td><td> - </td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: purple; margin-right: 4px;margin-bottom:-1px'></span><b>AA</b></td><td>"
+            + aa + "</td><td>"
+            + aaInc + "</td></tr><tr><td><hr style='height:1px;border-width:0;color:gray;background-color:gray'></td><td></td><td></td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px;'></span><b>DERECHA</b></td><td>"
+            + derecha + "</td><td>"
+            + derInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px;font-size:14px;' ></span><b>IZQUIERDA</b></td><td>"
+            + izquierda + "</td><td>"
+            + izqInc + "</td></tr></table>"
+            )
+          
+            .addTo(map);
+  });   
+
+  map.on(isMobile ? 'click' :'mouseleave', 'tiles-fills-VOX', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'Andalucia2022SC',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+  //Hover capital POR ANDALUCIA
+      map.on('mousemove', 'tiles-fills-PorA', function(e) {
+        if (e.features.length > 0) {
+          if (hoveredStateId) {          
+            map.setFeatureState({ source: 'resultados', 
+                                  sourceLayer: 'Andalucia2022SC',
+                                  id: hoveredStateId}, { hover: false});
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'Andalucia2022SC',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+        map.getCanvas().style.cursor = 'pointer';
+      
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
+      var distrito = e.features[0].properties.PROVINCIA;
+      var color = e.features[0].properties.COLORGANADOR;
+      var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
+      var pp = e.features[0].properties.PP.toLocaleString('es-ES');
+      var psoe = e.features[0].properties.PSOE.toLocaleString('es-ES');
+      var vox = e.features[0].properties.Vox.toLocaleString('es-ES');
+      var porA = e.features[0].properties.PorA.toLocaleString('es-ES');
+      var aa = e.features[0].properties.AA.toLocaleString('es-ES');
+      var ppInc = e.features[0].properties.ppInc.toLocaleString('es-ES');
+      var psoeInc = e.features[0].properties.psoeInc.toLocaleString('es-ES');
+      var voxInc = e.features[0].properties.voxInc.toLocaleString('es-ES');
+      var aaInc = e.features[0].properties.aaInc.toLocaleString('es-ES');
+      var derecha = e.features[0].properties.DERECHA.toLocaleString('es-ES');
+      var izquierda = e.features[0].properties.IZQUIERDA.toLocaleString('es-ES');
+      var izqInc = e.features[0].properties.izqInc.toLocaleString('es-ES');
+      var derInc = e.features[0].properties.derInc.toLocaleString('es-ES');
+
+
+      
+      popup.setLngLat(e.lngLat)
+      .setHTML("<div style='background-color:"
+            + color + ";padding:6px;color:#fff;'><p><b style='font-size:15px;'>" 
+            + municipio + "</b></p><p>Participación: "
+            + participacion + "%</p><i>"
+            + distrito + "</i></br></div><table style='width:100%;padding:6px;text-align: right;'><tr><th></th><th style='color: gray; font-size: 14px;font-weight:300;'>%</th><th style='color: gray; font-size: 14px; font-weight:300;'>DIF</th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px' ></span><b>PP</b></td><td>"
+            + pp + "</td><td>"
+            + ppInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px'></span><b>PSOE</b></td><td>"
+            + psoe + "</td><td>"
+            + psoeInc + "</td><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #6fc92e; margin-right: 4px;margin-bottom:-1px'></span><b>Vox</b></td><td>"
+            + vox + "</td><td>"
+            + voxInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #166e5e; margin-right: 4px;margin-bottom:-1px'></span><b>PorA</b></td><td>"
+            + porA + "</td><td> - </td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: purple; margin-right: 4px;margin-bottom:-1px'></span><b>AA</b></td><td>"
+            + aa + "</td><td>"
+            + aaInc + "</td></tr><tr><td><hr style='height:1px;border-width:0;color:gray;background-color:gray'></td><td></td><td></td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px;'></span><b>DERECHA</b></td><td>"
+            + derecha + "</td><td>"
+            + derInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px;font-size:14px;' ></span><b>IZQUIERDA</b></td><td>"
+            + izquierda + "</td><td>"
+            + izqInc + "</td></tr></table>"
+            )
+          
+            .addTo(map);
+  });   
+
+  map.on('mouseleave', 'tiles-fills-PorA', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'Andalucia2022SC',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+
+//Hover ADELANTE ANDALUCIA
+   map.on(isMobile ? 'click' :'mousemove', 'tiles-fills-AA', function(e) {
+     if (e.features.length > 0) {
+       if (hoveredStateId) {
+         map.setFeatureState({ 
+          source: 'resultados', 
+          sourceLayer: 'Andalucia2022SC',
+          id: hoveredStateId}, { hover: false});
+        }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({ source: 'resultados', 
+                              sourceLayer: 'Andalucia2022SC',
+                              id: hoveredStateId}, { hover: true});
+        }
+
+        map.getCanvas().style.cursor = 'pointer';
+      
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
+      var distrito = e.features[0].properties.PROVINCIA;
+      var color = e.features[0].properties.COLORGANADOR;
+      var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
+      var pp = e.features[0].properties.PP.toLocaleString('es-ES');
+      var psoe = e.features[0].properties.PSOE.toLocaleString('es-ES');
+      var vox = e.features[0].properties.Vox.toLocaleString('es-ES');
+      var porA = e.features[0].properties.PorA.toLocaleString('es-ES');
+      var aa = e.features[0].properties.AA.toLocaleString('es-ES');
+      var ppInc = e.features[0].properties.ppInc.toLocaleString('es-ES');
+      var psoeInc = e.features[0].properties.psoeInc.toLocaleString('es-ES');
+      var voxInc = e.features[0].properties.voxInc.toLocaleString('es-ES');
+      var aaInc = e.features[0].properties.aaInc.toLocaleString('es-ES');
+      var derecha = e.features[0].properties.DERECHA.toLocaleString('es-ES');
+      var izquierda = e.features[0].properties.IZQUIERDA.toLocaleString('es-ES');
+      var izqInc = e.features[0].properties.izqInc.toLocaleString('es-ES');
+      var derInc = e.features[0].properties.derInc.toLocaleString('es-ES');
+
+
+      
+      popup.setLngLat(e.lngLat)
+      .setHTML("<div style='background-color:"
+            + color + ";padding:6px;color:#fff;'><p><b style='font-size:15px;'>" 
+            + municipio + "</b></p><p>Participación: "
+            + participacion + "%</p><i>"
+            + distrito + "</i></br></div><table style='width:100%;padding:6px;text-align: right;'><tr><th></th><th style='color: gray; font-size: 14px;font-weight:300;'>%</th><th style='color: gray; font-size: 14px; font-weight:300;'>DIF</th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px' ></span><b>PP</b></td><td>"
+            + pp + "</td><td>"
+            + ppInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px'></span><b>PSOE</b></td><td>"
+            + psoe + "</td><td>"
+            + psoeInc + "</td><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #6fc92e; margin-right: 4px;margin-bottom:-1px'></span><b>Vox</b></td><td>"
+            + vox + "</td><td>"
+            + voxInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #166e5e; margin-right: 4px;margin-bottom:-1px'></span><b>PorA</b></td><td>"
+            + porA + "</td><td> - </td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: purple; margin-right: 4px;margin-bottom:-1px'></span><b>AA</b></td><td>"
+            + aa + "</td><td>"
+            + aaInc + "</td></tr><tr><td><hr style='height:1px;border-width:0;color:gray;background-color:gray'></td><td></td><td></td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px;'></span><b>DERECHA</b></td><td>"
+            + derecha + "</td><td>"
+            + derInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px;' ></span><b>IZQUIERDA</b></td><td>"
+            + izquierda + "</td><td>"
+            + izqInc + "</td></tr></table>"
+            )
+          
+            .addTo(map);
+  });   
+
+  map.on(isMobile ? 'click' :'mouseleave', 'tiles-fills-AA', function() {
+      map.getCanvas().style.cursor = '';
+        popup.remove();
+        if (hoveredStateId) {          
+          map.setFeatureState({ source: 'resultados', 
+                                sourceLayer: 'Andalucia2022SC',    
+                                id: hoveredStateId}, { hover: false});
+        }
+        hoveredStateId = null;
+      });
+
+  
+      //ADD CLOSNGING
+      map.on('click', 'tiles-fills-Ganador', function (e) {
+
+      var coordinatespolygon = e.features[0].geometry;
+      var boundsselected = turf.extent(coordinatespolygon);
+
+      map.fitBounds(boundsselected, {
+          padding: 0,
+          maxZoom: 9,
+
+
+      });
+
+      document.getElementById('return').style.display = 'block'
+    });
+
+  //Button to return to the map
+
+  var returnmainmap = document.getElementById('return');
+  returnmainmap.addEventListener("click", handleMainMap);
+  function handleMainMap() {
+    popup.remove();
+    map.flyTo({
+      center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+      zoom: isMobile ? 5.5 : 6.5,
+      maxBounds: isMobile ? bounds : null,
+
+
+    });
+    document.getElementById('return').style.display = 'none'
+  }
+        //ADD CLOSNGING
+        map.on('click', 'tiles-fills-IZQ/DER', function (e) {
+
+var coordinatespolygon = e.features[0].geometry;
+var boundsselected = turf.extent(coordinatespolygon);
+
+map.fitBounds(boundsselected, {
+    padding: 0,
+    maxZoom: 9,
+
+
+});
+
+document.getElementById('return').style.display = 'block'
+});
+
+//Button to return to the map
+
+var returnmainmap = document.getElementById('return');
+returnmainmap.addEventListener("click", handleMainMap);
+function handleMainMap() {
+popup.remove();
+map.flyTo({
+center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+zoom: isMobile ? 5.5 : 6.5,
+maxBounds: isMobile ? bounds : null,
+
+
+});
+document.getElementById('return').style.display = 'none'
+}
+
+      //ADD CLOSNGING
+      map.on('click', 'tiles-fills-PP', function (e) {
+
+var coordinatespolygon = e.features[0].geometry;
+var boundsselected = turf.extent(coordinatespolygon);
+
+map.fitBounds(boundsselected, {
+    padding: 0,
+    maxZoom: 9,
+
+
+});
+
+document.getElementById('return').style.display = 'block'
+});
+
+//Button to return to the map
+
+var returnmainmap = document.getElementById('return');
+returnmainmap.addEventListener("click", handleMainMap);
+function handleMainMap() {
+popup.remove();
+map.flyTo({
+center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+zoom: isMobile ? 5.5 : 6.5,
+maxBounds: isMobile ? bounds : null,
+
+
+});
+document.getElementById('return').style.display = 'none'
+}
+      //ADD CLOSNGING
+      map.on('click', 'tiles-fills-PSOE', function (e) {
+
+var coordinatespolygon = e.features[0].geometry;
+var boundsselected = turf.extent(coordinatespolygon);
+
+map.fitBounds(boundsselected, {
+    padding: 0,
+    maxZoom: 9,
+
+
+});
+
+document.getElementById('return').style.display = 'block'
+});
+
+//Button to return to the map
+
+var returnmainmap = document.getElementById('return');
+returnmainmap.addEventListener("click", handleMainMap);
+function handleMainMap() {
+popup.remove();
+map.flyTo({
+center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+zoom: isMobile ? 5.5 : 6.5,
+maxBounds: isMobile ? bounds : null,
+
+
+});
+document.getElementById('return').style.display = 'none'
+}
+   map.on('click', 'tiles-fills-VOX' , function (e) {
+
+      var coordinatespolygon = e.features[0].geometry;
+      var boundsselected = turf.extent(coordinatespolygon);
+
+      map.fitBounds(boundsselected, {
+          padding: 0,
+          maxZoom: 9,
+
+
+      });
+
+      document.getElementById('return').style.display = 'block'
+    });
+
+  //Button to return to the map
+
+  var returnmainmap = document.getElementById('return');
+  returnmainmap.addEventListener("click", handleMainMap);
+  function handleMainMap() {
+    popup.remove();
+    map.flyTo({
+      center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+      zoom: isMobile ? 5.5 : 6.5,
+      maxBounds: isMobile ? bounds : null,
+
+
+    });
+    document.getElementById('return').style.display = 'none'
+  }
+        //ADD CLOSNGING
+        map.on('click', 'tiles-fills-PorA', function (e) {
+
+var coordinatespolygon = e.features[0].geometry;
+var boundsselected = turf.extent(coordinatespolygon);
+
+map.fitBounds(boundsselected, {
+    padding: 0,
+    maxZoom: 9,
+
+
+});
+
+document.getElementById('return').style.display = 'block'
+});
+
+//Button to return to the map
+
+var returnmainmap = document.getElementById('return');
+returnmainmap.addEventListener("click", handleMainMap);
+function handleMainMap() {
+popup.remove();
+map.flyTo({
+center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+zoom: isMobile ? 5.5 : 6.5,
+maxBounds: isMobile ? bounds : null,
+
+
+});
+document.getElementById('return').style.display = 'none'
+}
+      //ADD CLOSNGING
+      map.on('click', 'tiles-fills-AA', function (e) {
+
+var coordinatespolygon = e.features[0].geometry;
+var boundsselected = turf.extent(coordinatespolygon);
+
+map.fitBounds(boundsselected, {
+    padding: 0,
+    maxZoom: 9,
+
+
+});
+
+document.getElementById('return').style.display = 'block'
+});
+
+//Button to return to the map
+
+var returnmainmap = document.getElementById('return');
+returnmainmap.addEventListener("click", handleMainMap);
+function handleMainMap() {
+popup.remove();
+map.flyTo({
+center: { lon: -4.68680, lat: 37.43766 } ,// starting position [lng, lat],, -
+zoom: isMobile ? 5.5 : 6.5,
+maxBounds: isMobile ? bounds : null,
+
+
+});
+document.getElementById('return').style.display = 'none'
+}
+
+}); 
+
+
+// BOTONES PARTIDOS
+        var toggleableLayerIds = ['Ganador', 'IZQ/DER', 'PP', 'PSOE', 'VOX', 'PorA', 'AA']; 
+        // Poner los partidos por orden en el que han ganado? // CAMBIAR COMPROMIS POR MAS PAIS
+        var colors1 = ['#119bd1','#de1600',  "#119bd1", "#de1600", "#6fc92e", "#166e5e", "purple"];
+        var colors2 = ['#de1600','#de1600',  "#119bd1",  "#de1600", "#6fc92e", "#166e5e", "purple"];
+        var colors3 = ['#6fc92e','#D6D6D6',  "#119bd1",  "#de1600", "#6fc92e", "#166e5e", "purple"];
+        var colors4 = ['#166e5e','#119bd1',  "#119bd1",  "#de1600", "#6fc92e", "#166e5e", "purple"];
+        var colors5 = ['orange','#119bd1',  "#119bd1",  "#de1600", "#6fc92e", "#166e5e", "purple"];
+
+        var titles = ['Partido más votado', 'Bloque más votado', '% de voto',  '% de voto', '% de voto', '% de voto','% de voto','% de voto']
+        var opacity1 = [0.8, 1, 0.05, 0.05, 0.05, 0.05, 0.05]
+        var opacity2 = [0.8, 0.5, 0.2, 0.2, 0.2,  0.2, 0.2]
+        var opacity3 = [0.8, 1, 0.4, 0.4, 0.4, 0.4, 0.4]
+        var opacity4 = [0.8, 0.5, 0.6, 0.6, 0.6, 0.6, 0.6]
+        var opacity5 = [0.8, 1, 0.8, 0.8, 0.8, 0.8, 0.8]
+        var margin1 = ['3px', 0, 0, 0, 0, 0, 0]
+        var width = ['16%', '17%','17%','17%','17%', '17%','17%']
+
+
+
+
+
+        // Colores de cada partido de toogleableLayerIds, las posiciones tienen que ser las mismas.
+        var labels = ["<label>PP&nbsp;</label><label>PSOE&nbsp;</label><label>Vox&nbsp;</label><label>PorA&nbsp;</label><label>Cs&nbsp;</label>",
+                    "<label>IZQUIERDA</label><label> &nbsp;</label><label>EMPATE</label><label>&nbsp;</label><label>DERECHA</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>",
+                    "<label>0-10</label><label>10-20</label><label>20-30</label><label>30-40</label><label>+40</label>"]
+
+        for (var i = 0; i < toggleableLayerIds.length; i++) {
+            var id = toggleableLayerIds[i];
+            var link = document.createElement('button');
+            link.href = '#';
+            link.className = 'desactive';
+            link.id = id;
+            link.textContent = id;
+            if(i == 0){
+              link.className = 'active';
+            }
+
+            link.onclick = function (e) {
+              var clickedLayer = this.textContent;
+              e.preventDefault();
+              e.stopPropagation();
+              var visibility = map.getLayoutProperty(('tiles-fills-Ganador'), 'visibility');
+
+              if (visibility === 'visible') {
+                  for (var j = 0; j < toggleableLayerIds.length; j++) {
+                    if(clickedLayer == toggleableLayerIds[j]){
+                      if(clickedLayer){
+                        map.setFilter('tiles-fills-'+ toggleableLayerIds[j], ['>', 'PPRIMERO', -1])
+                       // La capa que hemos clicado la filtra en el mapa (los valores > 1)
+                        document.getElementById('legend1').style.backgroundColor = colors1[j];
+                        document.getElementById('legend1').style.opacity = opacity1[j];
+                        document.getElementById('legend1').style.marginRight = margin1[j];
+                        document.getElementById('legend1').style.width = width[j];
+
+                        document.getElementById('legend2').style.backgroundColor = colors2[j];
+                        document.getElementById('legend2').style.opacity = opacity2[j];
+                        document.getElementById('legend2').style.marginRight = margin1[j];
+                        document.getElementById('legend2').style.width = width[j];
+
+                        document.getElementById('legend3').style.backgroundColor = colors3[j];
+                        document.getElementById('legend3').style.opacity = opacity3[j];
+                        document.getElementById('legend3').style.marginRight = margin1[j];
+                        document.getElementById('legend3').style.width = width[j];
+
+
+                        document.getElementById('legend4').style.backgroundColor = colors4[j];
+                        document.getElementById('legend4').style.opacity = opacity4[j];
+                        document.getElementById('legend4').style.marginRight = margin1[j];
+                        document.getElementById('legend4').style.width = width[j];
+
+
+                        document.getElementById('legend5').style.backgroundColor = colors5[j];
+                        document.getElementById('legend5').style.opacity = opacity5[j];
+                        document.getElementById('legend5').style.marginRight = margin1[j];
+                        document.getElementById('legend5').style.width = width[j];
+
+                  
+
+
+                        document.getElementById('labels-legend').innerHTML = labels[j];
+                        document.getElementById('legend-title').innerHTML = titles[j]
+
+                      }
+                    }else{
+                       if(toggleableLayerIds[j] != "Ganador" ){
+                         map.setFilter('tiles-fills-'+ toggleableLayerIds[j], ['==', toggleableLayerIds[j], -1]) // Las que no hemos clicado no los filtra (valores -1, que no habrán)
+                         
+                       }
+                       document.getElementById(toggleableLayerIds[j]).className = 'desactive';
+                    }
+                    if(clickedLayer == "Ganador"){
+                          map.setFilter('tiles-fills-Ganador', ['>', 'PPRIMERO', -1]) 
+                           document.getElementById('legend').style.opacity = 1;
+
+                    }else{
+                          map.setFilter('tiles-fills-Ganador', ['==', 'PPRIMERO', -1])
+                          document.getElementById('legend').style.opacity = 1;
+                    }
+                  }          
+                  this.className = 'active'; 
+                  //console.log(this);            
+              }
+            };
+
+            var layers = document.getElementById('menuPartidos');
+            layers.appendChild(link);
+
+        }  // CLOSE for
+
+        
+
+
+
+</script>
+ 
+
+   
+	</body>
+</html>
