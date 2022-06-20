@@ -70,7 +70,7 @@
     container: 'map', 
     style: 'mapbox://styles/laur05/cl4fwjd56002p15ny24nzqog1', 
     center: isMobile ? { lon: -4.68680, lat: 37.43766 } : { lon: -4.68680, lat: 37.73766 } , // starting position [lng, lat],, -
-    zoom: isMobile ? 5.5 : 6.5,
+    zoom: isMobile ? 7.5 : 8.5,
  
     maxBounds: isMobile ? bounds : null,
 
@@ -101,14 +101,13 @@
       'renderingMode': '2d',
       'source': 'resultados',
       'source-layer': 'Andalucia2022SC',
-      'filter': ['>', 'PPRIMERO', -1],
       'paint':{
         'fill-color': ["match", ["get","PRIMERO"],
           "PSOE", "#cc001e",
           "PP", "#119bd1",
           "Cs", "#ff9324",
-          "Por And.", "#166e5e",
-          "Adelante A.", "#ad18ad",
+          "PorA", "#166e5e",
+          "AA", "#ad18ad",
           "Vox", "#6fc92e",
           "JM", "#323232",
 
@@ -301,9 +300,9 @@
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,
       language: 'es',
-      types: 'region, place, locality',
+      types: 'region, place, locality, neighborhood, address',
       placeholder: 'Busca tu municipio',
-      zoom: 15,
+      zoom: 20,
     });
     
     document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
@@ -337,8 +336,8 @@
       map.getCanvas().style.cursor = 'pointer';
       
       var coordinates = e.features[0].geometry.coordinates.slice();
-      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
-      var distrito = e.features[0].properties.PROVINCIA;
+      var municipio = e.features[0].properties.NMUN.toUpperCase();
+      var distrito = e.features[0].properties.NPRO;
       var color = e.features[0].properties.COLORGANADOR;
       var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
       var pp = e.features[0].properties.PP.toLocaleString('es-ES');
@@ -415,8 +414,8 @@ map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
       map.getCanvas().style.cursor = 'pointer';
       
       var coordinates = e.features[0].geometry.coordinates.slice();
-      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
-      var distrito = e.features[0].properties.PROVINCIA;
+      var municipio = e.features[0].properties.NMUN.toUpperCase();
+      var distrito = e.features[0].properties.NPRO;
       var color = e.features[0].properties.COLORGANADOR;
       var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
       var pp = e.features[0].properties.PP.toLocaleString('es-ES');
@@ -486,8 +485,8 @@ map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
         map.getCanvas().style.cursor = 'pointer';
       
       var coordinates = e.features[0].geometry.coordinates.slice();
-      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
-      var distrito = e.features[0].properties.PROVINCIA;
+      var municipio = e.features[0].properties.NMUN.toUpperCase();
+      var distrito = e.features[0].properties.NPRO;
       var color = e.features[0].properties.COLORGANADOR;
       var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
       var pp = e.features[0].properties.PP.toLocaleString('es-ES');
@@ -558,8 +557,8 @@ map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
         map.getCanvas().style.cursor = 'pointer';
       
       var coordinates = e.features[0].geometry.coordinates.slice();
-      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
-      var distrito = e.features[0].properties.PROVINCIA;
+      var municipio = e.features[0].properties.NMUN.toUpperCase();
+      var distrito = e.features[0].properties.NPRO;
       var color = e.features[0].properties.COLORGANADOR;
       var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
       var pp = e.features[0].properties.PP.toLocaleString('es-ES');
@@ -630,8 +629,8 @@ map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
         map.getCanvas().style.cursor = 'pointer';
       
       var coordinates = e.features[0].geometry.coordinates.slice();
-      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
-      var distrito = e.features[0].properties.PROVINCIA;
+      var municipio = e.features[0].properties.NMUN.toUpperCase();
+      var distrito = e.features[0].properties.NPRO;
       var color = e.features[0].properties.COLORGANADOR;
       var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
       var pp = e.features[0].properties.PP.toLocaleString('es-ES');
@@ -702,8 +701,8 @@ map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
         map.getCanvas().style.cursor = 'pointer';
       
       var coordinates = e.features[0].geometry.coordinates.slice();
-      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
-      var distrito = e.features[0].properties.PROVINCIA;
+      var municipio = e.features[0].properties.NMUN.toUpperCase();
+      var distrito = e.features[0].properties.NPRO;
       var color = e.features[0].properties.COLORGANADOR;
       var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
       var pp = e.features[0].properties.PP.toLocaleString('es-ES');
@@ -776,8 +775,8 @@ map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
         map.getCanvas().style.cursor = 'pointer';
       
       var coordinates = e.features[0].geometry.coordinates.slice();
-      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
-      var distrito = e.features[0].properties.PROVINCIA;
+      var municipio = e.features[0].properties.NMUN.toUpperCase();
+      var distrito = e.features[0].properties.NPRO;
       var color = e.features[0].properties.COLORGANADOR;
       var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
       var pp = e.features[0].properties.PP.toLocaleString('es-ES');
@@ -840,7 +839,8 @@ map.on(isMobile ? 'click' : 'mousemove', 'tiles-fills-IZQ/DER', function(e) {
 
       map.fitBounds(boundsselected, {
           padding: 0,
-          maxZoom: 9,
+          maxZoom: 10,
+          zoom: 10
 
 
       });
@@ -871,7 +871,7 @@ var boundsselected = turf.extent(coordinatespolygon);
 
 map.fitBounds(boundsselected, {
     padding: 0,
-    maxZoom: 9,
+    maxZoom: 20,
 
 
 });
