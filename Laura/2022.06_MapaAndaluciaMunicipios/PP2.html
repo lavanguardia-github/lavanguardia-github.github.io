@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Swipe between maps</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.css' type='text/css' />
+<script src='https://cdn.rawgit.com/duroty/responsive/master/app.embed.js'></script>
+
+<style>
+  body { margin: 0; padding: 0; }
+  #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+body {
+overflow: hidden;
+height: 650px;
+}
+ 
+body * {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+ 
+.map {
+position: absolute;
+top: 0;
+bottom: 0;
+width: 100%;
+}
+
+
+.legend {
+  background-color: #ffffff;
+    border-radius: 3px;
+    bottom: 10px;
+    padding: 7px;
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+    width: 1;
+    box-shadow: none !important;
+  border: 1px solid #323232;
+}
+
+.legend clearfix {
+    background-color: #ffffff;
+    border-radius: 3px;
+    bottom: 10px;
+    padding: 7px 10px 8px 5px;
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+    width: 200px;
+    text-align: left;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
+}
+.legend h1 {
+    font-size: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+    fill: #aeaeaf;
+    margin: 0px 0 -11px 0;
+    text-transform: uppercase;
+    text-align: left;
+}
+.legend span {
+    float: left;
+    height: 10px;
+    width: 20%;
+    font-size: 9px;
+    color: #aeaeaf;
+    margin-bottom: 5px;
+}
+
+.legend label {
+    font-size: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    fill: #aeaeaf;
+    padding: 0 5px;
+    text-align: left;
+
+
+}
+
+.mapboxgl-popup-content {
+
+margin: 0px;
+padding: 0px !important;
+width:200px;
+font-size: 15px;
+}
+
+
+</style>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
+<link
+rel="stylesheet"
+href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css"
+type="text/css"
+/>
+      
+
+<div id="comparison-container">
+<div id="before" class="map"></div>
+<div id="after" class="map"><div id='legend'>
+
+    <nav class='legend clearfix'>
+        <h1 id="legend-title">Partido más votado</h1></br>
+        <span id="legend1" style='background:#119bd1;opacity:1;margin-right: 3px;width:17%;'></span>
+        <span id="legend2" style='background:#de1600;opacity:1;margin-right: 3px;width:17%;'></span>
+        <span id="legend3" style='background:#6fc92e;opacity:1;margin-right: 3px;width:16%;'></span>
+        <span id="legend4" style='background:#166e5e;opacity:1;margin-right: 3px;width:17%;'></span>
+        <span id="legend5" style='background:orange;opacity:1;margin-right: 3px;width:17%;'></span>
+
+        <div id="labels-legend">
+          <label>PP</label>
+          <label>PSOE</label>
+          <label>Vox</label>
+          <label>PorA</label>
+          <label>Cs</label>
+
+        </div>
+      </nav>
+
+
+
+<script>
+
+var totalWidth = window.innerWidth;
+  var isMobile = totalWidth < 600;
+mapboxgl.accessToken = 'pk.eyJ1IjoibGF1cjA1IiwiYSI6ImNpbmtmM2FjazAwODF2eG0yNjhteTcxdHIifQ.l7uzjVe2b1L8dHh_Z9JjoQ';
+var beforeMap = new mapboxgl.Map({
+container: 'before', // container id
+style: 'mapbox://styles/laur05/cl4fwjd56002p15ny24nzqog1', 
+center:  { lon: -4.667551985905687, lat: 37.548481010367624}, // starting position [lng, lat], 
+zoom: isMobile ? 5.5 : 7,
+minZoom: 4,
+maxZoom: 13,
+attributionControl: false,
+//maxBounds: [[-1.5,35.5],[4.5,45] ]
+});
+var hoveredStateId =  null;
+var searched_lngLat = null;
+
+
+beforeMap.on('load', function () {
+// Add a layer showing the state polygons.
+
+
+beforeMap.addSource("resultados", {
+    type: 'vector',
+    url: 'mapbox://laur05.5c9vxfpy',
+});
+
+
+
+var layers = beforeMap.getStyle().layers;
+// Find the index of the first symbol layer in the map style
+
+beforeMap.addLayer({
+                'id': 'tiles-fills-VOX',
+                'type': 'fill',
+                'renderingMode': '2d',
+                'source': 'resultados',
+                'source-layer': 'Andalucia2022',
+                'filter': ['>', 'PPRIMERO', -1],
+      'paint':{
+        'fill-color': ["match", ["get","PRIMERO"],
+          "PSOE", "#cc001e",
+          "PP", "#119bd1",
+          "Cs", "#ff9324",
+          "Por And.", "#166e5e",
+          "Adelante A.", "#ad18ad",
+          "Vox", "#6fc92e",
+          "JM", "#323232",
+
+          "#d6d6d6"
+        ],
+        'fill-opacity': ["interpolate", ["linear", 100], ["get", "PPRIMERO"],
+          0.00, 0.05,
+          19.99, 0.05,
+          20, 0.2,
+          29.9, 0.2,
+          30, 0.4,
+          39.9, 0.4,
+          40, 0.6,
+          49., 0.6,
+          50, 0.8
+        ]
+              }}, "admin");
+
+beforeMap.addLayer({
+    'id': 'tiles-borders',
+    'type': 'line',
+    'renderingMode': '2d',
+    'source': 'resultados',
+    'source-layer': 'Andalucia2022',
+    'paint': {
+    "line-color": ["case", ["boolean", ["feature-state", "hover"], false], "black", "white"],
+     "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 2, 0]}
+     }, "admin");
+
+
+
+
+// Add zoom and rotation controls to the map.
+var nav = new mapboxgl.NavigationControl( {showCompass:false});
+beforeMap.addControl(nav, 'bottom-left');
+
+// disable map zoom when using scroll
+beforeMap.scrollZoom.disable();
+
+
+var geocoder = new MapboxGeocoder({
+countries: 'es',
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl,
+types: 'place',
+placeholder: 'Busca tu municipio',
+zoom: 7,
+});
+
+
+beforeMap.addControl(geocoder, 'top-left');
+
+var popup = new mapboxgl.Popup({
+                closeButton: false,
+                closeOnClick: false,
+              }); 
+
+
+              geocoder.on('result', function(ev) {
+                searched_lngLat = mapboxgl.LngLat.convert(ev.result.center)      
+              });
+
+   beforeMap.on('mousemove', 'tiles-fills-VOX', function(e) {
+                if (e.features.length > 0) {
+                  if (hoveredStateId) {          
+                    beforeMap.setFeatureState({ source: 'resultados', 
+                      sourceLayer: 'Andalucia2022',
+                      id: hoveredStateId}, { hover: false});
+                  }
+                  hoveredStateId = e.features[0].id;
+                  beforeMap.setFeatureState({ source: 'resultados', 
+                    sourceLayer: 'Andalucia2022',
+                    id: hoveredStateId}, { hover: true});
+                }
+                beforeMap.getCanvas().style.cursor = 'pointer';
+
+                var coordinates = e.features[0].geometry.coordinates.slice();
+      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
+      var distrito = e.features[0].properties.PROVINCIA;
+      var color = e.features[0].properties.COLORGANADOR;
+      var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
+      var pp = e.features[0].properties.PP.toLocaleString('es-ES');
+      var psoe = e.features[0].properties.PSOE.toLocaleString('es-ES');
+      var vox = e.features[0].properties.Vox.toLocaleString('es-ES');
+      var porA = e.features[0].properties.PorA.toLocaleString('es-ES');
+      var aa = e.features[0].properties.AA.toLocaleString('es-ES');
+      var ppInc = e.features[0].properties.ppInc.toLocaleString('es-ES');
+      var psoeInc = e.features[0].properties.psoeInc.toLocaleString('es-ES');
+      var voxInc = e.features[0].properties.voxInc.toLocaleString('es-ES');
+      var aaInc = e.features[0].properties.aaInc.toLocaleString('es-ES');
+      var derecha = e.features[0].properties.DERECHA.toLocaleString('es-ES');
+      var izquierda = e.features[0].properties.IZQUIERDA.toLocaleString('es-ES');
+      var izqInc = e.features[0].properties.izqInc.toLocaleString('es-ES');
+      var derInc = e.features[0].properties.derInc.toLocaleString('es-ES');
+
+
+      
+      popup.setLngLat(e.lngLat)
+      .setHTML("<div style='background-color:"
+            + color + ";padding:6px;color:#fff;'><p><b style='font-size:15px;'>" 
+            + municipio + "</b></p><p>Participación: "
+            + participacion + "%</p><i>"
+            + distrito + "</i></br></div><table style='width:100%;padding:6px;text-align: right;'><tr><th></th><th style='color: gray; font-size: 14px;font-weight:300;'>%</th><th style='color: gray; font-size: 14px; font-weight:300;'>DIF</th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px' ></span><b>PP</b></td><td>"
+            + pp + "</td><td>"
+            + ppInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px'></span><b>PSOE</b></td><td>"
+            + psoe + "</td><td>"
+            + psoeInc + "</td><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #6fc92e; margin-right: 4px;margin-bottom:-1px'></span><b>Vox</b></td><td>"
+            + vox + "</td><td>"
+            + voxInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #166e5e; margin-right: 4px;margin-bottom:-1px'></span><b>PorA</b></td><td>"
+            + porA + "</td><td> - </td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: purple; margin-right: 4px;margin-bottom:-1px'></span><b>AA</b></td><td>"
+            + aa + "</td><td>"
+            + aaInc + "</td></tr><tr><td><hr style='height:1px;border-width:0;color:gray;background-color:gray'></td><td></td><td></td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px;'></span><b>DERECHA</b></td><td>"
+            + derecha + "</td><td>"
+            + derInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px;font-size:14px;' ></span><b>IZQUIERDA</b></td><td>"
+            + izquierda + "</td><td>"
+            + izqInc + "</td></tr></table>"
+            )
+            .addTo(beforeMap);
+              });   
+        // Change the cursor style as a UI indicator.
+
+        
+        // Display a popup with the name of the county
+
+
+ beforeMap.on('mouseleave', 'tiles-fills-VOX', function() {
+                beforeMap.getCanvas().style.cursor = '';
+                popup.remove();
+                if (hoveredStateId) {          
+                  beforeMap.setFeatureState({ source: 'resultados', 
+                    sourceLayer: 'Andalucia2022',
+                    id: hoveredStateId}, { hover: false});
+                }
+                hoveredStateId = null;
+              });    
+
+});  
+
+var afterMap = new mapboxgl.Map({
+container: 'after', // container id
+style: 'mapbox://styles/laur05/cl4fwjd56002p15ny24nzqog1', 
+center: { lon: -4.667551985905687, lat: 37.548481010367624},
+zoom: isMobile ? 5.5 : 7,
+minZoom: 4,
+maxZoom: 13,
+attributionControl: false,
+//maxBounds: [[-1.5,35.5],[4.5,45] ]
+});
+var hoveredStateId =  null;
+var searched_lngLat = null;
+
+
+afterMap.on('load', function () {
+// Add a layer showing the state polygons.
+
+
+afterMap.addSource("resultados", {
+    type: 'vector',
+    url: 'mapbox://laur05.5c9vxfpy',
+});
+
+
+
+var layers = afterMap.getStyle().layers;
+// Find the index of the first symbol layer in the map style
+
+afterMap.addLayer({
+                'id': 'tiles-fills-VOX',
+                'type': 'fill',
+                'renderingMode': '2d',
+                'source': 'resultados',
+                'source-layer': 'Andalucia2022',
+      'paint':{
+        'fill-color': ["match", ["get","ganador"],
+          "psoe2018", "#cc001e",
+          "pp2018", "#119bd1",
+          "cs2018", "#ff9324",
+          "olo", "#166e5e",
+          "aa2018", "#ad18ad",
+          "vox2018", "#6fc92e",
+
+          "#d6d6d6"
+        ],
+        'fill-opacity': ["interpolate", ["linear", 100], ["get", "vganador"],
+          0.00, 0.05,
+          19.99, 0.05,
+          20, 0.2,
+          29.9, 0.2,
+          30, 0.4,
+          39.9, 0.4,
+          40, 0.6,
+          49., 0.6,
+          50, 0.8
+        ]
+              }}, "admin");
+
+afterMap.addLayer({
+    'id': 'tiles-borders',
+    'type': 'line',
+    'renderingMode': '2d',
+    'source': 'resultados',
+    'source-layer': 'Andalucia2022',
+    'paint': {
+    "line-color": ["case", ["boolean", ["feature-state", "hover"], false], "black", "white"],
+     "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 2, 0]}
+     }, "admin");
+
+
+
+
+// Add zoom and rotation controls to the map.
+var nav = new mapboxgl.NavigationControl( {showCompass:false});
+afterMap.addControl(nav, 'bottom-left');
+
+// disable map zoom when using scroll
+afterMap.scrollZoom.disable();
+
+
+var geocoder = new MapboxGeocoder({
+countries: 'es',
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl,
+types: 'place',
+placeholder: 'Busca tu municipio',
+zoom: 7,
+});
+
+
+afterMap.addControl(geocoder, 'top-left');
+
+var popup = new mapboxgl.Popup({
+                closeButton: false,
+                closeOnClick: false,
+              }); 
+
+
+              geocoder.on('result', function(ev) {
+                searched_lngLat = mapboxgl.LngLat.convert(ev.result.center)      
+              });
+
+   afterMap.on('mousemove', 'tiles-fills-VOX', function(e) {
+                if (e.features.length > 0) {
+                  if (hoveredStateId) {          
+                    afterMap.setFeatureState({ source: 'resultados', 
+                      sourceLayer: 'Andalucia2022',
+                      id: hoveredStateId}, { hover: false});
+                  }
+                  hoveredStateId = e.features[0].id;
+                  afterMap.setFeatureState({ source: 'resultados', 
+                    sourceLayer: 'Andalucia2022',
+                    id: hoveredStateId}, { hover: true});
+                }
+                afterMap.getCanvas().style.cursor = 'pointer';
+
+                var coordinates = e.features[0].geometry.coordinates.slice();
+      var municipio = e.features[0].properties.NAMEUNIT.toUpperCase();
+      var distrito = e.features[0].properties.PROVINCIA;
+      var color = e.features[0].properties.COLORGANADOR;
+      var participacion = e.features[0].properties.PARTICIPACION.toLocaleString('es-ES');
+      var pp = e.features[0].properties.PP.toLocaleString('es-ES');
+      var psoe = e.features[0].properties.PSOE.toLocaleString('es-ES');
+      var vox = e.features[0].properties.Vox.toLocaleString('es-ES');
+      var porA = e.features[0].properties.PorA.toLocaleString('es-ES');
+      var aa = e.features[0].properties.AA.toLocaleString('es-ES');
+      var ppInc = e.features[0].properties.ppInc.toLocaleString('es-ES');
+      var psoeInc = e.features[0].properties.psoeInc.toLocaleString('es-ES');
+      var voxInc = e.features[0].properties.voxInc.toLocaleString('es-ES');
+      var aaInc = e.features[0].properties.aaInc.toLocaleString('es-ES');
+      var derecha = e.features[0].properties.DERECHA.toLocaleString('es-ES');
+      var izquierda = e.features[0].properties.IZQUIERDA.toLocaleString('es-ES');
+      var izqInc = e.features[0].properties.izqInc.toLocaleString('es-ES');
+      var derInc = e.features[0].properties.derInc.toLocaleString('es-ES');
+
+
+      
+      popup.setLngLat(e.lngLat)
+      .setHTML("<div style='background-color:"
+            + color + ";padding:6px;color:#fff;'><p><b style='font-size:15px;'>" 
+            + municipio + "</b></p><p>Participación: "
+            + participacion + "%</p><i>"
+            + distrito + "</i></br></div><table style='width:100%;padding:6px;text-align: right;'><tr><th></th><th style='color: gray; font-size: 14px;font-weight:300;'>%</th><th style='color: gray; font-size: 14px; font-weight:300;'>DIF</th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px' ></span><b>PP</b></td><td>"
+            + pp + "</td><td>"
+            + ppInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px'></span><b>PSOE</b></td><td>"
+            + psoe + "</td><td>"
+            + psoeInc + "</td><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #6fc92e; margin-right: 4px;margin-bottom:-1px'></span><b>Vox</b></td><td>"
+            + vox + "</td><td>"
+            + voxInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #166e5e; margin-right: 4px;margin-bottom:-1px'></span><b>PorA</b></td><td>"
+            + porA + "</td><td> - </td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: purple; margin-right: 4px;margin-bottom:-1px'></span><b>AA</b></td><td>"
+            + aa + "</td><td>"
+            + aaInc + "</td></tr><tr><td><hr style='height:1px;border-width:0;color:gray;background-color:gray'></td><td></td><td></td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #119bd1; margin-right: 4px;margin-bottom:-1px;'></span><b>DERECHA</b></td><td>"
+            + derecha + "</td><td>"
+            + derInc + "</td></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #cc001e; margin-right: 4px;margin-bottom:-1px;font-size:14px;' ></span><b>IZQUIERDA</b></td><td>"
+            + izquierda + "</td><td>"
+            + izqInc + "</td></tr></table>"
+            ) .addTo(afterMap);
+              });   
+        // Change the cursor style as a UI indicator.
+
+        
+        // Display a popup with the name of the county
+
+
+ afterMap.on('mouseleave', 'tiles-fills-VOX', function() {
+                afterMap.getCanvas().style.cursor = '';
+                popup.remove();
+                if (hoveredStateId) {          
+                  afterMap.setFeatureState({ source: 'resultados', 
+                    sourceLayer: 'Andalucia2022',
+                    id: hoveredStateId}, { hover: false});
+                }
+                hoveredStateId = null;
+              });    
+
+});  
+
+var container = '#comparison-container';
+ 
+var map = new mapboxgl.Compare(beforeMap, afterMap, container, {
+
+// Set this to enable comparing two maps by mouse movement:
+// mousemove: true
+});
+</script>
+ 
+
+   
+	</body>
+</html>
