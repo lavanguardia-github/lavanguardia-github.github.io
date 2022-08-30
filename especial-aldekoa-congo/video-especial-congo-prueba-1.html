@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+</head>
+<body>
+<style>
+
+    
+/*TIEMPOS HEADLINE BOLD*/
+@font-face{font-family:tiemposheadline-bold;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Bold.woff) format("woff"),url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Bold.eot#iefix) format("embedded-opentype");font-weight:700;font-style:normal;font-display:swap}
+    
+@font-face{font-family:TiemposHeadline;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Bold.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
+    
+/*TIEMPOS HEADLINE REGULAR*/
+@font-face{font-family:tiemposheadline-regular;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Regular.woff) format("woff"),url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Regular.eot#iefix) format("embedded-opentype");font-weight:400;font-style:normal;font-display:swap}
+
+@font-face{font-family:TiemposHeadline;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap} 
+    
+/*TIEMPOS TEXT REGULAR*/
+@font-face{font-family:tiempostext-regular;src:url(https://lavanguardia-github.github.io/tipos/TiemposText-Regular.woff) format("woff"),url(https://lavanguardia-github.github.io/tipos/TiemposText-Regular.eot#iefix) format("embedded-opentype");font-style:normal;font-display:swap}
+    
+@font-face{font-family:TiemposText;src:url(https://lavanguardia-github.github.io/tipos/TiemposText-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}
+
+/*ROBOTO */
+@font-face{font-family:roboto-bold,sans-serif;src:url(https://lavanguardia-github.github.io/tipos/Roboto-Bold.woff) format("woff"),url(https://www.lavanguardia.com/css/fonts/roboto/Roboto-Bold.eot#iefix) format("embedded-opentype");font-style:normal;font-display:swap}
+    
+body {
+    margin:0;
+    padding:0;
+    }
+.contenedor-video {
+    overflow: hidden;
+    position: relative;
+    margin:0;
+    padding:0;
+    text-align: center;
+    height:720px;
+    }
+#myVideo {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+
+}
+.poster {
+    background-image: url("https://mariolv.github.io/video-capitulo-1-1280x720-2-poster.jpg");
+    background-color: #eee8e4;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+.contenido-textual {
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  width: 100%;
+  height:100%;
+  padding: 0;
+  /*margin:0;*/
+}
+.centrado-vertical {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.textos {
+  display:block;
+    margin:0;
+    padding:0;
+    width:100%;
+    }
+.epigrafe-capitulo {
+display: inline-block;
+    font-family: TiemposText,serif;
+    border-top: solid 1px #ffffff;
+    border-bottom: solid 1px #ffffff;
+    font-size: 18px!important;
+    line-height: 20px!important;
+    margin: 0 20px 20px 20px;
+    padding: 7px 0 5px 0;
+    font-weight: 500;
+    text-transform: uppercase;
+    filter: drop-shadow(2px 2px 2px #00000070);
+    }
+.titulo-capitulo {
+    font-family: TiemposHeadline,serif;
+    font-weight: 400;
+    font-size: 40px!important;
+    line-height: 42px!important;
+    margin: 0 20px 30px 20px;
+    filter: drop-shadow(2px 2px 2px #00000070);
+    }
+/* Botones de reproducción y audio */
+#boton-reproduccion, #boton-sonido {
+  border: none;
+  background: #00000000;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  padding:0;
+  opacity:0.7;
+}
+.pausar-video, .reproducir-video, .desactivar-sonido, .activar-sonido {
+  border: none;
+  background: #00000000;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  margin: 0;*/
+}
+.pausar-video {
+    background-image: url(https://lavanguardia-github.github.io/Imagenes/Iconos/icono-pause-80x80.svg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    }
+.reproducir-video {
+    background-image: url(https://lavanguardia-github.github.io/Imagenes/Iconos/icono-play-80x80.svg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    }
+.desactivar-sonido {
+    background-image: url(https://lavanguardia-github.github.io/Imagenes/Iconos/icono-audio-off-80x80.svg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    }
+.activar-sonido {
+    background-image: url(https://lavanguardia-github.github.io/Imagenes/Iconos/icono-audio-on-80x80.svg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    }
+#boton-reproduccion:hover {
+  filter: invert();
+}
+#boton-sonido:hover {
+  filter: invert();
+}
+.ssBtnDefault {
+opacity: 0 !important;
+}
+@media screen and (max-width: 620px) {
+#myVideo {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+    left: -450px;
+}    
+    }
+</style>
+<div class="contenedor-video">
+    <video class="centrado-vertical poster" autoplay="play" muted loop="" id="myVideo">
+  <source src="https://mariolv.github.io/video-capitulo-1-1280x720-2.mp4" type="video/mp4">
+</video>
+<div class="contenido-textual centrado-vertical">
+<div class="textos centrado-vertical">
+  <p class="epigrafe-capitulo">Capítulo 1: Kilela Balanda</p>
+  <h1 class="titulo-capitulo">Un conjuro para que brote el mito</h1>
+  <!--<button class="boton-accion" id="boton-reproduccion" onclick="controlReproduccion()"><div class="pausar-video"></div></button>-->
+  <button class="boton-accion" id="boton-sonido" onclick="controlSonido()"><div class="activar-sonido"></div></button>
+</div>
+</div>
+</div>
+
+<!-- Javascript -->
+<script>
+// Get the video
+var video = document.getElementById("myVideo");
+
+// Get the button Reproduccion
+var btnReproduccion = document.getElementById("boton-reproduccion");
+
+// Get the button Sonido
+var btnSonido = document.getElementById("boton-sonido");
+    
+// Pause and play the video, and change the button text
+function controlReproduccion() {
+  if (video.paused) {
+    video.play();
+    btnReproduccion.innerHTML = '<div class="pausar-video" title="Pausar vídeo" alt="Pausar vídeo"></div>';
+  } else {
+    video.pause();
+    btnReproduccion.innerHTML = '<div class="reproducir-video" title="Reproducir vídeo" alt="Reproducir vídeo"></div>';
+  }
+}
+    // Activa y desactiva el sonido y cambia el texto del botón
+function controlSonido() {
+  if (video.muted===true) {
+    video.muted=false;
+    btnSonido.innerHTML = '<div class="desactivar-sonido" title="Desactivar sonido" alt="Desactivar sonido"></div>';
+  } else {
+    video.muted=true;
+    btnSonido.innerHTML = '<div class="activar-sonido" title="Activar sonido" alt="Activar sonido"></div>';
+  }
+}
+</script>
+</div>
+</body>
+</html>
