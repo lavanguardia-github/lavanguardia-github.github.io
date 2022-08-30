@@ -106,10 +106,9 @@ display: inline-block;
   border: none;
   background: #00000000;
   cursor: pointer;
-  width: 40px;
   height: 40px;
-  display: inline-block;
-  margin: 0;*/
+  display: block;
+  margin: 0;
 }
 .pausar-video {
     background-image: url(https://lavanguardia-github.github.io/Imagenes/Iconos/icono-pause-80x80.svg);
@@ -131,12 +130,28 @@ display: inline-block;
     background-repeat: no-repeat;
     background-position: center; 
     }
-#boton-reproduccion:hover {
-  filter: invert();
-}
-#boton-sonido:hover {
-  filter: invert();
-}
+.pausar-video:hover {
+    filter: invert()
+    }
+.reproducir-video:hover {
+    filter: invert()
+    }
+.desactivar-sonido:hover {
+    filter: invert()
+    }
+.activar-sonido:hover {
+    filter: invert()
+    }
+.accion-sonido {
+    color:#ffffff;
+    display: block;
+    font-family: Roboto,sans-serif;
+    font-size: 11px!important;
+    line-height: 13px!important;
+    padding:0;
+    margin:6px 0 0 0;
+    text-transform: uppercase;
+    }
 .ssBtnDefault {
 opacity: 0 !important;
 }
@@ -158,7 +173,7 @@ opacity: 0 !important;
   <p class="epigrafe-capitulo">Capítulo 1: Kilela Balanda</p>
   <h1 class="titulo-capitulo">Un conjuro para que brote el mito</h1>
   <!--<button class="boton-accion" id="boton-reproduccion" onclick="controlReproduccion()"><div class="pausar-video"></div></button>-->
-  <button class="boton-accion" id="boton-sonido" onclick="controlSonido()"><div class="activar-sonido"></div></button>
+  <button class="boton-accion" id="boton-sonido" onclick="controlSonido()"><div class="desactivar-sonido"></div><div class="accion-sonido">Activar sonido</div></button>
 </div>
 </div>
 </div>
@@ -188,13 +203,12 @@ function controlReproduccion() {
 function controlSonido() {
   if (video.muted===true) {
     video.muted=false;
-    btnSonido.innerHTML = '<div class="desactivar-sonido" title="Desactivar sonido" alt="Desactivar sonido"></div>';
+    btnSonido.innerHTML = '<div class="activar-sonido" title="Desactivar sonido" alt="Desactivar sonido"></div><div class="accion-sonido">Desactivar sonido</div>';
   } else {
     video.muted=true;
-    btnSonido.innerHTML = '<div class="activar-sonido" title="Activar sonido" alt="Activar sonido"></div>';
+    btnSonido.innerHTML = '<div class="desactivar-sonido" title="Activar sonido" alt="Activar sonido"></div><div class="accion-sonido">Activar sonido</div>';
   }
 }
 </script>
-</div>
 </body>
 </html>
