@@ -106,7 +106,7 @@ body {
     text-align: left;
     }
 /* Botones de reproducción y audio */
-#boton-reproduccion, #boton-sonido {
+#boton-reproduccion, #boton-sonido, #boton-capitulo {
   border: none;
   background: #00000000;
   cursor: pointer;
@@ -114,8 +114,9 @@ body {
   margin: 0;
   padding:0;
   opacity:0.7;
+  width:120px;
 }
-.pausar-video, .reproducir-video, .desactivar-sonido, .activar-sonido {
+.pausar-video, .reproducir-video, .desactivar-sonido, .activar-sonido, .ir-al-capitulo {
   border: none;
   background: #00000000;
   cursor: pointer;
@@ -123,6 +124,11 @@ body {
   display: block;
   margin: 0;
 }
+.ir-al-capitulo {
+    background-image: url(https://lavanguardia-github.github.io/Imagenes/Iconos/icono-enlace-80x80-3.svg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    }
 .pausar-video {
     background-image: url(https://lavanguardia-github.github.io/Imagenes/Iconos/icono-pause-80x80.svg);
     background-repeat: no-repeat;
@@ -143,6 +149,9 @@ body {
     background-repeat: no-repeat;
     background-position: center; 
     }
+.ir-al-capitulo:hover {
+    filter: invert()
+    }
 .pausar-video:hover {
     filter: invert()
     }
@@ -155,7 +164,7 @@ body {
 .activar-sonido:hover {
     filter: invert()
     }
-.accion-sonido {
+.accion-sonido, .accion-reproduccion, .accion-capitulo {
     color:#ffffff;
     display: block;
     font-family: Roboto,sans-serif;
@@ -164,6 +173,9 @@ body {
     padding:0;
     margin:6px 0 0 0;
     text-transform: uppercase;
+    }
+.enlace-capitulo {
+    text-decoration: none;
     }
 .ssBtnDefault {
 opacity: 0 !important;
@@ -204,8 +216,9 @@ opacity: 0 !important;
   <p class="epigrafe-capitulo">Siguiente: capítulo 2</p>
   <h1 class="titulo-capitulo">Kolwezi, la fiebre del oro azul</h1>
   <p class="texto-capitulo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pharetra varius lorem, ac facilisis neque aliquet at. Sed sed hendrerit lorem, sed aliquet risus. Etiam malesuada lacus at orci porttitor tincidunt. Duis malesuada lectus ac mi condimentum posuere. Donec at enim dictum, ultrices mi et, accumsan dolor. Nulla facilisi. Mauris in malesuada quam. Aenean sodales ante in congue porta. Nulla velit tortor, eleifend non volutpat id, lacinia a orci. Proin finibus nisl id enim sodales, a tempor felis dapibus.</p>
-  <!--<button class="boton-accion" id="boton-reproduccion" onclick="controlReproduccion()"><div class="pausar-video"></div></button>-->
+  <!--<button class="boton-accion" id="boton-reproduccion" onclick="controlReproduccion()"><div class="pausar-video"></div><div class="accion-sonido">Pausar<br>vídeo</div></button>-->
   <button class="boton-accion" id="boton-sonido" onclick="controlSonido()"><div class="desactivar-sonido"></div><div class="accion-sonido">Activar sonido</div></button>
+  <button class="boton-accion" id="boton-capitulo"><a class="enlace-capitulo" href="https://stories.lavanguardia.com/internacional/20220905/56884/congo-capitulo-1-la-raiz-magica-del-mito.html" title="" alt="" target="_top"><div class="ir-al-capitulo"></div><div class="accion-capitulo">Ir al capítulo</div></a></button>
 </div>
 </div>
 </div>
@@ -225,10 +238,10 @@ var btnSonido = document.getElementById("boton-sonido");
 function controlReproduccion() {
   if (video.paused) {
     video.play();
-    btnReproduccion.innerHTML = '<div class="pausar-video" title="Pausar vídeo" alt="Pausar vídeo"></div>';
+    btnReproduccion.innerHTML = '<div class="pausar-video" title="Pausar vídeo" alt="Pausar vídeo"></div><div class="accion-reproduccion">Pausar<br>video</div>';
   } else {
     video.pause();
-    btnReproduccion.innerHTML = '<div class="reproducir-video" title="Reproducir vídeo" alt="Reproducir vídeo"></div>';
+    btnReproduccion.innerHTML = '<div class="reproducir-video" title="Reproducir vídeo" alt="Reproducir vídeo"></div><div class="accion-reproduccion">Reproducir<br>video</div>';
   }
 }
     // Activa y desactiva el sonido y cambia el texto del botón
