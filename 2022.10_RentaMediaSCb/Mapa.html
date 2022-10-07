@@ -58,8 +58,9 @@
   var isMobile = totalWidth < 600;
 
   var bounds = [
-    [-7.4, 34], // Southwest coordinates
-    [-1.4, 44] // Northeast coordinates
+    [ -9.12024, 36.96588], // Southwest coordinates
+    [3.33629,  43.25615] // Northeast coordinates
+
   ];
 
   //Specify the acces token key
@@ -69,7 +70,7 @@
   var map = new mapboxgl.Map({
     container: 'map', 
     style: 'mapbox://styles/laur05/cl4fwjd56002p15ny24nzqog1', 
-    center: isMobile ? { lon: -3.57992, lat: 40.34715 } : { lon: -3.57992, lat: 40.34715 } , // starting position [lng, lat],, -
+    center: isMobile ? { lon: -10.57992, lat: 50.34715 } : { lon: -3.57992, lat: 40.34715 } , // starting position [lng, lat],, -
     zoom: isMobile ? 3.5 : 8,
  
     maxBounds: isMobile ? bounds : null,
@@ -112,8 +113,12 @@
             20000, 0.4,
             29999, 0.4,
             30000, 0.6,
-            39999., 0.6,
-            40000, 1]
+            39999, 0.6,
+            40000, 0.9,
+            50000, 0.9,
+
+
+            60000, 1]
     }}, "admin"); 
 
     
@@ -195,7 +200,7 @@ placeholder: 'Busca tu calle',
       popup.setLngLat(e.lngLat)
       .setHTML("<div style='background-color:#08306b;padding:6px;color:#fff;'><p><b style='font-size:15px;'>" 
             + municipio + "</b></p><p>Distrito: "
-            + distrito + "</p>Código: " + scensal + "</p><i>"
+            + distrito + "</p></p><i>"
              + "</i></br></div><table style='width:100%;padding:6px;text-align: right;'><tr><th style='color: gray; font-size: 14px;font-weight:300;text-align: left'>Renta neta media por hogar</th><th style='color: gray; font-size: 14px;font-weight:300;'></th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #08306b; margin-right: 4px;margin-bottom:-1px' ></span><b>2020</b></td><td><b>"
             + renta2019 + "€</b></td><th style='color: gray; font-size: 14px;font-weight:300;'></th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #08306b; margin-right: 4px;margin-bottom:-1px' ></span>2015</td><td>"
             + renta2015 + "€</td><td><th style='color: gray; font-size: 14px;font-weight:300;'></th></tr><tr><td style='text-align: left !important;'><span style='display: inline-block;width: 2px; height: 12px; background-color: #08306b; margin-right: 4px;margin-bottom:-1px' ></span><b>Variación</b></td><td><b>"
@@ -241,7 +246,7 @@ placeholder: 'Busca tu calle',
   function handleMainMap() {
     popup.remove();
     map.flyTo({
-      center: isMobile ? { lon: -3.57992, lat: 40.34715 } : { lon: -3.57992, lat: 40.34715 } , // starting position [lng, lat],, -
+      center: isMobile ? { lon: -3.69896, lat: 40.38684} : { lon: -3.57992, lat: 40.34715 } , // starting position [lng, lat],, -
     zoom: isMobile ? 7.5 : 10.5,
       maxBounds: isMobile ? bounds : null,
 
