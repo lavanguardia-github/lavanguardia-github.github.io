@@ -29,17 +29,16 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 1,
-                //     duration: 5000
-                // }
+                {
+                    layer: 'border-Girona',
+                    opacity: 0,
+                 }
             ],
             onChapterExit: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 0
-                // }
+                {
+                    layer: 'border-Girona',
+                    opacity: 0,
+                 }
             ]
         },
         {
@@ -60,22 +59,10 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
-                 {
-                    layer: 'EsfuerzoAlquiler',
-                    opacity: 0.85,
-                    duration: 5000
-                 },
-                 {
-                    layer: 'EsfuerzoBorders',
-                    opacity: 0.85,
-                    duration: 5000
-                 }
+               
             ],
             onChapterExit: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 0
-                // }
+               
             ]
         },
         {
@@ -87,7 +74,7 @@ var config = {
             description: `Aquí s'explica que clar Girona`,
             location: {
                 center: { lon: 2.80708, lat: 41.98539 },
-                zoom: 10.5,
+                zoom: 12,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -96,17 +83,24 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                   layer: 'EsfuerzoAlquiler',
-                   opacity: 0.85,
-                   duration: 5000
+                   layer: 'border-Girona',
+                   opacity: 1,
                 },
                 {
-                    layer: 'EsfuerzoBorders',
-                    opacity: 0.85,
-                    duration: 5000
+                    layer: 'fill-Girona',
+                    opacity: 0.15,
                  }
            ],
-            onChapterExit: []
+           onChapterExit: [
+               {
+                   layer: 'border-Girona',
+                   opacity: 0,
+                },
+                {
+                    layer: 'fill-Girona',
+                    opacity: 0,
+                 }
+           ]
         },
         {
             id: 'TercerTexto',
@@ -116,8 +110,8 @@ var config = {
             image: '',
             description: `I aquí el barri pascual`,
             location: {
-                center: { lon: 2.80708, lat: 41.98539 },
-                zoom: 10.5,
+                center: { lon: 2.83507, lat: 41.97198 },
+                zoom: 13,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -126,13 +120,65 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                   layer: 'EsfuerzoAlquiler',
-                   opacity: 0.85,
-                   duration: 5000
-                }
+                   layer: 'border-Polvora',
+                   opacity: 1,
+                },
+                {
+                    layer: 'fill-Polvora',
+                    opacity: 0.15,
+                 },
+                 {
+                    layer: 'border-Girona',
+                    opacity: 1,
+                 }
            ],
-            onChapterExit: []
+           onChapterExit: [
+               {
+                   layer: 'border-Polvora',
+                   opacity: 0,
+                },
+                {
+                    layer: 'fill-Polvora',
+                    opacity: 0,
+                 },
+                 {
+                    layer: 'border-Girona',
+                    opacity: 0,
+                 }
+           ]
         },
+        {
+            id: 'CuartoTexto',
+            alignment: 'left',
+            hidden: false,
+            title: '',
+            image: '',
+            description: `I aquí el barri pascual 2`,
+            location: {
+                center: { lon: 2.83507, lat: 41.97198 },
+                zoom: 14.5,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [
+                {
+                   layer: 'border-Polvora',
+                   opacity: 1,
+                },
+                {
+                    layer: 'fill-Polvora',
+                    opacity: 0.15,
+                 },
+              
+           ],
+           onChapterExit: [
+            
+           
+           ]
+        }
        
     ]
 };
