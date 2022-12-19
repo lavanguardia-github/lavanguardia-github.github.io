@@ -47,7 +47,8 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `This is a nice intro explaining why you should read this article`,
+            description: `<p>Hay autopistas, parques, ríos y carreteras que son fronteras. Muros naturales y arquitectónicos que separan a ricos y pobres. A chalets unifamiliares con piscina de polígonos de viviendas construídos durante el franquismo.</p><p>Estas barreras no sólo señalan sobre mapa las diferencias entre clases sociales sinó que también contribuyen a la segregación económica entre vecinos.</p>
+            `,
             location: {
                 center: { lon: 2.80708, lat: 41.98539 },
                 zoom: 10.5,
@@ -71,7 +72,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `Aquí s'explica que clar Girona`,
+            description: `<p>En la ciudad de Girona se encuentra una de estas barreras. La más grande de todo el Estado.</p>`,
             location: {
                 center: { lon: 2.80708, lat: 41.98539 },
                 zoom: 12,
@@ -108,7 +109,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `I aquí el barri pascual`,
+            description: `<p>Los bloques de pisos del barrio de la Font de la Pólvora se alzan donde termina la ciudad. Encajados entre una zona montañosa y el barrio de Vila-Roja, la treintena de edificios de esta sección censal tienen uno de los ingresos medios más bajos de toda Catalunya.</p><p>Con 16.150 euros anuales de promedio este conjunto de viviendas se encuentra prácticamente aislado de los servicios de la ciudad.</p>`,
             location: {
                 center: { lon: 2.83507, lat: 41.97198 },
                 zoom: 13,
@@ -133,14 +134,7 @@ var config = {
                  }
            ],
            onChapterExit: [
-               {
-                   layer: 'border-Polvora',
-                   opacity: 0,
-                },
-                {
-                    layer: 'fill-Polvora',
-                    opacity: 0,
-                 },
+               
                  {
                     layer: 'border-Girona',
                     opacity: 0,
@@ -153,7 +147,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `I aquí el barri pascual 2`,
+            description: `<p>Las aguas del río Onyar y más de 60.000 euros separan este barrio del de Montilivi, un diseminado de casas unifamiliares con piscina con una renta media que supera los 77.000 euros.</p><p>En este tramo, el río se convierte en una de las barreras físicas más amplias de toda España</p>`,
             location: {
                 center: { lon: 2.83507, lat: 41.97198 },
                 zoom: 14.5,
@@ -164,6 +158,11 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
+
+                {
+                    layer: 'fill-Onyar',
+                    opacity: 0.7,
+                 },
                 {
                    layer: 'border-Polvora',
                    opacity: 1,
@@ -172,12 +171,39 @@ var config = {
                     layer: 'fill-Polvora',
                     opacity: 0.15,
                  },
+                 {
+                    layer: 'border-Montilivi',
+                    opacity: 1,
+                 },
+                 {
+                     layer: 'fill-Montilivi',
+                     opacity: 0.15,
+                  }
               
            ],
            onChapterExit: [
+            {
+                layer: 'fill-Onyar',
+                opacity: 0,
+             },
+            {
+                layer: 'border-Polvora',
+                opacity: 0,
+             },
+             {
+                 layer: 'fill-Polvora',
+                 opacity: 0,
+              },
+              {
+                layer: 'border-Montilivi',
+                opacity: 0,
+             },
+             {
+                 layer: 'fill-Montilivi',
+                 opacity: 0,
+              }
             
-           
-           ]
+        ]
         }
        
     ]
