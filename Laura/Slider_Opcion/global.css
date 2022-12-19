@@ -368,6 +368,10 @@
         
         }
 
+       .mapboxgl-ctrl-attrib, .mapboxgl-compact {
+        z-index:-5;
+       }
+
 
         
 
@@ -377,36 +381,36 @@
         @media (max-width: 450px) {
             #intro {
                 width: 100%;
+                background-color: #fafafa;
                 position: absolute;
                 z-index: 1;
-                background: linear-gradient(rgb(255, 255, 255) 80%, rgba(255, 255, 255, 0.664));
+                pointer-events: none;
+                background: linear-gradient(rgba(0, 0, 0, 0.45) 60%, rgba(0, 0, 0, 0));
                 height: 100%;
                 text-align: center;
                 align-items: center;
             
-
-
-
             }
 
             #intro h1 {
-                width: 90vw;
-                text-align: center;
-                margin: auto;
-                font-family: TiemposText-Medium;
-                color: rgb(53, 53, 53);
-                margin-top: 5vh;
-                font-size: 2em;
-                margin-bottom: 4vh;
+             width: 90vw;
+            text-align: center;
+            margin: auto;
+            font-family: TiemposText-Black;
+            font-weight: 700;
+            color: rgb(255, 255, 255);
+         
+            margin-top: 10vw;
+            font-size: 3em;
+            margin-bottom: 4vh;
             
             }
 
             #intro h3 {
                 margin: auto;
-                margin-top: 3vh;
-                font-size: 1.1em;
-                font-family: TiemposHeadline-Bold;
-                color: rgba(64, 117, 171)
+            margin-top: 15vh;
+            font-family: TiemposHeadline-Bold;
+            color: rgb(255, 255, 255)
             }
 
             #intro p {
@@ -429,10 +433,12 @@
                 border-top: 1px solid #d1d1d1;
                 border-bottom: 1px solid #d1d1d1;
                 width: 70vw;
-
-
-
+    
+    
+    
             }
+
+            
 
             #intro img {
                 width: 15vw;
@@ -444,6 +450,25 @@
                 bottom: 0;
 
             }
+
+            .mapboxgl-ctrl-minimap,  .mapboxgl-mapt {
+                z-index: 1;
+                width: 350px;
+                border: 0;
+                box-sizing: border-box;
+                box-shadow: 0px 4px 4px rgba(151, 151, 151, 0.25) !important ;    
+                border-radius: 100em !important;
+                font-size: 0.9em !important;
+                font-family: 'Open Sans', sans-serif !important;
+                position: relative;
+                margin-bottom: -35px !important;
+                margin-left: -35 !important;
+            
+            }
+
+            .mapboxgl-ctrl-attrib, .mapboxgl-compact {
+                z-index:-5;
+               }
 
         }
 

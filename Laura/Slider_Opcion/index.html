@@ -25,6 +25,10 @@
 <div id=story></div>
 <script src="./config.js"></script>
 <script>
+
+var totalWidth = window.innerWidth;
+var isMobile = totalWidth < 400;
+
         var layerTypes = {
             'fill': ['fill-opacity'],
             'line': ['line-opacity'],
@@ -1598,7 +1602,7 @@
                     "line-opacity": 0
 
                 }
-            },'settlement-major-label');
+            },'settlement-subdivision-label');
             
             map.addLayer({
                 'id': 'fill-Girona',
@@ -1610,7 +1614,7 @@
                     "fill-opacity": 0,
 
                 }
-            },'settlement-major-label');
+            },'settlement-subdivision-label');
             
             map.addLayer({
                 'id': 'border-Girona',
@@ -1623,7 +1627,7 @@
                     "line-opacity": 0,
 
                 }
-            },'settlement-major-label');
+            },'settlement-subdivision-label');
 
             map.addLayer({
                 'id': 'border-GironaFi',
@@ -1636,7 +1640,7 @@
                     "line-opacity": 0,
 
                 }
-            },'settlement-major-label');
+            },'settlement-subdivision-label');
 
             map.addLayer({
                 'id': 'fill-Polvora',
@@ -1648,7 +1652,7 @@
                     "fill-opacity": 0,
 
                 }
-            },'settlement-major-label');
+            },'settlement-subdivision-label');
 
             map.addLayer({
                 'id': 'border-Polvora',
@@ -1661,7 +1665,7 @@
                     "line-opacity": 0,
 
                 }
-            },'settlement-major-label');
+            },'settlement-subdivision-label');
 
             map.addLayer({
                 'id': 'fill-Montilivi',
@@ -1673,7 +1677,7 @@
                     "fill-opacity": 0,
 
                 }
-            },'settlement-major-label');
+            },'settlement-subdivision-label');
 
             map.addLayer({
                 'id': 'border-Montilivi',
@@ -1686,7 +1690,7 @@
                     "line-opacity": 0,
 
                 }
-            },'settlement-major-label');
+            },'settlement-subdivision-label');
 
             
             
@@ -1694,8 +1698,8 @@
 
             map.addControl(new mapboxgl.Minimap({
                 id: "mapboxgl-minimap",
-                width: "25vh",
-                height: "25vh",
+                width: isMobile ? '20vh' : "25vh",
+                height: isMobile ? '20vh' : "25vh",
                 style: "mapbox://styles/laur05/clbuqkfry008314n54pr88xgi",
                 lineColor: "#rgb(0,155,219)",
                 lineWidth: 1,
@@ -1733,7 +1737,7 @@
             scroller
                 .setup({
                     step: '.step',
-                    offset: 0.5,
+                    offset:  isMobile ? 0.7 : 0.5,
                     progress: true,
                     debug: false
                 })

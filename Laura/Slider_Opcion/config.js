@@ -1,3 +1,5 @@
+var totalWidth = window.innerWidth;
+var isMobile = totalWidth < 400;
 var config = {
     style: 'mapbox://styles/laur05/clbdyz1cc002214p7yooqbhco',
     accessToken: 'pk.eyJ1IjoibGF1cjA1IiwiYSI6ImNpbmtmM2FjazAwODF2eG0yNjhteTcxdHIifQ.l7uzjVe2b1L8dHh_Z9JjoQ',
@@ -75,7 +77,7 @@ var config = {
             description: `<p>En la ciudad de Girona se encuentra una de estas barreras. La más grande de todo el Estado.</p>`,
             location: {
                 center: { lon: 2.80708, lat: 41.98539 },
-                zoom: 12,
+                zoom: isMobile ? 10.5 : 12,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -138,7 +140,15 @@ var config = {
                  {
                     layer: 'border-Girona',
                     opacity: 0,
-                 }
+                 },
+                 {
+                    layer: 'border-Polvora',
+                    opacity: 0,
+                 },
+                 {
+                     layer: 'fill-Polvora',
+                     opacity: 0,
+                  }
            ]
         },
         {
@@ -150,7 +160,7 @@ var config = {
             description: `<p>Las aguas del río Onyar y más de 60.000 euros separan este barrio del de Montilivi, un diseminado de casas unifamiliares con piscina con una renta media que supera los 77.000 euros.</p><p>En este tramo, el río se convierte en una de las barreras físicas más amplias de toda España</p>`,
             location: {
                 center: { lon: 2.83507, lat: 41.97198 },
-                zoom: 14.5,
+                zoom:  isMobile ? 13 : 14.5,
                 pitch: 0.00,
                 bearing: 0.00
             },
