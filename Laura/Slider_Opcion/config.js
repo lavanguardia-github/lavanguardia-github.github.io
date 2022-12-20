@@ -49,7 +49,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `<p>Hay autopistas, parques, ríos y carreteras que son fronteras. Muros naturales y arquitectónicos que separan a ricos y pobres. A chalets unifamiliares con piscina de polígonos de viviendas construídos durante el franquismo.</p><p>Estas barreras no sólo señalan sobre mapa las diferencias entre clases sociales sinó que también contribuyen a la segregación económica entre vecinos.</p>
+            description: `<p>En España hay autopistas, parques, ríos y carreteras que son fronteras. Muros naturales y arquitectónicos que separan a ricos y pobres. A chalets unifamiliares con piscina de polígonos de viviendas construídos durante el franquismo.</p><p>Estas barreras no sólo señalan sobre mapa las diferencias entre clases sociales sinó que también contribuyen a la segregación económica entre vecinos.</p>
             `,
             location: {
                 center: { lon: 2.80708, lat: 41.98539 },
