@@ -157,7 +157,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `<p>Las aguas del río Onyar y más de 60.000 euros separan este barrio del de Montilivi, un diseminado de casas unifamiliares con piscina con una renta media que supera los 77.000 euros.</p><p>En este tramo, el río se convierte en una de las barreras físicas más amplias de toda España</p>`,
+            description: `<p>Las aguas del río Onyar y más de 60.000 euros separan este el barrio de la Font de la Pólvora del de Montilivi, un diseminado de casas unifamiliares con piscina con una renta media que supera los 77.000 euros.</p><p>En este tramo, el río se convierte en una de las barreras físicas más amplias de toda España</p>`,
             location: {
                 center: { lon: 2.83507, lat: 41.97198 },
                 zoom:  isMobile ? 13 : 14.5,
