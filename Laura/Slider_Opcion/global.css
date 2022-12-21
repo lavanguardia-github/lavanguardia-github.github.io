@@ -335,7 +335,7 @@
             margin: auto;
             font-size: 1.5em;
             font-family: TiemposText-Medium;
-            color: rgb(174, 174, 174);
+            color: rgb(255, 255, 255);
             padding-top: 10px;
             padding-bottom: 10px;
             border-top: 1px solid #d1d1d1;
@@ -373,6 +373,9 @@
        }
 
 
+    
+
+
         
 
 
@@ -400,7 +403,7 @@
             font-weight: 700;
             color: rgb(255, 255, 255);
          
-            margin-top: 10vw;
+            margin-top: 6vh;
             font-size: 3em;
             margin-bottom: 4vh;
             
@@ -427,7 +430,7 @@
                 margin: auto;
                 font-size: 1.5em;
                 font-family: TiemposText-Medium;
-                color: rgb(174, 174, 174);
+                color: rgb(255, 255, 255);
                 padding-top: 10px;
                 padding-bottom: 10px;
                 border-top: 1px solid #d1d1d1;
@@ -469,6 +472,13 @@
             .mapboxgl-ctrl-attrib, .mapboxgl-compact {
                 z-index:-5;
                }
+
+               .step div {
+                padding: 5px 25px;
+                line-height: 25px;
+                font-size: 16px;
+                line-height: 25px;
+              }
 
         }
 

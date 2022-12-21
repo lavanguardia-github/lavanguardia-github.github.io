@@ -18,6 +18,7 @@
 <body>
 <div id=intro>
 <h1>Los muros que separan a pobres y ricos en España </h1>
+<h2>Como autopistas, ríos y vías de tren segregan el territorio</h2>
 <p id=autor>Clara Penín y Laura Aragó</p>
 </div>
 <div id=map>
@@ -1698,13 +1699,13 @@ var isMobile = totalWidth < 400;
 
             map.addControl(new mapboxgl.Minimap({
                 id: "mapboxgl-minimap",
-                width: isMobile ? '20vh' : "25vh",
-                height: isMobile ? '20vh' : "25vh",
+                width: isMobile ? '15vh' : "20vh",
+                height: isMobile ? '15vh' : "20vh",
                 style: "mapbox://styles/laur05/clbuqkfry008314n54pr88xgi",
-                lineColor: "#rgb(0,155,219)",
-                lineWidth: 1,
+                lineColor: "black",
+                lineWidth: 4,
                 lineOpacity: 1,
-                fillColor: "rgb(0,155,219)",
+                fillColor: "rgb(0,155,219, 0)",
                 fillOpacity: 0.25,
                 center: [1.94990, 41.75821  ], 
                 zoomLevels: [],
