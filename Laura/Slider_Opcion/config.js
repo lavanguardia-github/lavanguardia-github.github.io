@@ -49,7 +49,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `<p>Hay autopistas, parques, ríos y carreteras que son fronteras. <b>Muros naturales y arquitectónicos que separan a ricos y pobres</b>, desde chalets unifamiliares con piscina a polígonos de viviendas construidos durante el franquismo.</p><p>Estas barreras no solo señalan sobre el mapa las diferencias entre clases sociales sino que también contribuyen a la segregación económica entre vecinos.</p>
+            description: `<p>Hay autopistas, parques, ríos y carreteras que en España son fronteras. <b>Muros naturales y arquitectónicos que separan a ricos y pobres</b>, desde chalets unifamiliares con piscina a polígonos de viviendas construidos durante el franquismo.</p><p>Estas barreras no solo señalan sobre el mapa las diferencias entre clases sociales sino que también contribuyen a la segregación económica entre vecinos.</p>
             `,
             location: {
                 center: { lon: 2.80708, lat: 41.98539 },
@@ -111,7 +111,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `<p>Los bloques de pisos del barrio de la <b>Font de la Pólvora</b> se alzan donde termina la ciudad. Encajados entre una zona montañosa y el barrio de Vila-Roja, tienen uno de los ingresos medios más bajos de toda Catalunya.</p><p>Con 16.000 euros anuales de promedio, este conjunto de viviendas se encuentra aislado de los principales servicios de la ciudad.</p>`,
+            description: `<p>Los bloques de pisos del barrio de la <b>Font de la Pólvora</b> se alzan donde termina la ciudad. Encajados entre una zona montañosa y el barrio de Vila-Roja, tienen uno de los ingresos medios más bajos de toda Catalunya.</p>`,
             location: {
                 center: { lon: 2.83507, lat: 41.97198 },
                 zoom: 13,
@@ -157,7 +157,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `<p>Las aguas del <span style='padding:6px;background-color:rgb(0,155,219,0.5);'>río Onyar</span> y más de 60.000 euros separan este barrio del de <b>Montilivi</b>, un diseminado de casas unifamiliares con piscina con una renta media que supera los 77.000 euros.</p><p>En este tramo, el río se convierte en una de las barreras físicas más amplias de toda España</p>`,
+            description: `<p>Las aguas del <span style='padding:6px;background-color:rgb(0,155,219,0.5);'>río Onyar</span> y más de 60.000 euros separan este barrio del de <b>Montilivi</b>, un diseminado de casas unifamiliares con piscina con la renta media más alta de la ciudad.</p><p>En este tramo, el río se convierte en una de las barreras físicas más amplias de toda España</p>`,
             location: {
                 center: { lon: 2.83507, lat: 41.97198 },
                 zoom:  isMobile ? 13 : 14.5,
