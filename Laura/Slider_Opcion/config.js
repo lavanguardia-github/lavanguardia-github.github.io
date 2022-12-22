@@ -157,7 +157,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `<p>Las aguas del <span style='padding:6px;background-color:rgb(0,155,219,0.5);'>río Onyar</span> y más de 60.000 euros separan este barrio del de <b>Montilivi</b>, un diseminado de casas unifamiliares con piscina con la renta media más alta de la ciudad.</p><p>En este tramo, el río se convierte en una de las barreras físicas más amplias de toda España</p>`,
+            description: `<p>Las aguas del <span style='padding:6px;background-color:rgb(0,155,219,0.5);'>río Onyar</span> separan este barrio del de <b>Montilivi</b>, un diseminado de casas unifamiliares con piscina con la renta media más alta de la ciudad.</p><p>En este tramo, el río se convierte en una de las barreras físicas más amplias de toda España</p>`,
             location: {
                 center: { lon: 2.83507, lat: 41.97198 },
                 zoom:  isMobile ? 13 : 14.5,
