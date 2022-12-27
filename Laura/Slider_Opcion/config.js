@@ -91,7 +91,7 @@ var config = {
                 },
                 {
                     layer: 'fill-Girona',
-                    opacity: 0.15,
+                    opacity: 0.25,
                  }
            ],
            onChapterExit: [
@@ -111,7 +111,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `<p>Los bloques de pisos del barrio de la <b>Font de la Pólvora</b> se alzan donde termina la ciudad. Encajados entre una zona montañosa y el barrio de Vila-Roja, tienen uno de los ingresos medios más bajos de toda Catalunya.</p>`,
+            description: `<p>Los bloques de pisos del barrio de la <b style='padding:4px;background-color:#e3e6f8;'>Font de la Pólvora</b> se alzan donde termina la ciudad. Encajados entre una zona montañosa y el barrio de Vila-Roja, tienen uno de los ingresos medios más bajos de toda Catalunya.</p>`,
             location: {
                 center: { lon: 2.83507, lat: 41.97198 },
                 zoom: 13,
@@ -128,7 +128,7 @@ var config = {
                 },
                 {
                     layer: 'fill-Polvora',
-                    opacity: 0.15,
+                    opacity: 0.4,
                  },
                  {
                     layer: 'border-Girona',
@@ -157,7 +157,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `<p>Las aguas del <span style='padding:6px;background-color:rgb(0,155,219,0.5);'>río Onyar</span> separan este barrio del de <b>Montilivi</b>, un diseminado de casas unifamiliares con piscina con la renta media más alta de la ciudad.</p><p>En este tramo, el río se convierte en una de las barreras físicas más amplias de toda España</p>`,
+            description: `<p>Las aguas del <span style='padding:4px;background-color:rgb(0,155,219,0.5);'>río Onyar</span> separan este barrio del de <b style='padding:4px;background-color:#001c4c85;color:#fff;'>Montilivi</b>, un diseminado de casas unifamiliares con piscina con la renta media más alta de la ciudad.</p><p>En este tramo, el río se convierte en una de las barreras físicas más amplias de toda España</p>`,
             location: {
                 center: { lon: 2.83507, lat: 41.97198 },
                 zoom:  isMobile ? 13 : 14.5,
@@ -171,7 +171,7 @@ var config = {
 
                 {
                     layer: 'fill-Onyar',
-                    opacity: 0.7,
+                    opacity: 0.5,
                  },
                 {
                    layer: 'border-Polvora',
@@ -179,7 +179,7 @@ var config = {
                 },
                 {
                     layer: 'fill-Polvora',
-                    opacity: 0.15,
+                    opacity: 0.4,
                  },
                  {
                     layer: 'border-Montilivi',
@@ -187,7 +187,7 @@ var config = {
                  },
                  {
                      layer: 'fill-Montilivi',
-                     opacity: 0.15,
+                     opacity: 0.4,
                   }
               
            ],
