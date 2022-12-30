@@ -49,7 +49,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `<p>Hay autopistas, parques, ríos y carreteras que en España son fronteras. <b>Muros naturales y arquitectónicos que separan a ricos y pobres</b>, desde chalets unifamiliares con piscina a polígonos de viviendas construidos durante el franquismo.</p><p>Estas barreras no solo señalan sobre el mapa las diferencias entre clases sociales sino que también contribuyen a la segregación económica entre vecinos.</p>
+            description: `<p>Hay autopistas, parques, ríos y carreteras que en España son fronteras. <b>Muros naturales y arquitectónicos que separan a ricos y pobres</b>, a chalets unifamiliares con piscina de polígonos de viviendas construidos durante el franquismo.</p><p>Estas barreras no solo señalan sobre el mapa las diferencias entre clases sociales sino que también contribuyen a la segregación económica entre vecinos.</p>
             `,
             location: {
                 center: { lon: 2.80708, lat: 41.98539 },
@@ -111,7 +111,7 @@ var config = {
             hidden: false,
             title: '',
             image: '',
-            description: `<p>Los bloques de pisos del barrio de la <b style='padding:4px;background-color:#e3e6f8;'>Font de la Pólvora</b> se alzan donde termina la ciudad. Encajados entre una zona montañosa y el barrio de Vila-Roja, tienen uno de los ingresos medios más bajos de toda Catalunya.</p>`,
+            description: `<p>Los bloques de pisos del barrio de la <b style='padding:4px;background-color:#e3e6f8;'>Font de la Pólvora</b> se alzan donde termina la ciudad. Encajados entre una zona montañosa y el barrio de Vila-Roja, sus habitantes tienen uno de los ingresos medios más bajos de toda Catalunya.</p>`,
             location: {
                 center: { lon: 2.83507, lat: 41.97198 },
                 zoom: 13,
