@@ -1,22 +1,16 @@
+<html>
 <head>
-   <!--<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>-->
+<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+</head>
+<body>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel=stylesheet>
 <style>
     *{
         margin:0;
         padding:0;
     }
-   body {
-    margin: 0;
-    padding: 0;
-    height: fit-content;
-   }
-    .contenedor-modulo-formacion-emagister{
-        background-color:#fff;
-        font-family:"Open Sans",sans-serif;
+    html, body {
         height: fit-content;
-        margin:0;
-        padding:0;
     }
     .header-modulo-formacion-emagister{
         background:#001c4c;
@@ -27,54 +21,52 @@
         background:linear-gradient(to bottom,#001c4c 0,#2a4a73 100%);
         color:#fff;
         margin:0;
-        padding:0;
+        padding:5px 10px;
+        text-align: center;
+
     }
     .logos-modulo-formacion{
-        border:none;
-        display:inline-block;
-        vertical-align:middle;
-        width:37%;
+        background-image: url("https://lostsightsblog.files.wordpress.com/2020/05/logos-lv-emagister-206x75-1.png");
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: inherit;
+        display: inline-block;
+        height:75px;
+        margin:0 auto;
+        padding:0;
+        width: 206px;
+        float:left;
     }
     .titulo-modulo-formacion{
         display:inline-block;
+        font-family:"Open Sans",sans-serif;
         font-size:18px;
         font-weight:300;
         line-height:21px;
-        margin:0 auto;
-        padding:10px 0;
-        text-align:center;
+        margin:25px 0;
+        padding:0;
         text-transform:uppercase;
-        vertical-align:middle;
-        width:60%;
+        word-break: break-word;
     }
-    .cursiva{
-        font-style:italic;
-    }
-    .negrita{
-        font-weight:700;
-        color:#379988;
-    }
-    .filete{
-        border:solid 1px #ddd;
-     }
-    @media (max-width:448px){
-        .cursos-modulo-formacion .titulo-curso{
-            font-size:16px;
-            line-height:20px;
-            margin:0 0 1.2% 0;
+    @media (max-width:442px){
+    .header-modulo-formacion-emagister{
+        padding:0 10px;   
         }
-        .cursos-modulo-formacion .texto-curso{
-            font-size:15px;
-            line-height:19px;
+    .logos-modulo-formacion { 
+        overflow:hidden;
+        width:202px;
+        float: inherit;
+        border-bottom:solid 1px #009a88;
+        padding:0 0 15px 0;
+    }
+        .titulo-modulo-formacion{
+                margin:15px 0;
         }
     }
     </style>
-   </head>
-<body>
-<div class=contenedor-modulo-formacion-emagister>
 <div class=header-modulo-formacion-emagister>
-<img class=logos-modulo-formacion src="https://lostsightsblog.files.wordpress.com/2020/05/logos-lv-emagister-206x75-1.png" title="" alt="">
-<span class=titulo-modulo-formacion>Cursos recomendados</span>
-</div>
+<div class=logos-modulo-formacion></div>
+<div class=titulo-modulo-formacion>Cursos recomendados</div>
 </div>
 </body>
+</html>
