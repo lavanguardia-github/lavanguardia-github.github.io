@@ -1,0 +1,11 @@
+[
+    ["ERC",                   "erc",  "#FFDC04", 10],
+	["BCN EN COMÚ",              "bcn-comu",   "#813F91", 10],
+    ["PSC",               "psc",	"#CF181E", 8],
+	["CS",              "cs",  "#E95C0C", 6],
+	["JUNTS",                  "junts",    "#00ACA6", 5],
+    ["PP",                  "pp",  "#0096D3", 2],
+    ["VOX",      "vox",  "#63B33B", 0],
+    ["VALENTS",  "valents",  "#0D618C", 0],
+    ["CUP",        "cup",  "#ffe174", 0]
+]
