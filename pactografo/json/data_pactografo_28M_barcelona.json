@@ -1,11 +1,11 @@
 [
-    ["ERC",                   "erc",  "#FFDC04", 10],
-	["BCN EN COMÚ",              "bcn-comu",   "#813F91", 10],
-    ["PSC",               "psc",	"#CF181E", 8],
-	["CS",              "cs",  "#E95C0C", 6],
-	["JUNTS",                  "junts",    "#00ACA6", 5],
-    ["PP",                  "pp",  "#0096D3", 2],
-    ["VOX",      "vox",  "#63B33B", 0],
-    ["VALENTS",  "valents",  "#0D618C", 0],
-    ["CUP",        "cup",  "#ffe174", 0]
+    ["ERC",                   "erc-28m",  "#FFDC04", 10],
+	["BCN EN COMÚ",              "bcn-comu-28m",   "#813F91", 10],
+    ["PSC",               "psc-28m",	"#CF181E", 8],
+	["CS",              "cs-28m",  "#E95C0C", 6],
+	["JUNTS",                  "junts-28m",    "#00ACA6", 5],
+    ["PP",                  "pp-28m",  "#0096D3", 2],
+    ["VOX",      "vox-28m",  "#63B33B", 0],
+    ["VALENTS",  "valents-28m",  "#0D618C", 0],
+    ["CUP",        "cup-28m",  "#ffe174", 0]
 ]
