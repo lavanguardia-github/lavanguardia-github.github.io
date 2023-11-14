@@ -5,6 +5,33 @@
 </head>
 <body>
 <style>
+@font-face{font-family:tiemposheadline-bold;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Bold.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Bold.eot#iefix) format("embedded-opentype");font-weight:700;font-display:swap
+    }
+@font-face{font-family:tiemposheadline-bold;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Bold.woff2) format("woff2"),url(/css/fonts/v2/TiemposHeadline-Bold.eot#iefix) format("embedded-opentype");font-weight:700;font-display:swap
+    }
+@font-face{font-family:tiemposheadline-semibold;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Semibold.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Semibold.eot#iefix) format("embedded-opentype");font-weight:600;font-display:swap
+    }
+@font-face{font-family:tiemposheadline-semibold;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Semibold.woff2) format("woff2"),url(/css/fonts/v2/TiemposHeadline-Semibold.eot#iefix) format("embedded-opentype");font-weight:600;font-display:swap
+    }
+@font-face{font-family:tiemposheadline-regular;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Regular.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Regular.eot#iefix) format("embedded-opentype");font-weight:400;font-display:swap
+    }
+@font-face{font-family:tiemposheadline-regular;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Regular.woff2) format("woff2"),url(/css/fonts/v2/TiemposHeadline-Regular.eot#iefix) format("embedded-opentype");font-weight:400;font-display:swap
+    }
+@font-face{font-family:tiemposheadline-light;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Light.woff) format("woff"),url(/css/fonts/v2/TiemposHeadline-Light.eot#iefix) format("embedded-opentype");font-weight:300;font-display:swap
+    }
+@font-face{font-family:tiemposheadline-light;src:url(https://lavanguardia-github.github.io/tipos/TiemposHeadline-Light.woff2) format("woff2"),url(/css/fonts/v2/TiemposHeadline-Light.eot#iefix) format("embedded-opentype");font-weight:300;font-display:swap
+    }
+@font-face{font-family:tiempostext-semibold;src:url(https://lavanguardia-github.github.io/tipos/TiemposText-Semibold.woff) format("woff"),url(/css/fonts/v2/TiemposText-Semibold.eot#iefix) format("embedded-opentype");font-weight:600;font-display:swap;
+    }
+@font-face{font-family:tiempostext-semibold;src:url(https://lavanguardia-github.github.io/tipos/TiemposText-Semibold.woff2) format("woff2"),url(/css/fonts/v2/TiemposText-Semibold.eot#iefix) format("embedded-opentype");font-weight:600;font-display:swap;
+    }
+@font-face{font-family:tiempostext-regular;src:url(https://lavanguardia-github.github.io/tipos/TiemposText-Regular.woff) format("woff"),url(/css/fonts/v2/TiemposText-Regular.eot#iefix) format("embedded-opentype");font-weight:400;font-display:swap;
+    }
+@font-face{font-family:tiempostext-regular;src:url(https://lavanguardia-github.github.io/tipos/TiemposText-Regular.woff2) format("woff2"),url(/css/fonts/v2/TiemposText-Regular.eot#iefix) format("embedded-opentype");font-weight:400;font-display:swap;
+    }
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700&display=swap');
+
+/* ELEMENTOS*/
     .historia-y-vida-numero { 
         background-color: #eeeeee;
         border-radius: 10px;
@@ -16,7 +43,8 @@
     .historia-y-vida-numero .portada-historia-y-vida-numero {
         /*border:solid 1px #cccccc;*/
         box-shadow: 5px 5px 5px #cccccc;
-        float: left; 
+        float: left;
+        font-family: "TiemposText-Regular",serif;
         margin-right: 20px; 
         margin-bottom: 10px; 
         width: 160px; 
@@ -32,6 +60,7 @@
     } 
     .historia-y-vida-numero h1 {
         color: #000000;
+        font-family: "TiemposHeadline-Semibold",serif;
         font-size: 26px; 
         font-weight: bold; 
         line-height: 28px; 
@@ -40,12 +69,13 @@
     }
     .historia-y-vida-numero .edicion-fecha, .oferta, .claim { 
         display: block;
+        font-family: "TiemposText-Regular",serif;
         font-size: 17px;
         line-height: 20px;
         margin-bottom: 9px;
     }
     .historia-y-vida-numero .oferta {
-	font-size: 18px;
+	    font-size: 18px;
         line-height: 20px;
         font-weight: bold;
         color: #1068ac;
@@ -61,7 +91,8 @@
     } 
     .historia-y-vida-numero .boton-historia-y-vida-numero { 
         border-radius: 7px;
-        color: white; 
+        color: white;
+        font-family: "TiemposHeadline-Semibold",serif;
         font-size: 20px;
         font-weight: bold;
         line-height: 22px; 
