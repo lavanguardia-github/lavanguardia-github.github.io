@@ -1,1 +1,24 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 0; /* Altura inicial cero */
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.11/iframeResizerContentWindow.min.js"></script>
+</head>
+<body>
+    <!-- Tu contenido -->
+    
+    <script>
+        // Forzar una altura específica
+        if (window.parentIFrame) {
+            window.parentIFrame.size(50); // 50px de altura, por ejemplo
+        }
+    </script>
+</body>
+</html>
