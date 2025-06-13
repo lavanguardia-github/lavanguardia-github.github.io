@@ -1,7 +1,58 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.11/iframeResizerContentWindow.min.js"></script>
-<script>
-if (window.parentIFrame) {
-    window.parentIFrame.size(0);
-}
-</script>
-<style>*{display:none!important;height:0!important;}</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        html, body {
+            height: 0 !important;
+            min-height: 0 !important;
+            max-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+            display: block !important;
+            font-size: 0 !important;
+            line-height: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Script de iframe-resizer DEBE estar presente -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.11/iframeResizerContentWindow.min.js"></script>
+    
+    <script>
+        // Función que ejecuta múltiples intentos de redimensión
+        function forceResize() {
+            if (window.parentIFrame) {
+                // Intentar diferentes métodos
+                window.parentIFrame.size(0);
+                window.parentIFrame.size(0, 0);
+                window.parentIFrame.sendMessage({height: 0});
+                
+                // Forzar recálculo
+                setTimeout(() => {
+                    window.parentIFrame.size(0);
+                }, 50);
+                
+                setTimeout(() => {
+                    window.parentIFrame.size(0);
+                }, 200);
+                
+                setTimeout(() => {
+                    window.parentIFrame.size(0);
+                }, 500);
+            }
+        }
+        
+        // Ejecutar cuando se carga
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', forceResize);
+        } else {
+            forceResize();
+        }
+        
+        // También ejecutar en el evento load
+        window.addEventListener('load', forceResize);
+    </script>
+</body>
+</html>
