@@ -5,19 +5,32 @@
         body {
             margin: 0;
             padding: 0;
-            height: 0; /* Altura inicial cero */
+        }
+        
+        .hidden {
+            height: 0 !important;
             overflow: hidden;
+            margin: 0;
+            padding: 0;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.11/iframeResizerContentWindow.min.js"></script>
 </head>
-<body>
-    <!-- Tu contenido -->
+<body class="hidden">
+    <!-- Contenido que se mostrará cuando sea necesario -->
     
     <script>
-        // Forzar una altura específica
+        // Cuando tengas contenido para mostrar:
+        function showContent() {
+            document.body.classList.remove('hidden');
+            if (window.parentIFrame) {
+                window.parentIFrame.size(); // Recalcular altura
+            }
+        }
+        
+        // Para mantenerlo oculto:
         if (window.parentIFrame) {
-            window.parentIFrame.size(50); // 50px de altura, por ejemplo
+            window.parentIFrame.size(0);
         }
     </script>
 </body>
