@@ -1,44 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html style="height:0!important;margin:0!important;padding:0!important;">
 <head>
     <style>
-        html, body {
-            height: 0 !important;
-            min-height: 0 !important;
-            max-height: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            overflow: hidden !important;
-            display: block !important;
-            line-height: 0 !important;
-            font-size: 0 !important;
-        }
-        
-        * {
-            height: 0 !important;
-            min-height: 0 !important;
-            max-height: 0 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            border: 0 !important;
-            outline: 0 !important;
-        }
+        html{height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;}
+        body{height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;display:none!important;}
+        *{height:0!important;margin:0!important;padding:0!important;}
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.11/iframeResizerContentWindow.min.js"></script>
 </head>
-<body>
-    <script>
-        // Forzar altura 0 inmediatamente
-        if (window.parentIFrame) {
-            window.parentIFrame.size(0);
-        }
-        
-        // También intentar con un timeout por si acaso
-        setTimeout(function() {
-            if (window.parentIFrame) {
-                window.parentIFrame.size(0);
-            }
-        }, 100);
-    </script>
-</body>
+<body></body>
+<script>
+if(window.parentIFrame){window.parentIFrame.size(0);}
+setTimeout(()=>{if(window.parentIFrame){window.parentIFrame.size(0);}},50);
+</script>
 </html>
