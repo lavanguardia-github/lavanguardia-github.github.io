@@ -2,36 +2,43 @@
 <html>
 <head>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
+        html, body {
+            height: 0 !important;
+            min-height: 0 !important;
+            max-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+            display: block !important;
+            line-height: 0 !important;
+            font-size: 0 !important;
         }
         
-        .hidden {
+        * {
             height: 0 !important;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
+            min-height: 0 !important;
+            max-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            outline: 0 !important;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.11/iframeResizerContentWindow.min.js"></script>
 </head>
-<body class="hidden">
-    <!-- Contenido que se mostrará cuando sea necesario -->
-    
+<body>
     <script>
-        // Cuando tengas contenido para mostrar:
-        function showContent() {
-            document.body.classList.remove('hidden');
-            if (window.parentIFrame) {
-                window.parentIFrame.size(); // Recalcular altura
-            }
-        }
-        
-        // Para mantenerlo oculto:
+        // Forzar altura 0 inmediatamente
         if (window.parentIFrame) {
             window.parentIFrame.size(0);
         }
+        
+        // También intentar con un timeout por si acaso
+        setTimeout(function() {
+            if (window.parentIFrame) {
+                window.parentIFrame.size(0);
+            }
+        }, 100);
     </script>
 </body>
 </html>
