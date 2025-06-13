@@ -3,35 +3,13 @@
 <head>
     <style>
         body {
-            margin: 0;
+            margin: -78px 0 -78px 0; /* Reducir los 156px a la mitad */
             padding: 0;
-        }
-        
-        .hidden {
-            height: 0 !important;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
+            height: auto;
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.11/iframeResizerContentWindow.min.js"></script>
 </head>
-<body class="hidden">
-    <!-- Contenido que se mostrará cuando sea necesario -->
-    
-    <script>
-        // Cuando tengas contenido para mostrar:
-        function showContent() {
-            document.body.classList.remove('hidden');
-            if (window.parentIFrame) {
-                window.parentIFrame.size(); // Recalcular altura
-            }
-        }
-        
-        // Para mantenerlo oculto:
-        if (window.parentIFrame) {
-            window.parentIFrame.size(0);
-        }
-    </script>
+<body>
+    <!-- Tu contenido -->
 </body>
 </html>
